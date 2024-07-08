@@ -1,27 +1,25 @@
 @import "./../abstracts/variables";
 @import "./../abstracts/mixins";
 
-
-.product-card-list{
-  list-style: none;
-}
 .product-card{
-  background-color:$blue-500;
+  display:flex;
+  flex-flow:column nowrap;
+  max-width:15.5rem;
 
   .product-card-link{
-    display:block;
-    text-decoration:none;
+    display:flex;
+    flex-flow: column nowrap;
+    gap:8px;
+    color:$content-color;
   }
 
   .product-card-thumb{
+  position:relative;
+    order:-1;
    
     .product-card-thumb-img{
-
+      width:100%;
     }
-  }
-
-  .product-card-description{
-
   }
 
   .product-card-title{
@@ -30,18 +28,59 @@
     line-height: $line-height-base;
   }
 
+  .product-card-description{
+    font-size:$font-size-sm;
+    color:$gray-400;
+  }
 
   .product-card-info-price{
-
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: flex-start;
+    gap:8px;
     font-size:$font-size-lg;
+    font-weight:$font-weight-600;
 
     .product-cart-sale{
       color:$orange;
     }
 
-    .product-cart-price{
+    
+  }
+  .product-card-cost{
+    text-decoration:line-through;
+  }
+  .product-card-badges{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: flex-start;
+    gap:8px;
+
+    .product-card-badge{
+      padding:4px;
+      font-size:$font-size-sm;
+      font-weight:$font-weight-600;
+      line-height: $line-height-base;
+      border-radius:4px;
+      background-color:$gray-100;
 
     }
 
+    .badges-primary{
+      color:$primary-color;
+    }
+  }
+
+  .product-card-button-icon-cart{
+    position:absolute;
+    bottom:0.9375rem;
+    right:0.9375rem;
+  
+    border:0;
+    background-color:transparent;
+
+    .product-card-icon-cart{
+      width:2.8125rem;
+    }
   }
 }
