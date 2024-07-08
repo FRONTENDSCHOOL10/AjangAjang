@@ -1,0 +1,43 @@
+/* 스타일 초기화 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font: inherit;
+  font-size: 1em;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+  padding-inline-start: 0;
+  margin: 0;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+p,
+figure {
+  margin: 0;
+}
+
+input,
+textarea,
+select,
+option,
+button {
+  font: inherit;
+}
