@@ -1,0 +1,47 @@
+@import "./../abstracts/variables";
+@import "./../abstracts/mixins";
+
+
+.product-card-list{
+  list-style: none;
+}
+.product-card{
+  background-color:$blue-500;
+
+  .product-card-link{
+    display:block;
+    text-decoration:none;
+  }
+
+  .product-card-thumb{
+   
+    .product-card-thumb-img{
+
+    }
+  }
+
+  .product-card-description{
+
+  }
+
+  .product-card-title{
+    font-size: $font-size-p;
+    font-weight: $font-weight-400;
+    line-height: $line-height-base;
+  }
+
+
+  .product-card-info-price{
+
+    font-size:$font-size-lg;
+
+    .product-cart-sale{
+      color:$orange;
+    }
+
+    .product-cart-price{
+
+    }
+
+  }
+}
