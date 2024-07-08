@@ -1,0 +1,42 @@
+<<<<<<< HEAD
+@use "sass:math";
+@use "sass:string";
+@use "sass:map";
+@use "sass:list";
+
+// 루트 요소 기본 단위 --------------------------------------------------------------- /
+$rootUnit: 16px;
+
+// 단위 제거 함수 ------------------------------------------------------------------ /
+@function removeUnit($value) {
+  $unitless: $value * 0 + 1;
+  @return math.div($value, $unitless);
+}
+
+// px을 rem 단위로 변경하는 함수 ------------------------------------------------------- /
+@function rem($value, $base: 16) {
+  @return math.div(removeUnit($value), $base) * 1rem;
+}
+
+// px을 em 단위로 변경하는 함수 ------------------------------------------------------- /
+@function em($value, $base: 16) {
+  @return math.div(removeUnit($value), $base) * 1em;
+=======
+:root {
+  --primary-color: #5f0080;
+  --secondary-color: #bd76ff;
+  --content-color: #333333;
+  --point-color: #fa622f;
+  --focus-color: #0066ff;
+  --gray-50: #f9f9f9;
+  --gray-100: #e1e1e1;
+  --gray_200: #333333;
+  --gray-300: #a6a6a6;
+  --gray-400: #898989;
+  --gray-500: #6b6b6b;
+  --white: #ffffff;
+  --black: #000000;
+  --info-error: #f03f40;
+  --accent-yellow: #fa622f;
+>>>>>>> parent of e243902 (init: 개발 환경 셋팅)
+}
