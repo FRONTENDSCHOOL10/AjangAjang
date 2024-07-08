@@ -1,0 +1,57 @@
+// button.scss
+@import "./../abstracts/variables";
+@import "./../abstracts/mixins";
+
+
+
+button, .btn-link {
+  display: flex;
+  width: 340px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 4px;
+  font-size: $font-size-p;
+
+  cursor: pointer;
+}
+
+// white 버튼
+.btn-line {
+  background-color: $white;
+  border: 1px solid $primary-color;
+  color: $primary-color;
+
+} 
+
+// purple 버튼
+.btn-fill {
+  background-color: $primary-color;
+  border: none;
+  color: $white;
+}
+
+// 버튼 사이즈
+.small{
+  width: 144px;
+}
+
+.medium{
+  width: 244px;
+}
+
+.large{
+  width: 284px;
+}
+
+// submit
+button[type="submit"] {
+  background-color: $primary-color;
+  border: none;
+
+  color: $white;
+  font-size: $font-size-p;
+
+  cursor: pointer;
+}
