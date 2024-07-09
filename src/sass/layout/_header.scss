@@ -1,16 +1,11 @@
 @import "./../abstracts/variables";
 @import "./../abstracts/mixins";
 
-.content-center {
-  width: 1050px;
-  margin: 0 auto;
-}
-
 header {
   background-color: white;
 }
 
-.header-list-menber {
+.header-list-member {
   @include flexbox($direction: row-reverse);
   margin-top: 12px;
 
@@ -38,13 +33,15 @@ header {
 }
 
 h1 {
-  @include flexbox($items: center);
-  color: $primary-color;
-  font-weight: $font-weight-600;
-
   a {
-    margin-left: 0.75rem;
-    font-size: 1.375rem;
+    @include flexbox($items: center);
+    color: $primary-color;
+    font-weight: $font-weight-600;
+    font-size: 22px;
+
+    img {
+      margin-right: 12px;
+    }
   }
 }
 
@@ -54,9 +51,9 @@ h1 {
 
   .header-input-search {
     @include flexbox($justify: space-between);
+    @include radius(xs);
     height: 48px;
     border: 1px solid $primary-color;
-    border-radius: 4px;
     padding: 5px 20px;
 
     input {
@@ -159,8 +156,8 @@ h1 {
   }
 
   .header-button-delivery {
+    @include radius(lg);
     border: 1px solid $gray-300;
-    border-radius: 16px;
     padding: 4px 8px;
 
     a {

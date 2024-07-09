@@ -19,3 +19,8 @@ body {
 .sr-only {
   @include mix.a11yHidden;
 }
+
+.content-center {
+  width: 1050px;
+  margin: 0 auto;
+}
