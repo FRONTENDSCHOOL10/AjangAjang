@@ -5,6 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DETAIL PAGE</title>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+  <link rel="stylesheet" href="/src/sass/base/_reset.scss" />
+  <link rel="stylesheet" href="/src/sass/base/_default.scss" />
   <link rel="stylesheet" href="/src/sass/components/detail.scss" />
 </head>
 
@@ -88,7 +91,7 @@
           </div>
         </div>
       <!-- 총 상품금액 -->
-        <div>
+        <div class="totalPrice-section">
           <div class="detail-info-totalPrice">
             <span>총 상품금액:</span>
             <span>4,980</span>
@@ -99,14 +102,14 @@
             <span>로그인 후, 적립 혜택 제공</span>
           </div>
           <div>
-            <button type="button">
+            <button type="button" class="detail-button-wishlist">
               <span>
-                <img src="/src/assets/detail-heartIcon.png" alt="" />
+                <img src="/src/assets/detail-heartIcon.png" alt="찜하기 버튼" />
               </span>
             </button>
-            <button type="button">
+            <button type="button" class="detail-button-bell">
               <span>
-                <img src="/src/assets/detail-heartIcon.png" alt="" />
+                <img src="/src/assets/detail-bell-icon.png" alt="알림받기 버튼" />
               </span>
             </button>
             <div class="detail-container-cart-button">
