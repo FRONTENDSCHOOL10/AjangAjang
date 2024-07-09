@@ -1,3 +1,15 @@
 @import "./../abstracts/variables";
 @import "./../abstracts/mixins";
 
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+section {
+  width: 560px;
+}
+
+.detail-info-delivery {
+  
+}

@@ -17,7 +17,7 @@
       <img src="/src/assets/detail-img01.png" alt="풀무원 탱탱쫄면 4개입 포장 이미지" />
     </div>
     <section>
-      <div class="detail-info-delivery-">샛별배송</div>
+      <div class="detail-info-delivery">샛별배송</div>
       <div class="detail-product-name">
         <h1>[풀무원] 탱탱쫄면 (4개입)</h1>
         <p class="detail-product-description">튀기지 않아 부담 없는 매콤함</p>
@@ -85,8 +85,14 @@
               <p>[풀무원] 탱탱쫄면 (4개입)</p>
             </div>
             <div>
-              <div class="detail-info-count"></div>
-              <div class="detail-info-totalPrice"></div>
+              <div class="detail-info-counter">
+                <button class="detail-counter-button" id="decrease">-</button>
+                <span class="detail-counter-number" id="counter">0</span>
+                <button class="detail-counter-button" id="increase">+</button>
+              </div>
+              <div class="detail-info-totalPrice">
+                <span id="total-price">0</span> 원
+              </div>
             </div>
           </div>
         </div>
@@ -102,18 +108,18 @@
             <span>로그인 후, 적립 혜택 제공</span>
           </div>
           <div>
-            <button type="button" class="detail-button-wishlist">
+            <button type="button" class="detail-btn-wishlist">
               <span>
                 <img src="/src/assets/detail-heartIcon.png" alt="찜하기 버튼" />
               </span>
             </button>
-            <button type="button" class="detail-button-bell">
+            <button type="button" class="detail-btn-bell">
               <span>
                 <img src="/src/assets/detail-bell-icon.png" alt="알림받기 버튼" />
               </span>
             </button>
-            <div class="detail-container-cart-button">
-              <button type="button">
+            <div class="detail-container-cart-btn">
+              <button type="submit">
                 <span>장바구니 담기</span>
               </button>
             </div>
