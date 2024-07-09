@@ -10,11 +10,12 @@
     display:flex;
     flex-flow: column nowrap;
     gap:8px;
+    padding-top:8px;
     color:$content-color;
   }
 
   .product-card-thumb{
-  position:relative;
+    position:relative;
     order:-1;
    
     .product-card-thumb-img{
@@ -26,6 +27,11 @@
     font-size: $font-size-p;
     font-weight: $font-weight-400;
     line-height: $line-height-base;
+  }
+  .product-card-early-delivery{
+    order:-1;
+    font-size:$font-size-sm;
+    color:$gray-400;
   }
 
   .product-card-description{
@@ -48,7 +54,10 @@
     
   }
   .product-card-cost{
+    font-size:$font-size-sm;
+    font-weight:$font-weight-400;
     text-decoration:line-through;
+    color:$gray-400;
   }
   .product-card-badges{
     display:flex;
