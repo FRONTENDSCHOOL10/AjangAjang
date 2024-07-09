@@ -1,5 +1,5 @@
-@import "./../abstracts/variables";
-@import "./../abstracts/mixins";
+@use "./../abstracts/variables" as var;
+@use "./../abstracts/mixins" as mix;
 
 main {
   display: flex;
@@ -11,5 +11,50 @@ section {
 }
 
 .detail-info-delivery {
-  
+  color:  var.$gray-500;
+  font-size:  var.$font-size-lg;
+  font-weight: 700;
+}
+
+.detail-product-name h1 {
+  color: var.$content-color;
+  font-size: var.$font-size-xl;
+  font-weight: 600;
+}
+
+.detail-product-description {
+  color: var.$gray-400;
+  font-size: var.$font-size-p;
+  font-weight: 400;
+}
+
+.detail-info-price-number {
+  color: var.$content-color;
+  font-size: var.$font-size-xl;
+  font-weight: 600;
+}
+
+.detail-info-price-won {
+  color: var.$content-color;
+  font-size: var.$font-size-p;
+  font-weight: 700;
+}
+
+.detail-loggedOut-benefit-message1 {
+  color: var.$primary-color;
+  font-size: var.$font-size-p;
+  font-weight: 600;
+}
+
+.detail-info-content-fontColor1 {
+  color: var.$gray-500;
+  font-weight: 600;
+}
+
+.detail-info-content-fontColor2 {
+  color: var.$gray-400;
+}
+
+.detail-info-allergy {
+  font-weight: 400;
 }
