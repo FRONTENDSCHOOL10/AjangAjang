@@ -36,6 +36,6 @@ label::before {
 //선택된 상태의 원 
 .radio-button:checked + label::before {
   border: 1px solid $primary-color;
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIj4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMiIgZmlsbD0iIzVGMDA4MCIvPgogIDxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjUiIGZpbGw9IiNDNEM0QzQiLz4KPC9zdmc+Cg==');
-  background-size:cover
+  background-image: url('/src/assets/radioButton.png');
+  background-size: cover;
 }
