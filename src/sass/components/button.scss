@@ -1,18 +1,16 @@
-// button.scss
-@import "./../abstracts/variables";
-@import "./../abstracts/mixins";
+@use "./../abstracts/variables" as var;
+@use "./../abstracts/mixins" as mix;
 
 
 
 button, .btn-link {
-  display: flex;
+  @include mix.flexbox(row, nowrap, center, center);
+  @include mix.radius(xs);
   width: 100%;
   height: 44px;
-  justify-content: center;
-  align-items: center;
 
   border-radius: 4px;
-  font-size: $font-size-p;
+  font-size: var.$font-size-p;
 
   cursor: pointer;
 }
@@ -23,17 +21,17 @@ button, .btn-link {
 
 // white 버튼
 .btn-line {
-  background-color: $white;
-  border: 1px solid $primary-color;
-  color: $primary-color;
+  background-color: var.$white;
+  border: 1px solid var.$primary-color;
+  color: var.$primary-color;
 
 } 
 
 // purple 버튼
 .btn-fill {
-  background-color: $primary-color;
+  background-color: var.$primary-color;
   border: none;
-  color: $white;
+  color: var.$white;
 }
 
 // 버튼 사이즈
@@ -55,9 +53,9 @@ button, .btn-link {
 
 // submit
 button[type="submit"] {
-  background-color: $primary-color;
+  background-color: var.$primary-color;
   border: none;
 
-  color: $white;
-  font-size: $font-size-p;
+  color: var.$white;
+  font-size: var.$font-size-p;
 }

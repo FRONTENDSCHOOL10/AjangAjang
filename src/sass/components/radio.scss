@@ -1,9 +1,8 @@
-@import "./../abstracts/variables";
-@import "./../abstracts/mixins";
+@use "./../abstracts/variables" as var;
+@use "./../abstracts/mixins" as mix;
 
 .radio-group{
-  display: flex;
-  justify-content: space-between;
+  @include mix.flexbox(row, nowrap, space-between, center);
 }
 
 .radio-button {
@@ -15,7 +14,7 @@ label{
   position: relative;
   padding-left: 32px;
   cursor: pointer;
-  font-size: $font-size-p;
+  font-size: var.$font-size-p;
 }
 
 // 기본 상태의 원
@@ -29,13 +28,13 @@ label::before {
   height: 24px;
   background-color: transparent;
   border-radius: 50%;
-  border: 1px solid $gray-200;
+  border: 1px solid var.$gray-200;
 
 }
 
 //선택된 상태의 원 
 .radio-button:checked + label::before {
-  border: 1px solid $primary-color;
+  border: 1px solid var.$primary-color;
   background-image: url('/src/assets/radioButton.png');
   background-size: cover;
 }
