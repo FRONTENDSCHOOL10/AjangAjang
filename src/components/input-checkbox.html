@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>체크박스 컴포넌트</title>
+  <link rel="stylesheet" href="./../sass/main.scss" />
+  <link rel="stylesheet" href="./../sass/components/input-checkbox.scss" />
+</head>
+<body>
+  <div class="agreement-container">
+    <div class="agreement-option">
+      <label>
+        <input type="checkbox" id="agree-all">
+        <b>전체 동의합니다.</b>
+        <p>선택항목에 동의하지 않은 경우도 회원가입 및 일반적인 서비스를 이용할 수 있습니다.</p>
+      </label>
+    </div>
+    <div class="agreement-option">
+      <label>
+        <input type="checkbox" id="terms">
+        이용약관 동의 (필수)
+      </label>
+      <a href="#" rel="noopener noreferrer">약관보기</a>
+    </div>
+    <div class="agreement-option">
+      <label>
+        <input type="checkbox" id="privacy">
+        개인정보 수집 &middot; 이용 동의 (필수)
+      </label>
+      <a href="#" rel="noopener noreferrer">약관보기</a>
+    </div>
+    <div class="agreement-option">
+      <label>
+        <input type="checkbox" id="promotions">
+        무료배송, 할인쿠폰 등 혜택/정보 수신 동의 (선택)
+      </label>
+      <a href="#" rel="noopener noreferrer">약관보기</a>
+    </div>
+    <div class="agreement-option">
+      <label>
+        <input type="checkbox" id="age">
+        본인은 만 14세 이상입니다. (필수)
+      </label>
+      <a href="#" rel="noopener noreferrer">약관보기</a>
+    </div>
+  </div>
+</body>
+</html>
