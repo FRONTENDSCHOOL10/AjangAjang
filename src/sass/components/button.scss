@@ -6,7 +6,7 @@
 
 button, .btn-link {
   display: flex;
-  width: 340px;
+  width: 100%;
   height: 44px;
   justify-content: center;
   align-items: center;
@@ -15,6 +15,10 @@ button, .btn-link {
   font-size: $font-size-p;
 
   cursor: pointer;
+}
+
+.btn-link{
+  text-decoration: none;
 }
 
 // white 버튼
@@ -33,16 +37,20 @@ button, .btn-link {
 }
 
 // 버튼 사이즈
-.small{
+.btn-small{
   width: 144px;
 }
 
-.medium{
+.btn-medium{
   width: 244px;
 }
 
-.large{
+.btn-large{
   width: 284px;
+}
+
+.btn-xlarge{
+  width: 340px;
 }
 
 // submit
@@ -52,6 +60,4 @@ button[type="submit"] {
 
   color: $white;
   font-size: $font-size-p;
-
-  cursor: pointer;
 }
