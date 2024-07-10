@@ -100,12 +100,12 @@
     label {
       display: inline-block;
       line-height: 24px;
-      background: url(/src/assets/icon/isCheckedFalse.png) no-repeat 0 0 / contain;
+      background: url(/src/assets/icon/unchecked.png) no-repeat 0 0 / contain;
       padding-left: 1.875rem;
     }
 
     input:checked + label {
-      background-image: url(/src/assets/icon/isCheckedTrue.png);
+      background-image: url(/src/assets/icon/checked.png);
     }
   }
 }
@@ -131,38 +131,5 @@
   .btn-register {
     background-color: var.$gray-100;
     color: var.$white;
-  }
-}
-
-.agreement-option {
-  @include mix.flexbox(row, nowrap, space-between, center);
-  @include mix.marginY(12px);
-  position: relative;
-  color: var.$content-color;
-  font-size: var.$font-size-p;
-
-  input {
-    position: absolute;
-    appearance: none;
-    width: 24px;
-    height: 24px;
-  }
-
-  input#agreeAll + label {
-    font-size: var.$font-size-lg;
-    font-weight: var.$font-weight-600;
-  }
-
-  label {
-    background: url(/src/assets/check.png) no-repeat 0 0 / contain;
-    padding-left: 32px;
-  }
-
-  input:checked + label {
-    background-image: url(/src/assets/checked.png);
-  }
-
-  input:focus {
-    outline: none;
   }
 }
