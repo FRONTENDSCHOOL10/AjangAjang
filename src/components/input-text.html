@@ -16,16 +16,19 @@
           name="userEmail" placeholder="이메일을 입력해주세요" required
           aria-invalid="false" aria-describedby="userEmailError"
           aria-live="assertive" />
-        <!-- <span class="error-message" id="userEmailError">이메일 형식으로 입력해
-          주세요.</span> -->
       </div>
       <div class="input-box user-password">
         <label for="userPassword" >비밀번호<span class="asterisk">*</span></label>
         <input type="password" class="text-input user-password-input" id="userPassword"
-          name="userPassword" placeholder="비밀번호" required aria-invalid="false"
+          name="userPassword" placeholder="비밀번호를 입력해주세요" required aria-invalid="false"
           aria-describedby="userPasswordError" aria-live="polite" />
-        <!-- <span class="error-message" id="userPasswordError">비밀번호는 특수문자 포함 6자리 이상 입력해
-          주세요.</span> -->
+      </div>
+
+      <div class="input-box user-password-check">
+        <label for="userPasswordCheck">비밀번호 확인<span class="asterisk">*</span></label>
+        <input type="password" class="text-input user-password-input" id="userPasswordCheck"
+          name="userPasswordCheck" placeholder="비밀번호를 한번 더 입력해주세요" required aria-invalid="false"
+          aria-describedby="userPasswordError" aria-live="polite" />
       </div>
 
 
@@ -49,23 +52,23 @@
 
     </div>
 
-    <div class="login-form-container">
+    <div class="login-container">
       <div class="input-box user-email">
         <label for="userEmail" class="a11y">이메일</label>
         <input type="email" class="text-input user-email-input" id="userEmail"
           name="userEmail" placeholder="이메일을 입력해주세요" required
           aria-invalid="false" aria-describedby="userEmailError"
           aria-live="assertive" />
-        <!-- <span class="error-message" id="userEmailError">이메일 형식으로 입력해
-          주세요.</span> -->
+        <span class="error-message" id="userEmailError">이메일 형식으로 입력해
+          주세요.</span>
       </div>
       <div class="input-box user-password">
         <label for="userPassword" class="a11y">비밀번호</label>
         <input type="password" class="text-input user-password-input" id="userPassword"
           name="userPassword" placeholder="비밀번호" required aria-invalid="false"
           aria-describedby="userPasswordError" aria-live="polite" />
-        <!-- <span class="error-message" id="userPasswordError">비밀번호는 특수문자 포함 6자리 이상 입력해
-          주세요.</span> -->
+        <span class="error-message" id="userPasswordError">비밀번호는 특수문자 포함 6자리 이상 입력해
+          주세요.</span>
       </div>
     </div>
   </body>

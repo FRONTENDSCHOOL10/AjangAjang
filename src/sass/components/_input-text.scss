@@ -1,38 +1,90 @@
 @use "/src/sass/abstracts/variables" as var;
 @use "/src/sass/abstracts/mixins" as mix;
 
-.register-container{
-  @include mix.flexbox(column, nowrap, center, null);
-  width: 100%;
-  
-  .input-box{
-    @include mix.flexbox(row, nowrap, space-between);
-    @include mix.marginY(20px)
-  }
-}
 
 .a11y{
   @include mix.a11yHidden;
 }
 
-.text-input {
-  @include mix.radius(xs);
-  @include mix.paddingX(20px);
-  width: 333px;
-  height: 44px;
-  border: 1px solid var.$gray-300;
-  font-size: var.$font-size-p;
-}
 
-.birth-field{
-  input{
-    text-align: center;
+.register-container{
+  @include mix.flexbox(column, nowrap);
+  width: 100%;
+  line-height: var.$line-height-base;
 
-    &::placeholder{
-      text-align: center;
+  .input-box {
+    @include mix.flexbox(row, nowrap, space-between, center);
+    @include mix.marginY(20px);
+  }
+  
+  .text-input {
+    @include mix.radius(xs);
+    @include mix.paddingX(20px);
+    width: 333px;
+    height: 44px;
+    border: 1px solid var.$gray-300;
+    font-size: var.$font-size-p;
+
+    &:focus{
+      outline: none;
+      border-color: var.$black;
     }
   }
+
+  .input-box{
+    @include mix.flexbox(row, nowrap, space-between);
+    @include mix.marginY(20px)
+  }
+  .user-password-check{
+    label{
+      font-weight: 900;
+    }
+  }
+
+  .birth-field{
+    input{
+      text-align: center;
+  
+      &::placeholder{
+        text-align: center;
+      }
+    }
+  }
+
+
 }
+
+
+.login-container{
+  @include mix.flexbox(column, nowrap, center, center, 12px);
+
+  .text-input{
+    @include mix.radius(xs);
+    @include mix.paddingX(20px);
+    width: 340px;
+    height: 50px;
+    border: 1px solid var.$gray-300;
+    font-size: var.$font-size-p;
+
+    &:focus{
+      outline: none;
+      border-color: var.$black;
+    }
+  }
+
+  .error-message {
+    color: red;
+    display: none;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  
+  .is--invalid + .error-message {
+    display: block;
+  }
+}
+
+
 
 .asterisk{
   color: var.$info-error;
