@@ -3,38 +3,41 @@
 
 .radio-group{
   @include mix.flexbox(row, nowrap, space-between, center);
-}
 
-.radio-button {
-  position: absolute;
-  opacity: 0;
-}
 
-label{
-  position: relative;
-  padding-left: 32px;
-  cursor: pointer;
-  font-size: var.$font-size-p;
-}
+  .radio-button {
+    position: absolute;
+    opacity: 0;
+  }
 
-// 기본 상태의 원
-label::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
-  background-color: transparent;
-  border-radius: 50%;
-  border: 1px solid var.$gray-200;
 
-}
+  label{
+    position: relative;
+    padding-left: 32px;
+    cursor: pointer;
+    font-size: var.$font-size-p;
+  }
 
-//선택된 상태의 원 
-.radio-button:checked + label::before {
-  border: 1px solid var.$primary-color;
-  background-image: url('/src/assets/radioButton.png');
-  background-size: cover;
+  // 기본 상태의 원
+  label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid var.$gray-200;
+
+  }
+
+  //선택된 상태의 원 
+  .radio-button:checked + label::before {
+    border: 1px solid var.$primary-color;
+    background-image: url('/src/assets/radioButton.png');
+    background-size: cover;
+  }
+
 }
