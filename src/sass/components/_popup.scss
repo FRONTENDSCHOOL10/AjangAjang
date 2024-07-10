@@ -61,7 +61,7 @@
         border: 1px solid var.$gray-300;
       }
     }
-    <<<<<<< HEAD =======>>>>>>>develop .write-text {
+    .write-text {
       @include mix.flexbox($justify: space-between, $items: flex-start);
 
       label {
