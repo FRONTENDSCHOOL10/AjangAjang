@@ -1,0 +1,11 @@
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
+
+.cart-popup-wrap {
+  @include mix.radius(lg);
+  @include mix.padding($paddingX: 20px, $paddingY: 24px);
+  background-color: var.$white;
+  width: 396px;
+  height: 292px;
+  border: 1px solid var.$gray-200;
+}
