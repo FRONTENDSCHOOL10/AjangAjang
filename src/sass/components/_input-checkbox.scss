@@ -4,51 +4,53 @@
 
 .agreement-container {
   position: relative;
-}
+  width: 100%;
+  
+  .agreement-option {
+    @include mix.flexbox(row, nowrap, space-between, center);
+    @include mix.marginY(12px);
+    position: relative;
+    color: var.$content-color;
+    font-size: var.$font-size-p;
+    
+    input{
+      position: absolute;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+    }
 
-.agreement-option {
-  @include mix.flexbox(row, nowrap, space-between, center);
+    input#agreeAll + label {
+      font-size: var.$font-size-lg;
+      font-weight: var.$font-weight-600;
+    }
 
-  position: relative;
-  margin: 12px 0;
-  color: var.$content-color;
-
-  input{
-    position: absolute;
-    appearance: none;
-    width: 24px;
-    height: 24px;
-  }
-
-  label{
-    background: url(/src/assets/check.png) no-repeat 0 0 /contain;
-    padding-left: 32px;
+    
+    label{
+      background: url(/src/assets/check.png) no-repeat 0 0 /contain;
+      padding-left: 32px;
+      
+    }
+    
+    input:checked + label{
+      background-image: url(/src/assets/checked.png);
+    }
+    
+    input:focus{
+      outline: none;
+    }
     
   }
-
-  input:checked + label{
-    background-image: url(/src/assets/checked.png);
-  }
-
-  input:focus{
-    outline: none;
-    /* outline-offset: 4px; */
+  
+  .checkbox-description{
+    @include mix.margin-inline-start(32px);
+    font-size: var.$font-size-sm;
+    color: var.$gray-400;
   }
   
-  input:focus-visible{
-    outline: 1px solid var.$primary-color;
+  
+  .terms-link{
+    text-decoration: none;
+    color: var.$primary-color;
   }
-}
-
-b{
-  font-size: var.$font-size-lg;
-}
-
-p{
-  font-size: var.$font-size-sm;
-  color: var.$gray-400;
-}
-
-a{
-  color: var.$primary-color;
 }
