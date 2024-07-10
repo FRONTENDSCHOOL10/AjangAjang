@@ -1,0 +1,16 @@
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
+
+.a11y{
+  @include mix.a11yHidden;
+}
+
+.text-input {
+  @include mix.radius(xs);
+  @include mix.paddingX(20px);
+  width: 333px;
+  height: 44px;
+  border: 1px solid var.$gray-300;
+  font-size: var.$font-size-p;
+}
+ 
