@@ -3,7 +3,7 @@
 
 
 
-button, .btn-link {
+.btn, .btn-link {
   @include mix.flexbox(row, nowrap, center, center);
   @include mix.radius(xs);
   width: 100%;
@@ -52,7 +52,7 @@ button, .btn-link {
 }
 
 // submit
-button[type="submit"] {
+.btn-submit {
   background-color: var.$primary-color;
   border: none;
 
