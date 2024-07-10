@@ -5,10 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DETAIL PAGE</title>
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
   <link rel="stylesheet" href="/src/sass/base/_reset.scss" />
   <link rel="stylesheet" href="/src/sass/base/_default.scss" />
-  <link rel="stylesheet" href="/src/sass/components/detail.scss" />
+  <link rel="stylesheet" href="/src/sass/components/index.scss" />
 </head>
 
 <body>
@@ -28,7 +28,7 @@
         <span class="detail-info-price-won">원</span>
       </h2>
       <p class="detail-loggedOut-benefit-message1">로그인 후, 적립 혜택이 제공됩니다.</p>
-      <ul class="detail-info-content-fontColor1">
+      <ul class="detail-info-content-fontColor1 detail-info-ul">
         <li>
           <dt>배송</dt>
           <dd>
@@ -72,30 +72,31 @@
           <dt>알레르기정보</dt>
           <dd class="detail-info-allergy">
             <p class="detail-info-content-fontColor2">-대두, 밀, 쇠고기 함유</p>
-            <p class="detail-info-content-fontColor2">-계란, 우유, 메밀, 땅콩, 고등어, 게, 돼지고기, 새우, 복숭아, 토마토, 아황산류, 호두, 잣, 닭고기, 오징어, 조개류(굴, 전복, 홍합 포함)를 사용한 제품과 같은 제조시설에서 제조</p>
+            <p class="detail-info-content-fontColor2">-계란, 우유, 메밀, 땅콩, 고등어, 게, 돼지고기, 새우, 복숭아, 토마토, 아황산류, 호두, 잣, 닭고</p>
+            <p class="detail-info-content-fontColor2">기, 오징어, 조개류(굴, 전복, 홍합 포함)를 사용한 제품과 같은 제조시설에서 제조</p>
           </dd>
         </li>
       </ul>
       <!-- 상품선택 -->
       <div>
-        <div class="detail-info-choice">
+        <li class="detail-info-choice">
           <dt class="detail-info-content-fontColor1">상품선택</dt>
-          <div>
+          <dd class="detail-container-conuter-small">
             <div class="detail-info-content-fontColor1">
               <p>[풀무원] 탱탱쫄면 (4개입)</p>
             </div>
-            <div>
+            <div class="detail-container-counter-medium">
               <div class="detail-info-counter">
                 <button class="detail-counter-button" id="decrease">-</button>
                 <span class="detail-counter-number" id="counter">0</span>
                 <button class="detail-counter-button" id="increase">+</button>
               </div>
-              <div class="detail-info-totalPrice">
-                <span id="total-price">0</span> 원
+              <div class="detail-info-totalPrice-small">
+                <span id="total-price">0</span>원
               </div>
             </div>
-          </div>
-        </div>
+          </dd>
+        </li>
       <!-- 총 상품금액 -->
         <div class="totalPrice-section">
           <div class="detail-info-totalPrice">
@@ -104,10 +105,12 @@
             <span>원</span>
           </div>
           <div class="detail-loggedOut-benefit-message2">
-            <span>적립</span>
-            <span>로그인 후, 적립 혜택 제공</span>
+            <div class="detail-loggedOut-benefit-circle">
+              <span class="detail-loggedOut-benefit-message2-text">적립</span>
+            </div>
+            <span class="detail-loggedOut-benefit-message2-text">로그인 후, 적립 혜택 제공</span>
           </div>
-          <div>
+          <div class="detail-container-service-btn">
             <button type="button" class="detail-btn-wishlist">
               <span>
                 <img src="/src/assets/detail-heartIcon.png" alt="찜하기 버튼" />
