@@ -8,10 +8,10 @@
   
   .agreement-option {
     @include mix.flexbox(row, nowrap, space-between, center);
-    @include mix.marginY(12px);
     position: relative;
     color: var.$content-color;
     font-size: var.$font-size-p;
+    line-height: var.$line-height-base;
     
     input{
       position: absolute;
@@ -19,17 +19,19 @@
       width: 24px;
       height: 24px;
     }
-
-    input#agreeAll + label {
-      font-size: var.$font-size-lg;
-      font-weight: var.$font-weight-600;
-    }
-
+    
+    
     
     label{
-      background: url(/src/assets/check.png) no-repeat 0 0 /contain;
-      padding-left: 32px;
-      
+      @include mix.marginY(12px);
+      @include mix.padding-inline-start(32px);
+      background: url(/src/assets/check.png) no-repeat 0 center /24px 24px;
+    }
+
+    input#agreeAll + label {
+      margin: 0;
+      font-size: var.$font-size-lg;
+      font-weight: var.$font-weight-600;
     }
     
     input:checked + label{
@@ -44,6 +46,7 @@
   
   .checkbox-description{
     @include mix.margin-inline-start(32px);
+    @include mix.marginY(0);
     font-size: var.$font-size-sm;
     color: var.$gray-400;
   }
