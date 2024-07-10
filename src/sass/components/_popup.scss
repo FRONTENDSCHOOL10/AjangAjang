@@ -63,6 +63,7 @@
         border: 1px solid var.$gray-300;
       }
     }
+
     .write-text {
       @include mix.flexbox($justify: space-between, $items: flex-start);
 
