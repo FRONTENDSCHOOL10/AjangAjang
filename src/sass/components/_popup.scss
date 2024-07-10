@@ -36,8 +36,6 @@
 
     img {
       margin-right: 24px;
-      width: 72px;
-      height: 72px;
     }
   }
 
@@ -63,8 +61,7 @@
         border: 1px solid var.$gray-300;
       }
     }
-
-    .write-text {
+    <<<<<<< HEAD =======>>>>>>>develop .write-text {
       @include mix.flexbox($justify: space-between, $items: flex-start);
 
       label {
