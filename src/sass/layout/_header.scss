@@ -1,28 +1,28 @@
-@import "./../abstracts/variables";
-@import "./../abstracts/mixins";
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
 
 header {
   background-color: white;
 }
 
 .header-list-member {
-  @include flexbox($direction: row-reverse);
+  @include mix.flexbox($direction: row-reverse);
   margin-top: 12px;
 
   ul {
-    @include flexbox();
+    @include mix.flexbox();
 
     li > a {
-      font-size: $font-size-sm;
+      font-size: var.$font-size-sm;
       margin: 0 12px;
 
       &.join {
-        color: $primary-color;
+        color: var.$primary-color;
       }
     }
 
     li > span {
-      font-size: $font-size-sm;
+      font-size: var.$font-size-sm;
       color: #d9d9d9;
     }
 
@@ -34,9 +34,9 @@ header {
 
 h1 {
   a {
-    @include flexbox($items: center);
-    color: $primary-color;
-    font-weight: $font-weight-600;
+    @include mix.flexbox($items: center);
+    color: var.$primary-color;
+    font-weight: var.$font-weight-600;
     font-size: 22px;
 
     img {
@@ -46,20 +46,20 @@ h1 {
 }
 
 .header-wrap {
-  @include flexbox($justify: space-between);
+  @include mix.flexbox($justify: space-between);
   margin-top: 30px;
 
   .header-input-search {
-    @include flexbox($justify: space-between);
-    @include radius(xs);
+    @include mix.flexbox($justify: space-between);
+    @include mix.radius(xs);
     height: 48px;
-    border: 1px solid $primary-color;
+    border: 1px solid var.$primary-color;
     padding: 5px 20px;
 
     input {
       width: 324px;
       border: 0;
-      font-size: $font-size-p;
+      font-size: var.$font-size-p;
       outline: transparent;
     }
 
@@ -74,20 +74,29 @@ h1 {
   }
 
   .header-list-other {
-    @include flexbox($items: center, $gap: 20px);
+    @include mix.flexbox($items: center, $gap: 20px);
   }
 }
 
+
+.header-category-wrap{
+  position:sticky;
+  top:0;
+  z-index:15;
+  padding:16px 0;
+  background-color:var.$white;
+}
+
+
 .header-category {
-  @include flexbox($justify: space-between, $items: center);
+  @include mix.flexbox($justify: space-between, $items: center);
   height: 40px;
-  margin: 16px 0;
 
   nav {
     position: relative;
 
     .header-btn-category {
-      @include flexbox($items: center);
+      @include mix.flexbox($items: center);
 
       img {
         margin-right: 12px;
@@ -103,12 +112,14 @@ h1 {
     }
 
     ul {
-      @include flexbox($direction: column);
+      @include mix.flexbox($direction: column);
       position: absolute;
       top: 45px;
+      z-index:10;
       width: 248px;
       height: calc(100vh - 200px);
-      border: 1px solid $gray-300;
+      background-color:var.$white;
+      border: 1px solid var.$gray-300;
       overflow-y: scroll;
 
       li {
@@ -116,16 +127,16 @@ h1 {
       }
 
       li:hover {
-        background-color: $gray-50;
+        background-color: var.$gray-50;
 
         a {
-          color: $primary-color;
+          color: var.$primary-color;
         }
       }
 
       & a {
-        @include flexbox($items: center);
-        color: $gray_200;
+        @include mix.flexbox($items: center);
+        color: var.$gray-200;
         font-weight: 500;
         letter-spacing: -0.3px;
       }
@@ -138,7 +149,7 @@ h1 {
   }
 
   .header-list-title {
-    @include flexbox($justify: space-between);
+    @include mix.flexbox($justify: space-between);
     text-align: center;
 
     li {
@@ -146,18 +157,18 @@ h1 {
     }
 
     & a {
-      font-weight: $font-weight-600;
+      font-weight: var.$font-weight-600;
     }
 
     & a:hover {
-      color: $primary-color;
-      border-bottom: 1px solid $primary-color;
+      color: var.$primary-color;
+      border-bottom: 1px solid var.$primary-color;
     }
   }
 
   .header-button-delivery {
-    @include radius(lg);
-    border: 1px solid $gray-300;
+    @include mix.radius(lg);
+    border: 1px solid var.$gray-300;
     padding: 4px 8px;
 
     a {
@@ -166,7 +177,7 @@ h1 {
     }
 
     & span {
-      color: $primary-color;
+      color: var.$primary-color;
     }
   }
 }
