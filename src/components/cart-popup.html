@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>장바구니 팝업 컴포넌트</title>
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="stylesheet" href="/src/sass/main.scss" />
+    <script type="module" src="/main.js"></script>
+  </head>
+  <body>
+    <section class="cart-popup-wrap">
+      <b>[풀무원] 탱탱쫄면(4개입)</b>
+      <div class="cart-detail-wrap">
+        <div class="cart-price">
+          <span class="default-price">4,980원</span>
+          <div class="product-number" role="group">
+            <button class="minus-btn">-</button>
+            <input type="number" value="1" />
+            <button class="plus-btn">+</button>
+          </div>
+        </div>
+        <div class="cart-price-total">
+          <span>합계</span>
+          <span class="price-total">4,980원</span>
+        </div>
+        <div class="cart-point">
+          <span class="point-label">적립</span>
+          <span class="point-detail">구매 시 5원 적립</span>
+        </div>
+      </div>
+      <div class="button-wrap">
+        <button type="button" class="btn btn-line btn-small">취소</button>
+        <button type="button" class="btn btn-fill btn-small">장바구니 담기</button>
+      </div>
+    </section>
+  </body>
+</html>
