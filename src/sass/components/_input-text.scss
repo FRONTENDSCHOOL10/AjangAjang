@@ -1,0 +1,93 @@
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
+
+
+.sr-only{
+  @include mix.a11yHidden;
+}
+
+.asterisk{
+  color: var.$info-error;
+}
+
+.register-container{
+  @include mix.flexbox(column, nowrap);
+  @include mix.inline-size(100%);
+  line-height: var.$line-height-base;
+
+  .input-box {
+    @include mix.flexbox(row, nowrap, space-between, center);
+    @include mix.marginY(20px);
+  }
+  
+  .text-input {
+    @include mix.size(333px, 44px);
+    @include mix.radius(xs);
+    @include mix.paddingX(20px);
+    border: 1px solid var.$gray-300;
+    font-size: var.$font-size-p;
+
+    &:focus{
+      outline: none;
+      border-color: var.$black;
+    }
+  }
+
+  .input-box{
+    @include mix.flexbox(row, nowrap, space-between);
+    @include mix.marginY(20px)
+  }
+  .user-password-check{
+    label{
+      font-weight: 900;
+    }
+  }
+
+  .birth-field{
+    input{
+      text-align: center;
+  
+      &::placeholder{
+        text-align: center;
+      }
+    }
+  }
+
+
+}
+
+
+.login-container{
+  @include mix.flexbox(column, nowrap, center, center, 12px);
+
+  .text-input{
+    @include mix.size(340px, 50px);
+    @include mix.radius(xs);
+    @include mix.paddingX(20px);
+    border: 1px solid var.$gray-300;
+    font-size: var.$font-size-p;
+
+    &:focus{
+      outline: none;
+      border-color: var.$black;
+    }
+  }
+
+  .error-message {
+    @include mix.margin-block-start(12px);
+    @include mix.margin-inline-start(5px);
+    color: var.$primary-color;
+    display: none;
+    font-size: var.$font-size-sm;
+  }
+  
+  .is--invalid + .error-message {
+    display: block;
+  }
+}
+
+
+
+ 
+
+
