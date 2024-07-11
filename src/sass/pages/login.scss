@@ -1,0 +1,60 @@
+@use "/src/sass/components";
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
+
+.sr-only{
+  @include mix.a11yHidden;
+}
+
+.login-container{
+  @include mix.flexbox(column, nowrap, center, center, 12px);
+  @include mix.inline-size(340px);
+  margin: 0 auto;
+
+  .input-box {
+    position: relative; 
+    
+    & .is--invalid{
+      margin-bottom: 20px
+    }
+
+  }
+  
+  .text-input{
+    @include mix.size(340px, 50px);
+    @include mix.radius(xs);
+    @include mix.paddingX(20px);
+    box-sizing: border-box;
+    border: 1px solid var.$gray-300;
+    font-size: var.$font-size-p;
+
+    &:focus{
+      outline: none;
+      border-color: var.$black;
+    }
+  }
+
+  .error-message {
+    @include mix.margin-block-start(12px);
+    @include mix.margin-inline-start(5px);
+    display: none;
+    bottom: -20px;
+    position: absolute;
+    color: var.$primary-color;
+    font-size: var.$font-size-sm;
+  }
+  
+  .is--invalid + .error-message {
+    display: block;
+  }
+
+  .btn-submit{
+    @include mix.margin-block-start(46px);
+  }
+}
+
+
+
+ 
+
+
