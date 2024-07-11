@@ -1,22 +1,27 @@
 @use "/src/sass/abstracts/variables" as var;
 @use "/src/sass/abstracts/mixins" as mix;
 
-
-
 .btn, .btn-link {
-  @include mix.flexbox(row, nowrap, center, center);
+  @include mix.flexbox(column, nowrap, center, center); 
   @include mix.radius(xs);
-  width: 100%;
-  height: 44px;
+  @include mix.size(100%, 44px);
+  padding: 0; 
+  margin: 0; 
 
+  box-sizing: border-box;
+  border: 1px solid var.$primary-color;
   border-radius: 4px;
+
+  background-color: var.$white;
+  color: var.$primary-color;
   font-size: var.$font-size-p;
 
   cursor: pointer;
+  text-decoration: none; 
 }
 
-.btn-link{
-  text-decoration: none;
+.btn-link {
+  height: 54px; 
 }
 
 // white 버튼
@@ -24,8 +29,7 @@
   background-color: var.$white;
   border: 1px solid var.$primary-color;
   color: var.$primary-color;
-
-} 
+}
 
 // purple 버튼
 .btn-fill {
@@ -35,27 +39,27 @@
 }
 
 // 버튼 사이즈
-.btn-small{
+.btn-small {
   width: 144px;
 }
 
-.btn-medium{
+.btn-medium {
   width: 244px;
 }
 
-.btn-large{
+.btn-large {
   width: 284px;
 }
 
-.btn-xlarge{
+.btn-xlarge {
   width: 340px;
 }
 
 // submit
 .btn-submit {
+  height: 54px; 
+  padding: 0;
   background-color: var.$primary-color;
-  border: none;
-
   color: var.$white;
   font-size: var.$font-size-p;
 }
