@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>텍스트 컴포넌트</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="stylesheet" href="/src/sass/main.scss" />
+  </head>
+  <body>
+    <div class="register-container">
+      <div class="input-box user-email">
+        <label for="userEmail" >이메일<span class="asterisk" aria-label="필수 항목">*</span></label>
+        <input type="email" class="text-input user-email-input" id="userEmail" name="userEmail" placeholder="이메일을 입력해주세요" required/>
+      </div>
+
+      <div class="input-box user-password">
+        <label for="userPassword" >비밀번호<span class="asterisk" aria-label="필수 항목">*</span></label>
+        <input type="password" class="text-input user-password-input" id="userPassword" name="userPassword" placeholder="비밀번호를 입력해주세요" required/>
+      </div>
+
+      <div class="input-box user-password-check">
+        <label for="userPasswordCheck">비밀번호 확인<span class="asterisk" aria-label="필수 항목">*</span></label>
+        <input type="password" class="text-input user-password-input" id="userPasswordCheck" name="userPasswordCheck" placeholder="비밀번호를 한번 더 입력해주세요" required aria-invalid="false" aria-describedby="userPasswordError" aria-live="polite"/>
+        <span class="error-message" id="userPasswordError">비밀번호가 일치하지 않습니다.</span>
+      </div>
+
+      <div class="input-box name-field">
+        <label for="nameField">이름<span class="asterisk" aria-label="필수 항목">*</span></label>
+        <input type="text" class="text-input" name="userName" placeholder="이름을 한번 더 입력해주세요" required/>
+      </div>
+
+      <div class="input-box phone-field">
+        <label for="phoneField">휴대폰<span class="asterisk" aria-label="필수 항목">*</span></label>
+        <input type="tel" class="text-input" name="userPhone" placeholder="숫자만 입력해주세요" required/>
+      </div>
+
+      <div class="input-box address-field">
+        <label for="addressField">주소<span class="asterisk" aria-label="필수 항목">*</span></label>
+        <input type="text" class="text-input" name="userAddress" placeholder="주소를 입력해주세요" required/>
+      </div>
+
+      <div class="input-box birth-field">
+        <label for="birthField">생년월일<span class="asterisk" aria-label="필수 항목">*</span></label>
+        <input type="text" class="text-input" name="userBirth" placeholder="YYYY/MM/DD" required/>
+      </div>
+    </div>
+
+    <div class="login-container">
+      <div class="input-box user-email">
+        <label for="userEmail" class="sr-only">이메일</label>
+        <input type="email" class="text-input user-email-input" id="userEmail" name="userEmail" placeholder="이메일을 입력해주세요" required aria-invalid="false" aria-describedby="userEmailError" aria-live="assertive" />
+        <span class="error-message" id="userEmailError">이메일 형식으로 입력해주세요.</span>
+      </div>
+
+      <div class="input-box user-password">
+        <label for="userPassword" class="sr-only">비밀번호</label>
+        <input type="password" class="text-input user-password-input" id="userPassword" name="userPassword" placeholder="비밀번호를 입력해주세요" required aria-invalid="false" aria-describedby="userPasswordError" aria-live="polite" />
+        <span class="error-message" id="userPasswordError">비밀번호는 특수문자 포함 6자리 이상 입력해주세요.</span>
+      </div>
+    </div>
+  </body>
+</html>
