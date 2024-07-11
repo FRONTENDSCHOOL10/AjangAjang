@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
     <link rel="stylesheet" href="/src/sass/main.scss" />
     <script type="module" src="/main.js"></script>
+    <script type="module" src="/src/components/header.js"></script>
   </head>
   <body>
     <header class="content-center">
@@ -39,9 +40,11 @@
           </li>
         </ul>
       </div>
-      <div class="header-category">
+    </header>
+    <div class="header-category-wrap">
+      <div class="header-category content-center">
         <nav>
-          <div class="header-btn-category"><img src="/src/assets/icon/Hamburger.png" alt="" />카테고리</div>
+          <div class="header-btn-category" tabindex="0">  <img src="/src/assets/icon/Hamburger.png" alt="" />카테고리</div>
           <div class="header-category-detail">
             <ul>
               <li>
@@ -84,7 +87,7 @@
                 <a href="/"><img src="/src/assets/icon/wine.png" alt="" />와인</a>
               </li>
               <li>
-                <a href="/"><img src="/src/assets/icon/traditional liquor.png" alt="" />전통주</a>
+                <a href="/"><img src="/src/assets/icon/traditional_liquor.png" alt="" />전통주</a>
               </li>
               <li>
                 <a href="/"><img src="/src/assets/icon/detergent.png" alt="" />생활용품 &middot; 리빙 &middot; 캠핑</a>
@@ -123,6 +126,6 @@
           <a href="/"><span>샛별&middot;낮</span> 배송안내</a>
         </div>
       </div>
-    </header>
+    </div>
   </body>
 </html>
