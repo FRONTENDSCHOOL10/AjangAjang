@@ -136,7 +136,7 @@ h1 {
 
       & a {
         @include mix.flexbox($items: center);
-        color: var.$gray_200;
+        color: var.$gray-200;
         font-weight: 500;
         letter-spacing: -0.3px;
       }
