@@ -2,7 +2,7 @@
 @use "/src/sass/abstracts/mixins" as mix;
 
 
-.a11y{
+.sr-only{
   @include mix.a11yHidden;
 }
 
