@@ -6,6 +6,9 @@
   @include mix.a11yHidden;
 }
 
+.asterisk{
+  color: var.$info-error;
+}
 
 .register-container{
   @include mix.flexbox(column, nowrap);
@@ -73,10 +76,11 @@
   }
 
   .error-message {
-    color: red;
+    @include mix.margin-block-start(12px);
+    @include mix.margin-inline-start(5px);
+    color: var.$primary-color;
     display: none;
-    font-size: 1.2rem;
-    margin-top: 1rem;
+    font-size: var.$font-size-sm;
   }
   
   .is--invalid + .error-message {
@@ -86,9 +90,6 @@
 
 
 
-.asterisk{
-  color: var.$info-error;
-}
  
 
 
