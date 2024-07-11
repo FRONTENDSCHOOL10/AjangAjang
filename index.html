@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./favicon.ico" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-    <link rel="stylesheet" href="/src/sass/main.scss" />
+    <script type="module" src="/src/components/header.js"></script>
     <script type="module" src="/main.js"></script>
   </head>
   <body>
@@ -39,9 +39,11 @@
           </li>
         </ul>
       </div>
-      <div class="header-category">
+    </header>
+    <div class="header-category-wrap">
+      <div class="header-category content-center">
         <nav>
-          <div class="header-btn-category"><img src="/src/assets/icon/Hamburger.png" alt="" />카테고리</div>
+          <div class="header-btn-category" tabindex="0">  <img src="/src/assets/icon/Hamburger.png" alt="" />카테고리</div>
           <div class="header-category-detail">
             <ul>
               <li>
@@ -84,7 +86,7 @@
                 <a href="/"><img src="/src/assets/icon/wine.png" alt="" />와인</a>
               </li>
               <li>
-                <a href="/"><img src="/src/assets/icon/traditional liquor.png" alt="" />전통주</a>
+                <a href="/"><img src="/src/assets/icon/traditional_liquor.png" alt="" />전통주</a>
               </li>
               <li>
                 <a href="/"><img src="/src/assets/icon/detergent.png" alt="" />생활용품 &middot; 리빙 &middot; 캠핑</a>
@@ -123,18 +125,14 @@
           <a href="/"><span>샛별&middot;낮</span> 배송안내</a>
         </div>
       </div>
-    </header>
+    </div>
   
-  
-    <main>
+    <main class="main-container">
       <div class="visual">
-        <div class="visual-img">
-          <img src="/src/assets/banner01.jpg" alt="" />
-        </div>
       </div>
   
       <div class="product-recommend content-center">
-        <h2 class="main-title">이 상품 어때요?</h2>
+        <h2 class="main-title"><a href="/" aria-label="이 상품 어때요? 신상품 바로가기">이 상품 어때요?</a></h2>
         <ul class="product-card-list">
           <li class="product-card">
             <a href="#" aria-label="상품링크" class="product-card-link">
@@ -170,11 +168,13 @@
       </div>
   
       <div class="line-banner content-center">
-        <img src="/src/assets/line-banner.jpg" alt="" />
+        <a href="/" aria-label="더 풍성해진 10월의 퍼플위크 이벤트 바로가기">
+          <img src="/src/assets/line-banner.jpg" alt="더 풍성해진 10월의 퍼플위크" />
+        </a>
       </div>
   
       <div class="product-recommend content-center">
-        <h2 class="main-title">놓치면 후회할 가격</h2>
+        <h2 class="main-title"><a href="/" aria-label="놓치면 후회할 가격! 특가 혜택 바로가기">놓치면 후회할 가격</a></h2>
         <ul class="product-card-list">
           <li class="product-card">
             <a href="#" aria-label="상품링크" class="product-card-link">
