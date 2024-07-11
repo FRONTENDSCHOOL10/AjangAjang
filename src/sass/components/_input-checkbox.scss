@@ -1,0 +1,59 @@
+// components/_input-checkbox.scss
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
+
+.agreement-container {
+  position: relative;
+  width: 100%;
+  
+  .agreement-option {
+    @include mix.flexbox(row, nowrap, space-between, center);
+    position: relative;
+    color: var.$content-color;
+    font-size: var.$font-size-p;
+    line-height: var.$line-height-base;
+    
+    input{
+      position: absolute;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+    }
+    
+    
+    
+    label{
+      @include mix.marginY(12px);
+      @include mix.padding-inline-start(32px);
+      background: url(/src/assets/check.png) no-repeat 0 center /24px 24px;
+    }
+
+    input#agreeAll + label {
+      margin: 0;
+      font-size: var.$font-size-lg;
+      font-weight: var.$font-weight-600;
+    }
+    
+    input:checked + label{
+      background-image: url(/src/assets/checked.png);
+    }
+    
+    input:focus{
+      outline: none;
+    }
+    
+  }
+  
+  .checkbox-description{
+    @include mix.margin-inline-start(32px);
+    @include mix.marginY(0);
+    font-size: var.$font-size-sm;
+    color: var.$gray-400;
+  }
+  
+  
+  .terms-link{
+    text-decoration: none;
+    color: var.$primary-color;
+  }
+}
