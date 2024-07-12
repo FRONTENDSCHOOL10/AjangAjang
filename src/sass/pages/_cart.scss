@@ -1,0 +1,113 @@
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
+
+.cart-wrap {
+  width: 100%;
+  @include mix.flexbox($justify: space-between);
+
+  .cart-list {
+    width: 742px;
+  }
+
+  .cart-total {
+    width: 284px;
+  }
+}
+.cart-all-checked {
+  @include mix.paddingY(16px);
+}
+.cart-product-list {
+  @include mix.marginY(20px);
+}
+.cart-all-checked,
+.cart-product-list {
+  position: relative;
+
+  input[type="checkbox"] {
+    position: absolute;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+  }
+
+  label {
+    display: inline-block;
+    line-height: 24px;
+    background: url(/src/assets/icon/unchecked.png) no-repeat 0 0 / contain;
+    padding-left: 1.875rem;
+  }
+
+  input:checked + label {
+    background-image: url(/src/assets/icon/checked.png);
+  }
+}
+.cart-all-checked.border-bottom {
+  border-bottom: 1px solid var.$black;
+}
+.cart-price {
+  @include mix.flexbox($justify: space-between, $items: center);
+  margin-bottom: 28px;
+
+  .cart-product {
+    @include mix.flexbox($items: center);
+
+    .porduct-check {
+      width: 24px;
+      height: 24px;
+    }
+
+    img {
+      @include mix.marginX(8px);
+    }
+
+    b {
+      width: 350px;
+    }
+  }
+
+  .default-price {
+    font-weight: var.$font-weight-600;
+  }
+
+  button {
+    background-color: var.$white;
+    border: 0;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  .product-number {
+    @include mix.flexbox($items: center, $justify: justify-content);
+    border: 1px solid var.$gray-200;
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+      appearance: textfield;
+      -moz-appearance: textfield;
+    }
+
+    input[type="number"] {
+      width: 24px;
+      border: 0;
+      text-align: center;
+    }
+    .minus-btn,
+    .plus-btn {
+      width: 30px;
+      height: 30px;
+      background-color: var.$white;
+      border: 0;
+      cursor: pointer;
+    }
+  }
+
+  .product-price-delete {
+    @include mix.flexbox($items: center);
+  }
+}
