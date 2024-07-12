@@ -1,21 +1,80 @@
 @use "/src/sass/abstracts/variables" as var;
 @use "/src/sass/abstracts/mixins" as mix;
 
-
-.main-container{
+.main-container {
   @include mix.flexbox(column, nowrap, null, null, 40px);
-  @include mix.padding-block-end(40px)
+  @include mix.inline-size(100%);
+  @include mix.padding-block-end(40px);
 }
 
-
-.visual{
+.visual {
   @include mix.size(100%, 370px);
-  background:url(/src/assets/banner05.jpg) no-repeat center center;
+  margin: 0 auto;
+  max-width: 1900px;
+  background: yellow url(/src/assets/banner05.jpg) no-repeat center center;
+  overflow: hidden;
 }
 
-.main-title{
+.visual-swiper {
+  @include mix.size(100%, 370px);
+  position: relative;
+
+  .parallax-slide {
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+    transition-property: transform;
+  }
+
+  .visual-inner {
+    @include mix.size(1050px, 50px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    translate: -50% -50%;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    opacity: 0;
+    transition: 0.2s;
+  }
+
+  .swiper-button-prev,
+  .swiper-rtl .swiper-button-next {
+  }
+
+  &:hover .swiper-button-prev,
+  &:hover .swiper-button-next {
+    opacity: 1;
+  }
+
+  .swiper-slide > a {
+    display: block;
+    height: inherit;
+  }
+
+  .swiper-slide-01 > a {
+    background: url(/src/assets/banner01.jpg) no-repeat center center;
+  }
+
+  .swiper-slide-02 > a {
+    background: url(/src/assets/banner02.jpg) no-repeat center center;
+  }
+
+  .swiper-slide-03 > a {
+    background: url(/src/assets/banner03.jpg) no-repeat center center;
+  }
+
+  .swiper-slide-04 > a {
+    background: url(/src/assets/banner05.jpg) no-repeat center center;
+  }
+}
+
+.main-title {
   @include mix.marginY(40px);
-  font-size:var.$font-size-lg;
-  font-weight:var.$font-weight-700;
-  text-align:center;
+  font-size: var.$font-size-lg;
+  font-weight: var.$font-weight-700;
+  text-align: center;
 }

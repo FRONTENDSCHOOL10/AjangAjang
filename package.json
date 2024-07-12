@@ -18,6 +18,7 @@
     "vite-plugin-style-import": "^2.0.0"
   },
   "dependencies": {
-    "kind-tiger": "^1.0.1"
+    "kind-tiger": "^1.0.1",
+    "swiper": "^11.1.4"
   }
 }
