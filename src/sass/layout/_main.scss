@@ -80,13 +80,13 @@
 
   .swiper-pagination-fraction {
     @include mix.inline-size(auto);
-    @include mix.padding(4px 12px);
+    @include mix.padding(12px, 4px);
     @include mix.radius(lg);
     left: auto;
     right: calc(50% - 500px);
     translate: 0 -50%;
-    font-size: var.$white;
-    color: #fff;
+    font-size: var.$font-size-sm;
+    color: var.$white;
     background-color: rgba(0, 0, 0, 0.2);
   }
 }
