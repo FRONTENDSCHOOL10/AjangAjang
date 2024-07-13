@@ -13,8 +13,8 @@ const swiperVisual = new Swiper(".visual-swiper", {
     el: ".swiper-pagination-visual",
   },
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".swiper-visual-button-next",
+    prevEl: ".swiper-visual-button-prev",
   },
   parallax: true,
   observer: true,
@@ -23,19 +23,32 @@ const swiperVisual = new Swiper(".visual-swiper", {
 });
 
 // init Swiper product:
-// const swiperProduct = new Swiper(".visual-swiper", {
-//   loop: true,
-//   loopAdditionalSlides: 1,
-//   speed: 800,
-//   pagination: {
-//     el: ".swiper-pagination-visual",
-//   },
-//   navigation: {
-//     nextEl: ".swiper-button-next",
-//     prevEl: ".swiper-button-prev",
-//   },
-//   parallax: true,
-//   observer: true,
-//   observeSlideChildren: true,
-//   observeParents: true,
-// });
+const swiperProductRecomd = new Swiper(".product-swiper-recomd", {
+  slidesPerView: 4,
+  spaceBetween: 30,
+  loop: false,
+  loopAdditionalSlides: 1,
+  navigation: {
+    nextEl: ".swiper-product-recomd-button-next",
+    prevEl: ".swiper-product-recomd-button-prev",
+  },
+  parallax: true,
+  observer: true,
+  observeSlideChildren: true,
+  observeParents: true,
+});
+
+const swiperProductSale = new Swiper(".product-swiper-sale", {
+  slidesPerView: 4,
+  spaceBetween: 30,
+  loop: false,
+  loopAdditionalSlides: 1,
+  navigation: {
+    nextEl: ".swiper-product-Sale-button-next",
+    prevEl: ".swiper-product-Sale-button-prev",
+  },
+  parallax: true,
+  observer: true,
+  observeSlideChildren: true,
+  observeParents: true,
+});

@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "kind-tiger": "^1.0.1",
+    "pocketbase": "^0.21.3",
     "swiper": "^11.1.4"
   }
 }

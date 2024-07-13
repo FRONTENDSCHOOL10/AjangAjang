@@ -5,7 +5,7 @@
 .swiper-button-next {
   @include mix.size(50px, 50px);
   text-align: center;
-  color: var.$white;
+  color: var.$content-color;
 }
 
 .swiper-button-prev:after,
@@ -13,11 +13,11 @@
   @include mix.size(50px, 50px);
   font-size: 20px;
   line-height: 50px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: var.$white;
   border-radius: 50%;
 }
 
 .swiper-button-prev:hover:after,
 .swiper-button-next:hover:after {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var.$white;
 }
