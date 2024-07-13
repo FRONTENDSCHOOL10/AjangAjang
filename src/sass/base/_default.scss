@@ -1,5 +1,5 @@
-@use "./../abstracts/variables" as var;
-@use "./../abstracts/mixins" as mix;
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
 
 $base-font-family: "Pretendard Variable", sans-serif;
 
@@ -21,6 +21,24 @@ body {
 }
 
 .content-center {
-  width: 1050px;
+  @include mix.inline-size(1050px);
   margin: 0 auto;
+}
+
+.content-layout,
+.product-layout {
+  h3 {
+    @include mix.margin-block-end(44px);
+    font-size: var.$font-size-lg;
+    font-weight: var.$font-weight-600;
+    text-align: center;
+  }
+}
+.content-layout {
+  @include mix.paddingY(80px);
+}
+
+.product-layout {
+  @include mix.padding-block-start(24px);
+  @include mix.padding-block-end(80px);
 }
