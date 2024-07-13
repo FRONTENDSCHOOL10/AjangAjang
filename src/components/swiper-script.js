@@ -9,8 +9,13 @@ const swiperVisual = new Swiper(".visual-swiper", {
   loop: true,
   loopAdditionalSlides: 1,
   speed: 800,
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: false,
+  },
   pagination: {
     el: ".swiper-pagination-visual",
+    type: "fraction",
   },
   navigation: {
     nextEl: ".swiper-visual-button-next",

@@ -77,6 +77,18 @@
   .swiper-slide-04 > a {
     background: url(/src/assets/banner05.jpg) no-repeat center center;
   }
+
+  .swiper-pagination-fraction {
+    @include mix.inline-size(auto);
+    @include mix.padding(4px 12px);
+    @include mix.radius(lg);
+    left: auto;
+    right: calc(50% - 500px);
+    translate: 0 -50%;
+    font-size: var.$white;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
 }
 
 .product-swiper-wrapper {
