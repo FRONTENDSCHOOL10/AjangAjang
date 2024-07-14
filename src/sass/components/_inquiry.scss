@@ -1,0 +1,76 @@
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
+
+.inquiry-wrap {
+  .inquiry-title {
+    @include mix.flexbox($justify: space-between);
+    @include mix.margin-block-end(20px);
+
+    h4 {
+      font-size: var.$font-size-xl;
+      font-weight: var.$font-weight-600;
+    }
+  }
+
+  .inquiry-info {
+    @include mix.margin-block-end(56px);
+
+    b {
+      font-weight: var.$font-weight-600;
+      line-height: 1.6;
+    }
+
+    ul {
+      @include mix.margin-block-start(4px);
+      list-style: disc;
+      font-size: 14px;
+      list-style-position: inside;
+      line-height: 1.5;
+      color: var.$gray-500;
+    }
+  }
+
+  .inquiry-list {
+    .inquiry-count {
+      @include mix.padding-block-end(16px);
+      display: block;
+      border-bottom: 1px solid var.$black;
+    }
+
+    details {
+      //  @include mix.padding(20px, 4px);
+      border-bottom: 1px solid var.$gray-100;
+
+      summary {
+        @include mix.padding(20px, 4px);
+        @include mix.block-size(58px);
+        list-style-type: none;
+        color: var.$content-color;
+        font-weight: var.$font-weight-600;
+        line-height: 50px;
+      }
+
+      .inquiry-text {
+        @include mix.padding(20px);
+        background-color: #f5f5f5;
+        font-size: 14px;
+      }
+
+      .inquiry-text .question {
+        @include mix.padding-inline-start(36px);
+        @include mix.margin-block-end(40px);
+        background: url("/icon/stack.svg#question") no-repeat left top / 24px 24px;
+        line-height: 1.6;
+      }
+      .inquiry-text .answer {
+        @include mix.padding-inline-start(36px);
+        background: url("/icon/stack.svg#answer") no-repeat left top / 24px 24px;
+      }
+
+      .secret-text {
+        color: var.$gray-400;
+        background: url("/icon/stack.svg#lock") no-repeat 120px center/12px 14px;
+      }
+    }
+  }
+}
