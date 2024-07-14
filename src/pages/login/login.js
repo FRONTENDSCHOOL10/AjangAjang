@@ -64,7 +64,7 @@ async function handleLogin(e) {
       const user = userRecords[0]; // 첫 번째 사용자 정보 가져오기
       
       if (user.email === id && user.password === pw) {
-        location.href = 'welcome.html';
+        location.href = 'index.html';
       } else {
         throw new Error('Invalid credentials');
       }
