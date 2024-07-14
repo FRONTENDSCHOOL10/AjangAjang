@@ -1,21 +1,134 @@
 @use "/src/sass/abstracts/variables" as var;
 @use "/src/sass/abstracts/mixins" as mix;
 
-
-.main-container{
+.main-container {
   @include mix.flexbox(column, nowrap, null, null, 40px);
-  @include mix.padding-block-end(40px)
+  @include mix.inline-size(100%);
+  @include mix.padding-block-end(40px);
 }
 
-
-.visual{
+.visual {
   @include mix.size(100%, 370px);
-  background:url(/src/assets/banner05.jpg) no-repeat center center;
+  margin: 0 auto;
+  max-width: 1900px;
+  background: yellow url(/src/assets/banner05.jpg) no-repeat center center;
+  overflow: hidden;
 }
 
-.main-title{
+.visual-swiper {
+  @include mix.size(100%, 370px);
+  position: relative;
+
+  .parallax-slide {
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+    transition-property: transform;
+  }
+
+  .visual-inner {
+    @include mix.inline-size(1050px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    translate: -50% -50%;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: var.$white;
+    opacity: 0;
+    transition: 0.2s;
+  }
+
+  &:hover .swiper-button-prev,
+  &:hover .swiper-button-next {
+    opacity: 1;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .swiper-button-prev:hover:after,
+  .swiper-button-next:hover:after {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .swiper-slide > a {
+    display: block;
+    height: inherit;
+  }
+
+  .swiper-slide-01 > a {
+    background: url(/src/assets/banner01.jpg) no-repeat center center;
+  }
+
+  .swiper-slide-02 > a {
+    background: url(/src/assets/banner02.jpg) no-repeat center center;
+  }
+
+  .swiper-slide-03 > a {
+    background: url(/src/assets/banner03.jpg) no-repeat center center;
+  }
+
+  .swiper-slide-04 > a {
+    background: url(/src/assets/banner05.jpg) no-repeat center center;
+  }
+
+  .swiper-pagination-fraction {
+    @include mix.inline-size(auto);
+    @include mix.padding(12px, 4px);
+    @include mix.radius(lg);
+    left: auto;
+    right: calc(50% - 500px);
+    translate: 0 -50%;
+    font-size: var.$font-size-sm;
+    color: var.$white;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.product-swiper-wrapper {
+  position: relative;
+
+  .product-swiper {
+    overflow: hidden;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: var(--swiper-navigation-top-offset, 45%);
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
+  }
+
+  .swiper-button-prev,
+  .swiper-rtl .swiper-button-next {
+    left: 0;
+    translate: -50%;
+  }
+
+  .swiper-button-next,
+  .swiper-rtl .swiper-button-prev {
+    right: 0;
+    translate: 50%;
+  }
+
+  .swiper-button-prev.swiper-button-disabled,
+  .swiper-button-next.swiper-button-disabled {
+    visibility: hidden;
+  }
+}
+
+.main-title {
   @include mix.marginY(40px);
-  font-size:var.$font-size-lg;
-  font-weight:var.$font-weight-700;
-  text-align:center;
+  font-size: var.$font-size-lg;
+  font-weight: var.$font-weight-700;
+  text-align: center;
 }

@@ -1,0 +1,78 @@
+button {
+  all: unset;
+}
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* <svg> → <use> 마크업 -------------------------------------------------------- */
+
+.svg-icon {
+  inline-size: 1em;
+  block-size: 1em;
+  font-size: var(--size, 1em);
+  color: var(--color, inherit);
+}
+
+/* CSS 배경 ------------------------------------------------------------------- */
+
+[class*="sprite"] {
+  inline-size: var(--size, 24px);
+  block-size: var(--size, 24px);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: var(--size, 24px);
+}
+
+.sprite--checked {
+  background-image: url("/icon/stack.svg#checked");
+}
+.sprite--un-check {
+  background-image: url("/icon/stack.svg#unchecked");
+}
+.sprite--radio-selected {
+  background-image: url("/icon/stack.svg#radio-selected");
+}
+.sprite--radio-unselected {
+  background-image: url("/icon/stack.svg#radio-unselected");
+}
+
+/* 마스크 ---------------------------------------------------------------------- */
+
+[class*="mask"] {
+  /* 아이콘 색상 변경 가능 */
+  background-color: var(--color, #000);
+
+  inline-size: var(--size, 24px);
+  block-size: var(--size, 24px);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: var(--size, 24px);
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: var(--size, 24px);
+  mask-size: var(--size, 24px);
+}
+
+.mask--menu-dog {
+  -webkit-mask-image: url("/icon/stack.svg#menu-dog");
+  mask-image: url("/icon/stack.svg#menu-dog");
+}
+.mask--menu-meet {
+  -webkit-mask-image: url("/icon/stack.svg#menu-meet");
+  mask-image: url("/icon/stack.svg#menu-meet");
+}
+.mask--menu-travel {
+  -webkit-mask-image: url("/icon/stack.svg#menu-travel");
+  mask-image: url("/icon/stack.svg#menu-travel");
+}
+.mask--menu-home-appliances {
+  -webkit-mask-image: url("/icon/stack.svg#menu-home-appliances");
+  mask-image: url("/icon/stack.svg#menu-home-appliances");
+}

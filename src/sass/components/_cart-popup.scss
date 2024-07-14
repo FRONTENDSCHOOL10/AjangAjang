@@ -48,16 +48,16 @@
 }
 .cart-detail-wrap {
   padding: 12px 0 28px 0;
-}
 
-.cart-price-total {
-  @include mix.flexbox($justify: space-between, $items: flex-end);
-  font-weight: var.$font-weight-600;
-  margin-bottom: 10px;
+  .cart-price-total {
+    @include mix.flexbox($justify: space-between, $items: flex-end);
+    font-weight: var.$font-weight-600;
+    margin-bottom: 10px;
 
-  .price-total {
-    font-size: var.$font-size-xl;
-    font-weight: var.$font-weight-700;
+    .price-total {
+      font-size: var.$font-size-xl;
+      font-weight: var.$font-weight-700;
+    }
   }
 }
 
@@ -80,7 +80,6 @@
     font-weight: var.$font-weight-600;
   }
 }
-
 .button-wrap {
   @include mix.flexbox($justify: center);
 
