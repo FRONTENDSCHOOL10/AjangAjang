@@ -12,43 +12,51 @@
   .cart-total {
     width: 284px;
   }
-}
-.cart-all-checked {
-  @include mix.paddingY(16px);
-}
-.cart-product-list {
-  @include mix.marginY(20px);
-}
-.cart-all-checked,
-.cart-product-list {
-  position: relative;
 
-  input[type="checkbox"] {
-    position: absolute;
-    appearance: none;
-    width: 24px;
-    height: 24px;
+  .cart-all-checked {
+    @include mix.paddingY(16px);
+    border-bottom: 1px solid var.$black;
+    font-weight: var.$font-weight-600;
+    color: var.$content-color;
+
+    button {
+      border: 0;
+      background-color: transparent;
+    }
+  }
+  .cart-all-checked.none-border {
+    border-bottom: 0;
   }
 
-  label {
-    display: inline-block;
-    line-height: 24px;
-    background: url(/src/assets/icon/unchecked.png) no-repeat 0 0 / contain;
-    padding-left: 1.875rem;
-  }
+  .cart-all-checked,
+  .cart-product-list {
+    position: relative;
 
-  input:checked + label {
-    background-image: url(/src/assets/icon/checked.png);
+    input[type="checkbox"] {
+      position: absolute;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+    }
+
+    label {
+      display: inline-block;
+      line-height: 24px;
+      background: url(/src/assets/icon/unchecked.png) no-repeat 0 0 / contain;
+      padding-left: 1.875rem;
+    }
+
+    input:checked + label {
+      background-image: url(/src/assets/icon/checked.png);
+    }
   }
 }
-.cart-all-checked.border-bottom {
-  border-bottom: 1px solid var.$black;
-}
-.cart-price {
+
+.cart-product {
   @include mix.flexbox($justify: space-between, $items: center);
-  margin-bottom: 28px;
+  @include mix.marginY(20px);
 
-  .cart-product {
+  .cart-product-list {
     @include mix.flexbox($items: center);
 
     .porduct-check {
@@ -76,7 +84,7 @@
     height: 30px;
     cursor: pointer;
   }
-  .product-number {
+  .product-count {
     @include mix.flexbox($items: center, $justify: justify-content);
     border: 1px solid var.$gray-200;
 
@@ -109,5 +117,84 @@
 
   .product-price-delete {
     @include mix.flexbox($items: center);
+  }
+}
+
+.cart-total {
+  .delivery-info {
+    @include mix.flexbox($direction: column, $gap: 12px);
+    @include mix.padding(20px, 20px);
+    border: 1px solid var.$gray-100;
+
+    .bg-icon-location {
+      @include mix.padding-inline-start(36px);
+      @include mix.block-size(36px);
+      background-image: url("/src/assets/icon/Location.png");
+      background-repeat: no-repeat;
+      background-size: 36px;
+      line-height: 36px;
+      font-weight: var.$font-weight-600;
+    }
+
+    .address {
+      font-weight: var.$font-weight-600;
+    }
+
+    .early-delivery {
+      color: var.$primary-color;
+      font-size: var.$font-size-sm;
+      font-weight: var.$font-weight-600;
+    }
+
+    button {
+      margin: 0;
+    }
+  }
+
+  .cart-price-wrap {
+    @include mix.padding(20px, 20px);
+    border: 1px solid var.$gray-100;
+    background-color: var.$gray-50;
+
+    .cart-price-total {
+      border-bottom: 1px dashed var.$gray-200;
+      span {
+        @include mix.flexbox($justify: space-between, $gap: 16px);
+        @include mix.margin-block-end(16px);
+
+        &:last-child {
+          @include mix.margin-block-end(24px);
+        }
+      }
+    }
+
+    .cart-price-real {
+      @include mix.padding-block-start(24px);
+
+      b {
+        font-weight: var.$font-weight-700;
+        font-size: var.$font-size-xl;
+      }
+
+      & > span {
+        @include mix.flexbox($justify: space-between, $items: center);
+        @include mix.margin-block-end(10px);
+      }
+    }
+
+    .point-detail {
+      font-size: var.$font-size-sm;
+      line-height: 1.6;
+    }
+  }
+
+  button {
+    @include mix.marginY(16px);
+  }
+
+  .payment-notice {
+    font-size: var.$font-size-sm;
+    color: var.$gray-400;
+    line-height: 1.6;
   }
 }
