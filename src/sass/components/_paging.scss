@@ -39,13 +39,25 @@ li {
   border: 1px solid var.$gray-100;
   width: 34px;
   height: 34px;
+  background-color: var.$white;
+  cursor: pointer;
 }
 
-.page-number-wrapper {
+.page-number-btn {
+  border: 1px solid var.$gray-100;
+  background-color: var.$white;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .selected {
-  font-weight: var.$font-weight-700;
+  font-weight: var.$font-weight-600;
   font-size: var.$font-size-p;
   color: var.$primary-color;
+  width: 34px;
+  height: 34px;
 }

@@ -1,5 +1,5 @@
 const COUNT_PER_PAGE = 5;
-const PAGE_BUTTON_LIMIT = 5; // 한 번에 표시할 페이지 버튼의 수
+const PAGE_BUTTON_LIMIT = 3; // 한 번에 표시할 페이지 버튼의 수
 const pageNumberWrapper = document.querySelector('.page-number-wrapper');
 const ul = document.querySelector('ul');
 const prevBtn_5page = document.querySelector('.prev-btn-5page');
@@ -8,7 +8,18 @@ const nextBtn = document.querySelector('.next-btn');
 const nextBtn_5page = document.querySelector('.next-btn-5page');
 let pageNumberBtns;
 
-let currentPage = 1;
+let currentPage = getCurrentPageFromURL();
+
+function getCurrentPageFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return parseInt(params.get('page')) || 1;
+}
+
+const updateURL = (pageNumber) => {
+  const params = new URLSearchParams(window.location.search);
+  params.set('page', pageNumber);
+  history.pushState({}, '', `${window.location.pathname}?${params}`);
+};
 
 const getTotalPageCount = () => {
   return Math.ceil(data.length / COUNT_PER_PAGE);
@@ -67,7 +78,7 @@ const setPageOf = (pageNumber) => {
     li.append(pageContainer);
     ul.append(li);
   }
-}
+};
 
 /**
  * 페이지 이동에 따른 css 클래스 적용
@@ -91,6 +102,7 @@ const addPageButtonListeners = () => {
       console.log(currentPage);
       setPageOf(currentPage);
       setPageButtons(); // 페이지 버튼 업데이트
+      updateURL(currentPage); // URL 업데이트
     });
   });
 };
@@ -99,13 +111,14 @@ setPageButtons();
 setPageOf(currentPage);
 
 /**
- * 5개 이전 버튼 클릭 리스너
+ * 3개 이전 버튼 클릭 리스너
  */
 prevBtn_5page.addEventListener('click', () => {
-  if (currentPage > 5) {
-    currentPage = Math.max(1, currentPage - 5);
+  if (currentPage > 3) {
+    currentPage = Math.max(1, currentPage - 3);
     setPageOf(currentPage);
     setPageButtons();
+    updateURL(currentPage); // URL 업데이트
   }
 });
 
@@ -117,6 +130,7 @@ prevBtn.addEventListener('click', () => {
     currentPage -= 1;
     setPageOf(currentPage);
     setPageButtons();
+    updateURL(currentPage); // URL 업데이트
   }
 });
 
@@ -128,17 +142,19 @@ nextBtn.addEventListener('click', () => {
     currentPage += 1;
     setPageOf(currentPage);
     setPageButtons();
+    updateURL(currentPage); // URL 업데이트
   }
 });
 
 /**
- * 5개 이후 버튼 클릭 리스너
+ * 3개 이후 버튼 클릭 리스너
  */
 nextBtn_5page.addEventListener('click', () => {
   const totalPageCount = getTotalPageCount();
   if (currentPage < totalPageCount) {
-    currentPage = Math.min(totalPageCount, currentPage + 5);
+    currentPage = Math.min(totalPageCount, currentPage + 3);
     setPageOf(currentPage);
     setPageButtons();
+    updateURL(currentPage); // URL 업데이트
   }
 });
