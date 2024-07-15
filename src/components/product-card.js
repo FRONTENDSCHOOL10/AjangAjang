@@ -67,7 +67,7 @@ async function renderProductItemRecomd() {
       </div>
     `;
     insertFirst(".product-swiper-recomd > .swiper-wrapper", template);
-    insertFirst(".product-swiper-sale > .swiper-wrapper", template);
+    //insertFirst(".product-swiper-sale > .swiper-wrapper", template);
 
     badddge.forEach((badge) => {
       const templateBadge = `
