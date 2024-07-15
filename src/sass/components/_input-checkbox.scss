@@ -1,4 +1,3 @@
-// components/_input-checkbox.scss
 @use "/src/sass/abstracts/variables" as var;
 @use "/src/sass/abstracts/mixins" as mix;
 
@@ -25,7 +24,7 @@
     label{
       @include mix.marginY(12px);
       @include mix.padding-inline-start(32px);
-      background: url(/src/assets/check.png) no-repeat 0 center /24px 24px;
+      background: url('/public/icon/stack.svg#unchecked') no-repeat 0 center /24px 24px;
     }
 
     input#agreeAll + label {
@@ -35,7 +34,7 @@
     }
     
     input:checked + label{
-      background-image: url(/src/assets/checked.png);
+      background-image: url('/public/icon/stack.svg#checked');
     }
     
     input:focus{
@@ -55,5 +54,11 @@
   .terms-link{
     text-decoration: none;
     color: var.$primary-color;
+  }
+
+  .arrow{
+    width: 6px;
+    height: 11px;
+    margin-left: 4px ;
   }
 }
