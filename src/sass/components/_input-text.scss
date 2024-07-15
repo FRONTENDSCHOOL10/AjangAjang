@@ -1,25 +1,28 @@
-@use "/src/sass/abstracts/variables" as var;
-@use "/src/sass/abstracts/mixins" as mix;
+@use '/src/sass/abstracts/variables' as var;
+@use '/src/sass/abstracts/mixins' as mix;
 
-
-.sr-only{
+.sr-only {
   @include mix.a11yHidden;
 }
 
-.asterisk{
+.asterisk {
   color: var.$info-error;
 }
 
-.register-container{
+.register-container {
   @include mix.flexbox(column, nowrap);
   @include mix.inline-size(100%);
   line-height: var.$line-height-base;
 
   .input-box {
-    @include mix.flexbox(row, nowrap, space-between, center);
+    @include mix.flexbox(row, nowrap, flex-start, center, 8px);
     @include mix.marginY(20px);
   }
-  
+
+  label {
+    width: 139px;
+  }
+
   .text-input {
     @include mix.size(333px, 44px);
     @include mix.radius(xs);
@@ -27,57 +30,42 @@
     border: 1px solid var.$gray-300;
     font-size: var.$font-size-p;
 
-    &:focus{
+    &:focus {
       outline: none;
       border-color: var.$black;
     }
   }
 
-  .input-box{
-    @include mix.flexbox(row, nowrap, space-between);
-    @include mix.marginY(20px)
-  }
-  .user-password-check{
-    label{
-      font-weight: 900;
+  .user-password-check {
+    label {
+      font-weight: var.$font-weight-600;
     }
   }
 
-  .birth-field{
-    input{
+  .birth-field {
+    input {
       text-align: center;
-  
-      &::placeholder{
+
+      &::placeholder {
         text-align: center;
       }
     }
   }
-
-
 }
 
-
-.login-container{
+.login-container {
   @include mix.flexbox(column, nowrap, center, center, 12px);
 
-  .text-input{
+  .text-input {
     @include mix.size(340px, 50px);
     @include mix.radius(xs);
     @include mix.paddingX(20px);
     border: 1px solid var.$gray-300;
     font-size: var.$font-size-p;
 
-    &:focus{
+    &:focus {
       outline: none;
       border-color: var.$black;
     }
   }
-
-  
-
 }
-
-
- 
-
-

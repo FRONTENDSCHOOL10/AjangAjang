@@ -1,30 +1,39 @@
-@use "/src/sass/abstracts/variables" as var;
-@use "/src/sass/abstracts/mixins" as mix;
+@use '/src/sass/abstracts/variables' as var;
+@use '/src/sass/abstracts/mixins' as mix;
+
+.agreement-field {
+  @include mix.flexbox(row, nowrap, flex-start, flex-start, 8px);
+  @include mix.paddingY(20px);
+  border-top: 1px solid var.$content-color;
+  border-bottom: 1px solid var.$gray-200;
+  .term-field {
+    width: 139px;
+  }
+}
 
 .agreement-container {
   position: relative;
-  width: 100%;
-  
+
   .agreement-option {
     @include mix.flexbox(row, nowrap, space-between, center);
     position: relative;
     color: var.$content-color;
     font-size: var.$font-size-p;
     line-height: var.$line-height-base;
-    
-    input{
+    white-space: nowrap;
+
+    input {
       position: absolute;
       appearance: none;
       width: 24px;
       height: 24px;
     }
-    
-    
-    
-    label{
+
+    label {
       @include mix.marginY(12px);
       @include mix.padding-inline-start(32px);
-      background: url('/public/icon/stack.svg#unchecked') no-repeat 0 center /24px 24px;
+      background: url('/public/icon/stack.svg#unchecked') no-repeat 0 center /
+        24px 24px;
     }
 
     input#agreeAll + label {
@@ -32,33 +41,31 @@
       font-size: var.$font-size-lg;
       font-weight: var.$font-weight-600;
     }
-    
-    input:checked + label{
+
+    input:checked + label {
       background-image: url('/public/icon/stack.svg#checked');
     }
-    
-    input:focus{
+
+    input:focus {
       outline: none;
     }
-    
   }
-  
-  .checkbox-description{
+
+  .checkbox-description {
     @include mix.margin-inline-start(32px);
     @include mix.marginY(0);
     font-size: var.$font-size-sm;
     color: var.$gray-400;
   }
-  
-  
-  .terms-link{
+
+  .terms-link {
     text-decoration: none;
     color: var.$primary-color;
   }
 
-  .arrow{
+  .arrow {
     width: 6px;
     height: 11px;
-    margin-left: 4px ;
+    margin-left: 4px;
   }
 }
