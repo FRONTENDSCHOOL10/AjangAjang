@@ -82,15 +82,13 @@
   }
 
   .product-card-button-icon-cart {
+    @include mix.flexbox(column, nowrap, center, null, null);
+    @include mix.size(45px, 45px);
     position: absolute;
     bottom: 0.9375rem;
     right: 0.9375rem;
-
     border: 0;
-    background-color: transparent;
-
-    .product-card-icon-cart {
-      width: 2.8125rem;
-    }
+    border-radius: 50%;
+    background: transparent url("/icon/stack.svg#cart") no-repeat 0 0;
   }
 }
