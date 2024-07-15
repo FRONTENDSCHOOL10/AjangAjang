@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SVG 스프라이트 이미지 (with 스택)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="SVG 스택 방식의 스프라이트 이미지입니다." />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h2>스택 + SVG 마크업 → 크기 조정 가능 (색상 조정하려면 SVG 파일의 fill 값을 currentColor로 변경해야 함)</h2>
+    <div class="stack" style="--size: 32px; --color: #ef5351">
+      <svg role="img" aria-label="반려동물" class="svg-icon">
+        <use href="/icon/stack.svg#menu-dog" />
+      </svg>
+      <svg role="img" aria-label="정육" class="svg-icon">
+        <use href="/icon/stack.svg#menu-meet" />
+      </svg>
+      <svg role="img" aria-label="여행" class="svg-icon">
+        <use href="/icon/stack.svg#menu-travel" />
+      </svg>
+      <svg role="img" aria-label="주방용품" class="svg-icon">
+        <use href="/icon/stack.svg#menu-food" />
+      </svg>
+      <svg role="img" aria-label="면,양념,오일" class="svg-icon">
+        <use href="/icon/stack.svg#menu-oil" />
+      </svg>
+      <svg role="img" aria-label="채소" class="svg-icon">
+        <use href="/icon/stack.svg#menu-vegetable" />
+      </svg>
+      <svg role="img" aria-label="베이커리" class="svg-icon">
+        <use href="/icon/stack.svg#menu-bread" />
+      </svg>
+      <svg role="img" aria-label="과일" class="svg-icon">
+        <use href="/icon/stack.svg#menu-fruit" />
+      </svg>
+      <svg role="img" aria-label="샐러드" class="svg-icon">
+        <use href="/icon/stack.svg#menu-salad" />
+      </svg>
+      <svg role="img" aria-label="와인" class="svg-icon">
+        <use href="/icon/stack.svg#menu-wine" />
+      </svg>
+      <svg role="img" aria-label="커피" class="svg-icon">
+        <use href="/icon/stack.svg#menu-coffee" />
+      </svg>
+      <svg role="img" aria-label="선물하기" class="svg-icon">
+        <use href="/icon/stack.svg#menu-gift" />
+      </svg>
+      <svg role="img" aria-label="해산물" class="svg-icon">
+        <use href="/icon/stack.svg#menu-sea-food" />
+      </svg>
+      <svg role="img" aria-label="베이비" class="svg-icon">
+        <use href="/icon/stack.svg#menu-baby" />
+      </svg>
+      <svg role="img" aria-label="국,반찬,메인요리" class="svg-icon">
+        <use href="/icon/stack.svg#menu-cook" />
+      </svg>
+      <svg role="img" aria-label="건강식품" class="svg-icon">
+        <use href="/icon/stack.svg#menu-health" />
+      </svg>
+      <svg role="img" aria-label="헤어,바디,구강" class="svg-icon">
+        <use href="/icon/stack.svg#menu-shampoo" />
+      </svg>
+      <svg role="img" aria-label="스킨케어" class="svg-icon">
+        <use href="/icon/stack.svg#menu-cosmetics" />
+      </svg>
+      <svg role="img" aria-label="가전제품" class="svg-icon">
+        <use href="/icon/stack.svg#menu-home-appliances" />
+      </svg>
+      <svg role="img" aria-label="과자" class="svg-icon">
+        <use href="/icon/stack.svg#menu-snack" />
+      </svg>
+      <svg role="img" aria-label="생활용품" class="svg-icon">
+        <use href="/icon/stack.svg#menu-detergent" />
+      </svg>
+      <svg role="img" aria-label="전통주" class="svg-icon">
+        <use href="/icon/stack.svg#menu-traditional-liquor" />
+      </svg>
+      <svg role="img" aria-label="질문" class="svg-icon">
+        <use href="/icon/stack.svg#question" />
+      </svg>
+      <svg role="img" aria-label="답변" class="svg-icon">
+        <use href="/icon/stack.svg#answer" />
+      </svg>
+      <svg role="img" aria-label="위치" class="svg-icon">
+        <use href="/icon/stack.svg#location" />
+      </svg>
+      <svg role="img" aria-label="장바구니" class="svg-icon">
+        <use href="/icon/stack.svg#cart-1" />
+      </svg>
+      <svg role="img" aria-label="찜하기" class="svg-icon">
+        <use href="/icon/stack.svg#heart" />
+      </svg>
+      <svg role="img" aria-label="왼쪽 화살표" class="svg-icon">
+        <use href="/icon/stack.svg#arrow" />
+      </svg>
+      <svg role="img" aria-label="취소" class="svg-icon">
+        <use href="/icon/stack.svg#cancel" />
+      </svg>
+      <svg role="img" aria-label="최상단가기" class="svg-icon">
+        <use href="/icon/stack.svg#go-to-top" />
+      </svg>
+      <svg role="img" aria-label="비밀글" class="svg-icon">
+        <use href="/icon/stack.svg#lock" />
+      </svg>
+      <svg role="img" aria-label="오른쪽 화살표" class="svg-icon">
+        <use href="/icon/stack.svg#arrow-1" />
+      </svg>
+      <svg role="img" aria-label="장바구니" class="svg-icon">
+        <use href="/icon/stack.svg#cart" />
+      </svg>
+      <svg role="img" aria-label="카테고리" class="svg-icon">
+        <use href="/icon/stack.svg#hamburger" />
+      </svg>
+      <svg role="img" aria-label="검색" class="svg-icon">
+        <use href="/icon/stack.svg#search" />
+      </svg>
+      <svg role="img" aria-label="네이버블로그" class="svg-icon">
+        <use href="/icon/stack.svg#blog" />
+      </svg>
+      <svg role="img" aria-label="인스타그램" class="svg-icon">
+        <use href="/icon/stack.svg#instagram" />
+      </svg>
+      <svg role="img" aria-label="네이버포스트" class="svg-icon">
+        <use href="/icon/stack.svg#naver-post" />
+      </svg>
+      <svg role="img" aria-label="유튜브" class="svg-icon">
+        <use href="/icon/stack.svg#youtube" />
+      </svg>
+      <svg role="img" aria-label="페이스북" class="svg-icon">
+        <use href="/icon/stack.svg#face-book" />
+      </svg>
+      <svg role="img" aria-label="시계" class="svg-icon">
+        <use href="/icon/stack.svg#time" />
+      </svg>
+      <svg role="img" aria-label="닫기" class="svg-icon">
+        <use href="/icon/stack.svg#close" />
+      </svg>
+      <svg role="img" aria-label="공지" class="svg-icon">
+        <use href="/icon/stack.svg#notice" />
+      </svg>
+      <svg role="img" aria-label="알림" class="svg-icon">
+        <use href="/icon/stack.svg#bell" />
+      </svg>
+      <svg role="img" aria-label="찜하기" class="svg-icon">
+        <use href="/icon/stack.svg#heart-2" />
+      </svg>
+      <svg role="img" aria-label="찜 해제하기" class="svg-icon">
+        <use href="/icon/stack.svg#heart-desabled" />
+      </svg>
+      <svg role="img" aria-label="왼쪽 화살표" class="svg-icon">
+        <use href="/icon/stack.svg#left" />
+      </svg>
+      <svg role="img" aria-label="오른쪽 화살표" class="svg-icon">
+        <use href="/icon/stack.svg#right" />
+      </svg>
+      <svg role="img" aria-label="위 화살표" class="svg-icon">
+        <use href="/icon/stack.svg#up" />
+      </svg>
+      <svg role="img" aria-label="아래 화살표" class="svg-icon">
+        <use href="/icon/stack.svg#down" />
+      </svg>
+      <svg role="img" aria-label="빼기" class="svg-icon">
+        <use href="/icon/stack.svg#minus" />
+      </svg>
+      <svg role="img" aria-label="빼기 안됨" class="svg-icon">
+        <use href="/icon/stack.svg#minus-desabled" />
+      </svg>
+      <svg role="img" aria-label="더하기" class="svg-icon">
+        <use href="/icon/stack.svg#plus" />
+      </svg>
+      <svg role="img" aria-label="더하기 안됨" class="svg-icon">
+        <use href="/icon/stack.svg#plus-desabled" />
+      </svg>
+      <svg role="img" aria-label="체크" class="svg-icon">
+        <use href="/icon/stack.svg#checked" />
+      </svg>
+      <svg role="img" aria-label="체크 안됨" class="svg-icon">
+        <use href="/icon/stack.svg#unchecked" />
+      </svg>
+      <svg role="img" aria-label="선택" class="svg-icon">
+        <use href="/icon/stack.svg#radio-selected" />
+      </svg>
+      <svg role="img" aria-label="선택 안됨" class="svg-icon">
+        <use href="/icon/stack.svg#radio-unselected" />
+      </svg>
+    </div>
+    <h2>스택 + CSS 배경 이미지 → 크기 조정 가능 (색상 조정 불가능)</h2>
+    <div class="stack" style="--size: 32px; --color: #ef5351">
+      <button type="button" class="sprite--checked" aria-label="체크"></button>
+      <button type="button" class="sprite--un-check" aria-label="체크 안됨"></button>
+      <button type="button" class="sprite--radio-selected" aria-label="선택"></button>
+      <button type="button" class="sprite--radio-unselected" aria-label="선택 안됨"></button>
+    </div>
+
+    <h2>스택 + 마스크 → 크기 및 색상 조정 가능</h2>
+    <div class="stack" style="--size: 32px; --color: #ef5351">
+      <button type="button" class="mask--menu-dog" aria-label="반려동물"></button>
+      <button type="button" class="mask--menu-meet" aria-label="정육" style="--color: #0a7ea4"></button>
+      <button type="button" class="mask--menu-travel" aria-label="여행"></button>
+      <button type="button" class="mask--menu-home-appliances" aria-label="가전제품" style="--color: #444445"></button>
+    </div>
+  </body>
+</html>
