@@ -1,0 +1,124 @@
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
+
+.review-wrap {
+  .review-title {
+    @include mix.flexbox($justify: space-between);
+    @include mix.margin-block-end(20px);
+
+    h4 {
+      font-size: var.$font-size-xl;
+      font-weight: var.$font-weight-600;
+    }
+  }
+
+  .review-info {
+    @include mix.margin-block-end(56px);
+
+    b {
+      font-weight: var.$font-weight-600;
+      line-height: 1.6;
+    }
+
+    ul {
+      @include mix.margin-block-start(4px);
+      list-style: disc;
+      font-size: 14px;
+      list-style-position: inside;
+      line-height: 1.5;
+      color: var.$gray-500;
+    }
+  }
+
+  .review-list {
+    .review-count {
+      @include mix.padding-block-end(16px);
+      display: block;
+      border-bottom: 1px solid var.$black;
+    }
+
+    details {
+      //  @include mix.padding(20px, 4px);
+      border-bottom: 1px solid var.$gray-100;
+
+      summary {
+        @include mix.padding(20px, 4px);
+        @include mix.block-size(58px);
+        list-style-type: none;
+        color: var.$content-color;
+        font-weight: var.$font-weight-600;
+        line-height: 50px;
+      }
+
+      .review-notice {
+        @include mix.padding(20px);
+        background-color: #f5f5f5;
+        font-size: 14px;
+      }
+    }
+  }
+  .review-member-list {
+    @include mix.flexbox();
+    border-bottom: 1px solid var.$gray-100;
+
+    ul {
+      @include mix.padding(20px);
+    }
+    .review-member {
+      @include mix.inline-size(20%);
+
+      li {
+        display: inline;
+
+        &.class-badge {
+          @include mix.marginX(4px);
+        }
+        &.user-name {
+          font-size: 14px;
+          color: var.$black;
+          font-weight: var.$font-weight-600;
+        }
+      }
+    }
+
+    .review-product {
+      @include mix.inline-size(80%);
+      font-size: 14px;
+
+      .review-product-name,
+      .review-write-data {
+        font-weight: var.$font-weight-600;
+        color: var.$gray-400;
+      }
+
+      .review-text {
+        @include mix.marginY(20px);
+        font-weight: var.$font-weight-400;
+        color: var.$black;
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+.badge {
+  @include mix.padding(8px, 2px);
+  border-radius: 2px;
+  font-size: var.$font-size-sm;
+}
+.notice-badge {
+  @include mix.padding(8px, 2px);
+  @include mix.margin-inline-end(20px);
+  background-color: var.$gray-100;
+  font-size: var.$font-size-sm;
+  color: var.$content-color;
+  border-radius: 2px;
+}
+.best-badge {
+  background-color: var.$secondary-color;
+  color: var.$white;
+}
+.class-badge {
+  color: var.$primary-color;
+  box-shadow: inset 0px 0px 0px 1px var.$primary-color;
+}
