@@ -70,13 +70,14 @@ async function handleLogin(e) {
       console.log('User ID:', pb.authStore.model.id);
 
       // 인증 성공 시 페이지 이동
-      location.href = 'index.html';
+      location.href = '/';
     } catch (error) {
       console.error('Login error:', error);
       showErrorPopup('아이디 혹은 비밀번호가 잘못되었습니다.');
     }
-  
-}
+  } else {
+    showErrorPopup('아이디 혹은 비밀번호가 올바르지 않습니다.');
+  }
 }
 
 $emailInput.addEventListener('input', handleEmailCheck);

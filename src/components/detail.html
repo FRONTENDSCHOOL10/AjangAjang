@@ -1,136 +1,182 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DETAIL PAGE</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <script type="module" src="/main.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DETAIL PAGE</title>
-  <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-  <link rel="stylesheet" href="/main.js" />
-</head>
-
-<body>
-  <main>
-    <div class="product-detail-image">
-      <img src="/src/assets/detail-img01.png" alt="풀무원 탱탱쫄면 4개입 포장 이미지" />
-    </div>
-    <section aria-labelledby="detail-page-heading">
-      <div class="detail-info-delivery" aria-label="배송 정보">샛별배송</div>
-      <div class="detail-product-name">
-        <h1>[풀무원] 탱탱쫄면 (4개입)</h1>
-        <p class="detail-product-description">튀기지 않아 부담 없는 매콤함</p>
+  <body>
+    <main>
+      <div class="product-detail-image">
+        <img
+          src="/src/assets/detail-img01.png"
+          alt="풀무원 탱탱쫄면 4개입 포장 이미지"
+        />
       </div>
-      <h2 class="detail-info-price" aria-label="상품 가격">
-        <span class="detail-info-price-off" aria-hidden="true"></span>
-        <span class="detail-info-price-number">4,980</span>
-        <span class="detail-info-price-won">원</span>
-      </h2>
-      <p class="detail-loggedOut-benefit-message1">로그인 후, 적립 혜택이 제공됩니다.</p>
-      <ul class="detail-info-content-fontColor1 detail-info-ul">
-        <li>
-          <dt>배송</dt>
-          <dd>
-            <p>샛별배송</p>
-            <p class="detail-info-content-fontColor2">23시 전 주문 시 내일 아침 7시 전 도착 </p>
-            <p class="detail-info-content-fontColor2">(대구 부산 울산 샛별배송 운영시간 별도 확인)</p>
-          </dd>
-        </li>
-        <li>
-          <dt>판매자</dt>
-          <dd>
-            <p>칼리</p>
-          </dd>
-        </li>
-        <li>
-          <dt>포장타입</dt>
-          <dd>
-            <p>상온 (종이포장)</p>
-            <p class="detail-info-content-fontColor2">텍베베송은 에코 포장이 스티포롬으로 대체됩니다.</p>
-          </dd>
-        </li>
-        <li>
-          <dt>판매단위</dt>
-          <dd>
-            <p>1봉</p>
-          </dd>
-        </li>
-        <li>
-          <dt>중량/용량</dt>
-          <dd>
-            <p>123g*4봉</p>
-          </dd>
-        </li>
-        <li>
-          <dt>원산지</dt>
-          <dd>
-            <p>상세페이지 별도표기</p>
-          </dd>
-        </li>
-        <li>
-          <dt>알레르기정보</dt>
-          <dd class="detail-info-allergy">
-            <p class="detail-info-content-fontColor2">-대두, 밀, 쇠고기 함유</p>
-            <p class="detail-info-content-fontColor2">-계란, 우유, 메밀, 땅콩, 고등어, 게, 돼지고기, 새우, 복숭아, 토마토, 아황산류, 호두, 잣, 닭고</p>
-            <p class="detail-info-content-fontColor2">기, 오징어, 조개류(굴, 전복, 홍합 포함)를 사용한 제품과 같은 제조시설에서 제조</p>
-          </dd>
-        </li>
-      </ul>
-      <!-- 상품선택 -->
-      <div>
-        <li class="detail-info-choice">
-          <dt class="detail-info-content-fontColor1">상품선택</dt>
-          <dd class="detail-container-conuter-small">
-            <div class="detail-info-content-fontColor1">
-              <p>[풀무원] 탱탱쫄면 (4개입)</p>
-            </div>
-            <div class="detail-container-counter-medium" aria-label="수량 선택">
-              <div class="detail-info-counter">
-                <button class="detail-counter-button" id="decrease" aria-label="수량 감소">-</button>
-                <span class="detail-counter-number" id="counter">0</span>
-                <button class="detail-counter-button" id="increase" aria-label="수량 증가">+</button>
+      <section aria-labelledby="detail-page-heading">
+        <div class="detail-info-delivery" aria-label="배송 정보">샛별배송</div>
+        <div class="detail-product-name">
+          <h1>[풀무원] 탱탱쫄면 (4개입)</h1>
+          <p class="detail-product-description">튀기지 않아 부담 없는 매콤함</p>
+        </div>
+        <h2 class="detail-info-price" aria-label="상품 가격">
+          <span class="detail-info-price-off" aria-hidden="true"></span>
+          <span class="detail-info-price-number">4,980</span>
+          <span class="detail-info-price-won">원</span>
+        </h2>
+        <p class="detail-loggedOut-benefit-message1">
+          로그인 후, 적립 혜택이 제공됩니다.
+        </p>
+        <ul class="detail-info-content-fontColor1 detail-info-ul">
+          <li>
+            <dt>배송</dt>
+            <dd>
+              <p>샛별배송</p>
+              <p class="detail-info-content-fontColor2">
+                23시 전 주문 시 내일 아침 7시 전 도착
+              </p>
+              <p class="detail-info-content-fontColor2">
+                (대구 부산 울산 샛별배송 운영시간 별도 확인)
+              </p>
+            </dd>
+          </li>
+          <li>
+            <dt>판매자</dt>
+            <dd>
+              <p>칼리</p>
+            </dd>
+          </li>
+          <li>
+            <dt>포장타입</dt>
+            <dd>
+              <p>상온 (종이포장)</p>
+              <p class="detail-info-content-fontColor2">
+                텍베베송은 에코 포장이 스티포롬으로 대체됩니다.
+              </p>
+            </dd>
+          </li>
+          <li>
+            <dt>판매단위</dt>
+            <dd>
+              <p>1봉</p>
+            </dd>
+          </li>
+          <li>
+            <dt>중량/용량</dt>
+            <dd>
+              <p>123g*4봉</p>
+            </dd>
+          </li>
+          <li>
+            <dt>원산지</dt>
+            <dd>
+              <p>상세페이지 별도표기</p>
+            </dd>
+          </li>
+          <li>
+            <dt>알레르기정보</dt>
+            <dd class="detail-info-allergy">
+              <p class="detail-info-content-fontColor2">
+                -대두, 밀, 쇠고기 함유
+              </p>
+              <p class="detail-info-content-fontColor2">
+                -계란, 우유, 메밀, 땅콩, 고등어, 게, 돼지고기, 새우, 복숭아,
+                토마토, 아황산류, 호두, 잣, 닭고
+              </p>
+              <p class="detail-info-content-fontColor2">
+                기, 오징어, 조개류(굴, 전복, 홍합 포함)를 사용한 제품과 같은
+                제조시설에서 제조
+              </p>
+            </dd>
+          </li>
+        </ul>
+        <!-- 상품선택 -->
+        <div>
+          <li class="detail-info-choice">
+            <dt class="detail-info-content-fontColor1">상품선택</dt>
+            <dd class="detail-container-conuter-small">
+              <div class="detail-info-content-fontColor1">
+                <p>[풀무원] 탱탱쫄면 (4개입)</p>
               </div>
-              <div class="detail-info-totalPrice-small">
-                <span id="total-price" aria-label="총 가격">0</span>원
+              <div
+                class="detail-container-counter-medium"
+                aria-label="수량 선택"
+              >
+                <div class="detail-info-counter">
+                  <button
+                    class="detail-counter-button"
+                    id="decrease"
+                    aria-label="수량 감소"
+                  >
+                    -
+                  </button>
+                  <span class="detail-counter-number" id="counter">0</span>
+                  <button
+                    class="detail-counter-button"
+                    id="increase"
+                    aria-label="수량 증가"
+                  >
+                    +
+                  </button>
+                </div>
+                <div class="detail-info-totalPrice-small">
+                  <span id="total-price" aria-label="총 가격">0</span>원
+                </div>
               </div>
+            </dd>
+          </li>
+          <!-- 총 상품금액 -->
+          <div class="totalPrice-section">
+            <div class="detail-info-totalPrice">
+              <span>총 상품금액:</span>
+              <span>4,980</span>
+              <span>원</span>
             </div>
-          </dd>
-        </li>
-        <!-- 총 상품금액 -->
-        <div class="totalPrice-section">
-          <div class="detail-info-totalPrice">
-            <span>총 상품금액:</span>
-            <span>4,980</span>
-            <span>원</span>
-          </div>
-          <div class="detail-loggedOut-benefit-message2" aria-label="적립 혜택 안내">
-            <div class="detail-loggedOut-benefit-circle">
-              <span class="detail-loggedOut-benefit-message2-text">적립</span>
+            <div
+              class="detail-loggedOut-benefit-message2"
+              aria-label="적립 혜택 안내"
+            >
+              <div class="detail-loggedOut-benefit-circle">
+                <span class="detail-loggedOut-benefit-message2-text">적립</span>
+              </div>
+              <span class="detail-loggedOut-benefit-message2-text"
+                >로그인 후, 적립 혜택 제공</span
+              >
             </div>
-            <span class="detail-loggedOut-benefit-message2-text">로그인 후, 적립 혜택 제공</span>
-          </div>
-          <div class="detail-container-service-btn">
-            <button type="button" class="detail-btn-wishlist" aria-label="찜하기">
-              <span>
-                <img src="/src/assets/detail-heartIcon.png" alt="찜하기" />
-              </span>
-            </button>
-            <button type="button" class="detail-btn-bell" aria-label="알림받기">
-              <span>
-                <img src="/src/assets/detail-bell-icon.png" alt="알림받기" />
-              </span>
-            </button>
-            <div class="detail-container-cart-btn">
-              <button type="submit" tabindex="0">
-                <span>장바구니 담기</span>
+            <div class="detail-container-service-btn">
+              <button
+                type="button"
+                class="detail-btn-wishlist"
+                aria-label="찜하기"
+              >
+                <span>
+                  <img src="/src/assets/detail-heartIcon.png" alt="찜하기" />
+                </span>
               </button>
+              <button
+                type="button"
+                class="detail-btn-bell"
+                aria-label="알림받기"
+              >
+                <span>
+                  <img src="/src/assets/detail-bell-icon.png" alt="알림받기" />
+                </span>
+              </button>
+              <div class="detail-container-cart-btn">
+                <button type="submit" tabindex="0">
+                  <span>장바구니 담기</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-    </section>
-  </main>
-</body>
-
+      </section>
+    </main>
+  </body>
 </html>
