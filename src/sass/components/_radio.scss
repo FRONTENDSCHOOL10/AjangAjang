@@ -1,17 +1,17 @@
-@use "/src/sass/abstracts/variables" as var;
-@use "/src/sass/abstracts/mixins" as mix;
+@use '/src/sass/abstracts/variables' as var;
+@use '/src/sass/abstracts/mixins' as mix;
 
-.radio-group{
+.radio-group {
   @include mix.flexbox(row, nowrap, space-between, center);
-
+  width: 333px;
+  white-space: nowrap;
 
   .radio-button {
     position: absolute;
     opacity: 0;
   }
 
-
-  label{
+  label {
     position: relative;
     padding-left: 32px;
     cursor: pointer;
@@ -30,14 +30,12 @@
     background-color: transparent;
     border-radius: 50%;
     border: 1px solid var.$gray-200;
-
   }
 
-  //선택된 상태의 원 
+  //선택된 상태의 원
   .radio-button:checked + label::before {
     border: 1px solid var.$primary-color;
-    background-image: url('/src/assets/radioButton.png');
+    background-image: url('/public/icon/stack.svg#radio-selected');
     background-size: cover;
   }
-
 }
