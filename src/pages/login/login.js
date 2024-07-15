@@ -1,8 +1,5 @@
-import PocketBase from 'pocketbase';
+import pb from '@/api/pocketbase';
 import { getNode } from 'kind-tiger';
-
-// PocketBase 클라이언트 설정
-const pb = new PocketBase('http://127.0.0.1:8090'); // PocketBase 서버 URL
 
 const $emailInput = getNode('#userEmail');
 const $passwordInput = getNode('#userPassword');
@@ -52,24 +49,20 @@ async function handleLogin(e) {
       const id = $emailInput.value;
       const pw = $passwordInput.value;
 
-      // PocketBase에서 사용자 정보 가져오기
-      const userRecords = await pb.collection('users').getFullList({
-        filter: `email = "${id}"`,
-      });
+      // PocketBase에서 사용자 인증하기
+      const authData = await pb.collection('users').authWithPassword(id, pw);
 
-      if (userRecords.length === 0) {
-        throw new Error('User not found');
-      }
+      console.log('Authentication successful:', authData);
+      console.log('Is valid:', pb.authStore.isValid);
+      console.log('Auth token:', pb.authStore.token);
+      console.log('User ID:', pb.authStore.model.id);
 
-      const user = userRecords[0]; // 첫 번째 사용자 정보 가져오기
-      
-      if (user.email === id && user.password === pw) {
-        location.href = 'index.html';
-      } else {
-        throw new Error('Invalid credentials');
-      }
+      // 인증 성공 시 페이지 이동
+      location.href = 'index.html';
+      console.log('로그인에 성공했습니다.');
     } catch (error) {
-      alert('이메일 혹은 비밀번호가 잘못되었습니다.');
+      console.error('Login error:', error);
+      alert('아이디 혹은 비밀번호가 잘못되었습니다.');
     }
   }
 }
