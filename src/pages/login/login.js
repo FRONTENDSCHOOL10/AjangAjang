@@ -4,6 +4,9 @@ import { getNode } from 'kind-tiger';
 const $emailInput = getNode('#userEmail');
 const $passwordInput = getNode('#userPassword');
 const $loginBtn = getNode('.btn-login');
+const $errorPopup = getNode('#errorPopup');
+const $loginError = getNode('#loginError');
+const $closePopup = getNode('#closePopup');
 
 let emailCheckPass = false;
 let pwCheckPass = false;
@@ -41,6 +44,15 @@ function handlePasswordCheck() {
   }
 }
 
+function showErrorPopup(message) {
+  $loginError.textContent = message;
+  $errorPopup.style.display = 'flex';
+}
+
+function closeErrorPopup() {
+  $errorPopup.style.display = 'none';
+}
+
 async function handleLogin(e) {
   e.preventDefault();
 
@@ -59,14 +71,15 @@ async function handleLogin(e) {
 
       // 인증 성공 시 페이지 이동
       location.href = 'index.html';
-      console.log('로그인에 성공했습니다.');
     } catch (error) {
       console.error('Login error:', error);
-      alert('아이디 혹은 비밀번호가 잘못되었습니다.');
+      showErrorPopup('아이디 혹은 비밀번호가 잘못되었습니다.');
     }
-  }
+  
+}
 }
 
 $emailInput.addEventListener('input', handleEmailCheck);
 $passwordInput.addEventListener('input', handlePasswordCheck);
 $loginBtn.addEventListener('click', handleLogin);
+$closePopup.addEventListener('click', closeErrorPopup);
