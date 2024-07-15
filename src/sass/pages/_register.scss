@@ -1,0 +1,15 @@
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
+
+
+.error-message {
+  @include mix.margin-block-start(12px);
+  @include mix.margin-inline-start(5px);
+  color: var.$primary-color;
+  display: none;
+  font-size: var.$font-size-sm;
+}
+
+.is--invalid + .error-message {
+  display: block;
+}
