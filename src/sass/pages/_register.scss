@@ -1,0 +1,44 @@
+@use '/src/sass/abstracts/variables' as var;
+@use '/src/sass/abstracts/mixins' as mix;
+
+.register {
+  @include mix.flexbox(column, nowrap, null, center);
+  @include mix.marginY(80px);
+  width: 640px;
+  font-size: var.$font-size-p;
+
+  h1 {
+    font-size: var.$font-size-lg;
+    font-weight: var.$font-weight-600;
+    text-align: center;
+    margin-bottom: 44px;
+  }
+
+  .p-container {
+    @include mix.flexbox(row, nowrap, flex-end, center);
+    width: 100%;
+    p {
+      @include mix.padding-block-end(8px);
+    }
+  }
+
+  .register-container {
+    border-top: 2px solid var.$content-color;
+  }
+
+  .error-message {
+    @include mix.margin-block-start(12px);
+    @include mix.margin-inline-start(5px);
+    color: var.$primary-color;
+    display: none;
+    font-size: var.$font-size-sm;
+  }
+
+  .is--invalid + .error-message {
+    display: block;
+  }
+
+  .btn-submit {
+    @include mix.margin-block-start(40px);
+  }
+}
