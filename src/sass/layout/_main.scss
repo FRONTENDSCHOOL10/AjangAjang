@@ -11,7 +11,7 @@
   @include mix.size(100%, 370px);
   margin: 0 auto;
   max-width: 1900px;
-  background: yellow url(/src/assets/banner05.jpg) no-repeat center center;
+  background: var.$white url(/src/assets/banner05.jpg) no-repeat center center;
   overflow: hidden;
 }
 

@@ -1,5 +1,5 @@
-@use "./../abstracts/variables" as var;
-@use "./../abstracts/mixins" as mix;
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
 
 main {
   width: 1050px;
@@ -20,7 +20,7 @@ section {
 
 .detail-product-name {
   padding-top: 16px;
-  
+
   h1 {
     color: var.$content-color;
     font-size: var.$font-size-xl;
@@ -63,7 +63,7 @@ section {
 .detail-info-ul {
   font-size: var.$font-size-sm;
   padding-top: 20px;
-  
+
   li {
     display: flex;
     border-top: 1px solid var.$gray-100;
@@ -212,7 +212,8 @@ section {
   padding-top: 28px;
 }
 
-.detail-btn-wishlist, .detail-btn-bell {
+.detail-btn-wishlist,
+.detail-btn-bell {
   border: 1px solid var.$gray-100;
   border-radius: 4px;
   background-color: var.$white;
