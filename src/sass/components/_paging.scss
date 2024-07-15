@@ -43,7 +43,7 @@ li {
   cursor: pointer;
 }
 
-.page-number-btn {
+.page-number-btn, .selected {
   border: 1px solid var.$gray-100;
   background-color: var.$white;
   width: 34px;
@@ -58,6 +58,4 @@ li {
   font-weight: var.$font-weight-600;
   font-size: var.$font-size-p;
   color: var.$primary-color;
-  width: 34px;
-  height: 34px;
 }
