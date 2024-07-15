@@ -1,0 +1,63 @@
+@use '/src/sass/abstracts/variables' as var;
+@use '/src/sass/abstracts/mixins' as mix;
+
+.filter-accordion {
+  width: 220px;
+  font-size: var.$font-size-p;
+  // margin: 0 auto;
+
+  h1 {
+    font-size: vapx;
+    padding: 10px;
+  }
+
+  .accordion-box {
+    background-color: yellow;
+
+    details {
+      border-bottom: 1px solid var.$gray-100;
+      border-radius: 8px;
+      padding: 20px;
+
+      summary {
+        cursor: pointer;
+        position: relative;
+        list-style: none;
+        user-select: none;
+        display: flex;
+        align-items: center;
+
+        &::after {
+          content: '';
+          background: url('/public/icon/stack.svg#down');
+          width: 18px;
+          height: 18px;
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          transition: transform 0.3s ease;
+        }
+      }
+
+      &[open] summary::after {
+        transform: translateY(-50%) rotate(-180deg);
+      }
+
+      div {
+        padding: 10px;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .radio-group {
+    @include mix.flexbox(column, nowrap, null, flex-start, 20px);
+    label {
+      font-size: 14px;
+    }
+  }
+}
