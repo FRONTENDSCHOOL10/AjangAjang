@@ -1,9 +1,11 @@
-const COUNT_PER_PAGE = 3;
+const COUNT_PER_PAGE = 5;
 const PAGE_BUTTON_LIMIT = 5; // 한 번에 표시할 페이지 버튼의 수
 const pageNumberWrapper = document.querySelector('.page-number-wrapper');
 const ul = document.querySelector('ul');
+const prevBtn_5page = document.querySelector('.prev-btn-5page');
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
+const nextBtn_5page = document.querySelector('.next-btn-5page');
 let pageNumberBtns;
 
 let currentPage = 1;
@@ -16,12 +18,9 @@ const setPageButtons = () => {
   pageNumberWrapper.innerHTML = '';
   const totalPageCount = getTotalPageCount();
 
-  let startPage = Math.max(1, currentPage - Math.floor(PAGE_BUTTON_LIMIT / 2));
-  let endPage = Math.min(totalPageCount, startPage + PAGE_BUTTON_LIMIT - 1);
-
-  if (endPage - startPage < PAGE_BUTTON_LIMIT - 1) {
-    startPage = Math.max(1, endPage - PAGE_BUTTON_LIMIT + 1);
-  }
+  // 현재 페이지가 속하는 페이지 그룹의 시작 페이지와 끝 페이지를 계산합니다.
+  const startPage = Math.floor((currentPage - 1) / PAGE_BUTTON_LIMIT) * PAGE_BUTTON_LIMIT + 1;
+  const endPage = Math.min(startPage + PAGE_BUTTON_LIMIT - 1, totalPageCount);
 
   for (let i = startPage; i <= endPage; i++) {
     pageNumberWrapper.innerHTML += `<span class="page-number-btn"> ${i} </span>`;
@@ -44,7 +43,7 @@ const setPageOf = (pageNumber) => {
 
   for (
     let i = COUNT_PER_PAGE * (pageNumber - 1) + 1;
-    i <= COUNT_PER_PAGE * (pageNumber - 1) + 5 && i <= data.length;
+    i <= COUNT_PER_PAGE * (pageNumber - 1) + COUNT_PER_PAGE && i <= data.length;
     i++
   ) {
     const li = document.createElement('li');
@@ -100,6 +99,17 @@ setPageButtons();
 setPageOf(currentPage);
 
 /**
+ * 5개 이전 버튼 클릭 리스너
+ */
+prevBtn_5page.addEventListener('click', () => {
+  if (currentPage > 5) {
+    currentPage = Math.max(1, currentPage - 5);
+    setPageOf(currentPage);
+    setPageButtons();
+  }
+});
+
+/**
  * 이전 버튼 클릭 리스너
  */
 prevBtn.addEventListener('click', () => {
@@ -116,6 +126,18 @@ prevBtn.addEventListener('click', () => {
 nextBtn.addEventListener('click', () => {
   if (currentPage < getTotalPageCount()) {
     currentPage += 1;
+    setPageOf(currentPage);
+    setPageButtons();
+  }
+});
+
+/**
+ * 5개 이후 버튼 클릭 리스너
+ */
+nextBtn_5page.addEventListener('click', () => {
+  const totalPageCount = getTotalPageCount();
+  if (currentPage < totalPageCount) {
+    currentPage = Math.min(totalPageCount, currentPage + 5);
     setPageOf(currentPage);
     setPageButtons();
   }

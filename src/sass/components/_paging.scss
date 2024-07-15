@@ -32,8 +32,20 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
 }
 
 .pagination-container button {
   border: 1px solid var.$gray-100;
+  width: 34px;
+  height: 34px;
+}
+
+.page-number-wrapper {
+}
+
+.selected {
+  font-weight: var.$font-weight-700;
+  font-size: var.$font-size-p;
+  color: var.$primary-color;
 }
