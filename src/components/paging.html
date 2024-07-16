@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
   <meta charset="UTF-8" />
@@ -7,20 +7,12 @@
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
   <link rel="stylesheet" href="/src/sass/main.scss" />
-  <script src="/src/components/paging-data.js"></script>
   <title>paging</title>
 </head>
 
 <body>
   <div class="pagination">
-    <ul>
-      <li>
-        <div class="page-container">
-          <p class="page-number"></p>
-          <p class="page-title">title</p>
-        </div>
-      </li>
-    </ul>
+    <ul class="product-card-list"></ul>
     <div class="pagination-container">
       <button class="prev-btn-5page">
         <img src="/src/assets/prev-btn-5page.png" alt="5개 이전 페이지로 돌아가기" />
@@ -38,7 +30,7 @@
     </div>
   </div>
 
-  <script src="/src/components/paging.js"></script>
+  <script type="module" src="/src/components/paging.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,48 @@
+import {
+  comma,
+  insertFirst,
+  insertLast,
+  getStorage,
+  setStorage,
+} from "kind-tiger";
+import pb from "@/api/pocketbase";
+import getPbImageURL from "@/api/getPbImageURL";
+import defaultAuthData from "@/api/defaultAuthData";
+
+if (!localStorage.getItem("auth")) {
+  setStorage("auth", defaultAuthData);
+}
+
+let data = []; // 데이터를 저장할 변수
+
+async function fetchData() {
+  const productData = await pb.collection("products").getFullList({
+    sort: "-created",
+  });
+
+  const auth = await getStorage("auth");
+  const isAuth = auth.isAuth;
+
+  data = productData.map((item) => ({
+    title: item.title,
+    pageNumber: item.id, // pageNumber 대신 id 사용
+    description: item.description,
+    sale: item.sale,
+    price: item.price,
+    badge: item.badge,
+    thumbnail: getPbImageURL(item, "thumbnail"),
+    early_delivery: item.early_delivery,
+    isAuth: isAuth // 수정된 부분
+  }));
+
+  setPageButtons();
+  setPageOf(currentPage);
+}
+
 const COUNT_PER_PAGE = 5;
 const PAGE_BUTTON_LIMIT = 3; // 한 번에 표시할 페이지 버튼의 수
 const pageNumberWrapper = document.querySelector('.page-number-wrapper');
-const ul = document.querySelector('ul');
+const ul = document.querySelector('.product-card-list');
 const prevBtn_5page = document.querySelector('.prev-btn-5page');
 const prevBtn = document.querySelector('.prev-btn');
 const nextBtn = document.querySelector('.next-btn');
@@ -57,26 +98,39 @@ const setPageOf = (pageNumber) => {
     i <= COUNT_PER_PAGE * (pageNumber - 1) + COUNT_PER_PAGE && i <= data.length;
     i++
   ) {
-    const li = document.createElement('li');
+    const item = data[i - 1];
+    const discount = item.price - item.price * (item.sale * 0.01);
 
-    // 컨테이너
-    const pageContainer = document.createElement('div');
-    pageContainer.className = 'page-container';
-
-    // 글 번호
-    const pageNumber = document.createElement('p');
-    pageNumber.className = 'page-number';
-
-    // 글 제목
-    const pageTitle = document.createElement('p');
-    pageTitle.className = 'page-title';
-
-    pageNumber.textContent = data[i - 1].pageNumber;
-    pageTitle.textContent = data[i - 1].title;
-
-    pageContainer.append(pageNumber, pageTitle);
-    li.append(pageContainer);
-    ul.append(li);
+    const template = `
+      <li class="product-card">
+        <a
+          href="${item.isAuth ? `/src/pages/detail/index.html?product=${item.pageNumber}` : "/src/pages/login/"}"
+          aria-label="${item.title} 상품링크"
+          class="product-card-link"
+        >
+          <b class="product-card-title">${item.title}</b>
+          ${item.early_delivery ? `<p class="product-card-early-delivery">샛별배송</p>` : ``}
+          ${item.description ? `<p class="product-card-description">${item.description}</p>` : ``}
+          <div class="product-card-info-price">
+            ${item.sale ? `<span class="product-cart-sale">${item.sale}%</span>` : ``}
+            <span class="product-cart-price">${!item.sale ? comma(item.price) : comma(discount)} 원</span>
+          </div>
+          ${item.sale ? `<div class="product-card-cost">${comma(item.price)} 원</div>` : ``}
+          <div class="product-card-badges">
+            ${item.badge.map(badge => `<span class="product-card-badge${badge.includes('Karly Only') ? ' badges-primary' : ''}">${badge}</span>`).join('')}
+          </div>
+        </a>
+        <div class="product-card-thumb">
+          <button type="button" aria-label="장바구니 담기" class="product-card-button-icon-cart">
+            <img src="/src/assets/icon-cart.png" alt="장바구니 담기" class="product-card-icon-cart"/>
+          </button>
+          <a href="/src/components/detail.html" tabindex="-1" aria-hidden="true">
+            <img src="${item.thumbnail}" alt="${item.title} 썸네일" class="product-card-thumb-img"/>
+          </a>
+        </div>
+      </li>
+    `;
+    ul.insertAdjacentHTML('beforeend', template);
   }
 };
 
@@ -106,9 +160,6 @@ const addPageButtonListeners = () => {
     });
   });
 };
-
-setPageButtons();
-setPageOf(currentPage);
 
 /**
  * 3개 이전 버튼 클릭 리스너
@@ -158,3 +209,6 @@ nextBtn_5page.addEventListener('click', () => {
     updateURL(currentPage); // URL 업데이트
   }
 });
+
+// 데이터 가져오기 및 초기 페이지 설정
+fetchData();

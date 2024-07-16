@@ -13,6 +13,7 @@ if (!localStorage.getItem("auth")) {
   setStorage("auth", defaultAuthData);
 }
 
+
 async function renderProductItemRecomd() {
   const productData = await pb.collection("products").getFullList({
     sort: "-created",
