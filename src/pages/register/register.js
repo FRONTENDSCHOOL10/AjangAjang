@@ -1,5 +1,6 @@
 import PocketBase from 'pocketbase';
 import { getNode } from 'kind-tiger';
+
 const pb = new PocketBase('https://ajangajang.pockethost.io');
 
 getNode('#emailCheckBtn').addEventListener('click', async () => {
@@ -44,6 +45,13 @@ getNode('#registerBtn').addEventListener('click', async () => {
   try {
     const record = await pb.collection('users').create(data);
     console.log('User created:', record);
+
+    // 이메일 인증 요청
+    await pb.collection('users').requestVerification(data.email);
+    console.log('Verification email sent.');
+
+    // 페이지 리다이렉션
+    window.location.href = `verify.html?email=${encodeURIComponent(data.email)}`;
   } catch (error) {
     console.error('Error creating user:', error);
   }
