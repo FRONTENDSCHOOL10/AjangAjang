@@ -1,5 +1,10 @@
+import pb from '@/api/pocketbase';
 import { getNode } from 'kind-tiger';
-import pb from '/src/api/pocketbase.js';
+import { handleEmailCheck, handlePasswordCheck } from '@/pages/login/login.js';
+import agreeAllCheckBox from '@/components/input-checkbox';
+
+const $emailInput = getNode('#userEmail');
+const $passwordInput = getNode('#userPassword');
 
 getNode('#emailCheckBtn').addEventListener('click', async () => {
   const email = getNode('#userEmail').value;
@@ -23,10 +28,11 @@ getNode('#registerBtn').addEventListener('click', async () => {
   const name = getNode('#nameField').value;
   const userAddress = getNode('#addressField').value;
   const userBirth = getNode('#birthField').value
-    ? new Date(getNode('#birthField')).toISOString()
+    ? new Date(getNode('#birthField').value).toISOString()
     : null;
   const userPhone = getNode('#phoneField').value;
-  const userGender = getNode('input[name="gender"]:checked').value;
+  const selectedGenderInput = getNode('input[name="gender"]:checked');
+  const userGender = selectedGenderInput.nextElementSibling.textContent;
 
   const data = {
     email,
@@ -56,3 +62,6 @@ getNode('#registerBtn').addEventListener('click', async () => {
     console.error('Error creating user:', error);
   }
 });
+
+$emailInput.addEventListener('input', handleEmailCheck);
+$passwordInput.addEventListener('input', handlePasswordCheck);
