@@ -1,5 +1,7 @@
 import pb from '@/api/pocketbase';
-import { getNode } from 'kind-tiger';
+import { getNode, getStorage, setStorage, setDocumentTitle } from 'kind-tiger';
+
+setDocumentTitle('마켓칼리 / 로그인');
 
 const $emailInput = getNode('#userEmail');
 const $passwordInput = getNode('#userPassword');
@@ -62,15 +64,25 @@ async function handleLogin(e) {
       const pw = $passwordInput.value;
 
       // PocketBase에서 사용자 인증하기
-      const authData = await pb.collection('users').authWithPassword(id, pw);
+      // const authData =
+      await pb.collection('users').authWithPassword(id, pw);
 
-      console.log('Authentication successful:', authData);
-      console.log('Is valid:', pb.authStore.isValid);
-      console.log('Auth token:', pb.authStore.token);
-      console.log('User ID:', pb.authStore.model.id);
+      // console.log('Authentication successful:', authData);
+      // console.log('Is valid:', pb.authStore.isValid);
+      // console.log('Auth token:', pb.authStore.token);
+      // console.log('User ID:', pb.authStore.model.id);
 
       // 인증 성공 시 페이지 이동
-      location.href = '/';
+      const { model, token } = await getStorage('pocketbase_auth');
+
+      setStorage('auth', {
+        isAuth: !!model,
+        user: model,
+        token,
+      });
+
+      // alert('로그인 완료! 메인페이지로 이동합니다.');
+      location.href = '/index.html';
     } catch (error) {
       console.error('Login error:', error);
       showErrorPopup('아이디 혹은 비밀번호가 잘못되었습니다.');
