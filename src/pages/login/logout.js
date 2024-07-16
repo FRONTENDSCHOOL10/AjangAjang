@@ -6,7 +6,7 @@ export async function logout() {
   if (localStorage.getItem("auth")) {
     const { isAuth, user } = await getStorage("auth");
 
-    console.log(isAuth);
+    // console.log(isAuth);
 
     if (isAuth) {
       const template = `
@@ -21,19 +21,19 @@ export async function logout() {
       // 로그인 시 숨길 요소들 처리
       const loginHidden = document.querySelectorAll(".login-hidden");
       loginHidden.forEach((el) => (el.style.display = "none"));
-    }
 
-    const logout = getNode(".logout");
+      const logout = getNode(".logout");
 
-    function handleLogout() {
-      if (confirm("정말 로그아웃 하실겁니까?")) {
-        pb.authStore.clear();
-        setStorage("auth", defaultAuthData);
-        location.reload();
+      function handleLogout() {
+        if (confirm("정말 로그아웃 하실겁니까?")) {
+          pb.authStore.clear();
+          setStorage("auth", defaultAuthData);
+          location.reload();
+        }
       }
-    }
 
-    logout.addEventListener("click", handleLogout);
+      logout.addEventListener("click", handleLogout);
+    }
   }
 }
 
