@@ -49,6 +49,12 @@
     input:focus {
       outline: none;
     }
+
+    .arrow {
+      width: 6px;
+      height: 11px;
+      margin-left: 4px;
+    }
   }
 
   .checkbox-description {
@@ -61,11 +67,5 @@
   .terms-link {
     text-decoration: none;
     color: var.$primary-color;
-  }
-
-  .arrow {
-    width: 6px;
-    height: 11px;
-    margin-left: 4px;
   }
 }
