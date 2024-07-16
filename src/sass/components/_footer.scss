@@ -99,14 +99,20 @@ footer {
     @include mix.flexbox(row, nowrap, null, null, 20px);
   }
 
-  img {
+  a {
+    @include mix.size(30px, 30px);
+  }
+
+  img,
+  svg {
     width: 30px;
     inline-size: 30px;
     height: 30px;
     block-size: 30px;
     transition: 0.2s;
   }
-  img:hover {
+  img:hover,
+  svg:hover {
     scale: 0.9;
   }
 }
@@ -138,6 +144,10 @@ footer {
     text-indent: 0px;
     line-height: 20px;
     color: var.$content-color;
+
+    svg {
+      @include mix.size(10px, 10px);
+    }
   }
 }
 
