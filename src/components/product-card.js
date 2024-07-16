@@ -29,7 +29,7 @@ async function renderProductItemRecomd() {
       <div class="swiper-slide">
         <div class="product-card">
           <a
-            href="${isAuth ? `/src/pages/product-detail.html?product=${item.id}` : "/src/pages/login/"}"
+            href="${isAuth ? `/src/pages/product-detail.html?product=${item.id}` : "/src/pages/login/login.html"}"
             aria-label="${item.title} 상품링크"
             class="product-card-link"
           >
@@ -53,7 +53,7 @@ async function renderProductItemRecomd() {
               class="product-card-button-icon-cart"
             ></button>
             <a
-              href="${isAuth ? `/src/pages/product-detail.html?product=${item.id}` : "/src/pages/login/"}"
+              href="${isAuth ? `/src/pages/product-detail.html?product=${item.id}` : "/src/pages/login/login.html"}"
               tabindex="-1"
               aria-hidden="true"
             >
