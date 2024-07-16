@@ -9,6 +9,10 @@
   padding: 32px;
   box-sizing: border-box;
   border: 1px solid var.$gray-400;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 
   .popup-title {
     @include mix.flexbox($justify: space-between);
@@ -19,8 +23,9 @@
       margin: 0;
     }
 
-    button {
-      background-color: var.$white;
+    button.close-button {
+      background-color: transparent;
+      background-image: url("/icon/stack.svg#cancel");
       border: 0;
       width: 30px;
       height: 30px;
@@ -35,13 +40,49 @@
     border-bottom: 1px solid var.$gray-100;
 
     img {
+      @include mix.inline-size(72px);
+
       margin-right: 24px;
     }
   }
 
+  .review_guide {
+    @include mix.block-size(30px);
+    position: relative;
+
+    b {
+      @include mix.margin-block-start(10px);
+      position: absolute;
+      right: 0;
+      text-align: right;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: -0.2px;
+      color: var.$primary-color;
+    }
+
+    span {
+      @include mix.inline-size(600px);
+      @include mix.padding(14px);
+      @include mix.radius(xs);
+      display: none;
+      position: absolute;
+      top: 30px;
+      right: 0;
+      background-color: #787878;
+      color: var.$white;
+      font-size: 14px;
+      line-height: 1.2;
+      font-weight: normal;
+    }
+    b:hover + span,
+    b:focus + span {
+      display: block;
+    }
+  }
   .write-wrap {
-    padding-top: 16px;
-    padding-bottom: 58px;
+    @include mix.paddingY(16px);
     border-bottom: 1px solid var.$gray-100;
 
     .write-title {
@@ -129,7 +170,7 @@
   }
 
   .btn-register {
-    background-color: var.$gray-100;
+    background-color: var.$primary-color;
     color: var.$white;
   }
 }
