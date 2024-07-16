@@ -1,41 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>로그인</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>로그인</title>
     <link rel="icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
     <link rel="stylesheet" href="/src/sass/main.scss" />
     <script type="module" src="/main.js"></script>
     <script type="module" src="/src/pages/login/login.js"></script>
-</head>
-<body>
-  <fieldset class="login">
-    <legend class="sr-only">로그인</legend>
-    <h1>로그인</h1>
-    <div class="login-container">
-      <div class="input-box user-email">
-        <label for="userEmail" class="sr-only">이메일</label>
-        <input type="email" class="text-input user-email-input" id="userEmail" name="userEmail" placeholder="이메일을 입력해주세요" required aria-invalid="false" aria-describedby="userEmailError" aria-live="assertive" />
-        <span class="error-message" id="userEmailError">이메일 형식으로 입력해주세요.</span>
-      </div>
-      <div class="input-box user-password">
-        <label for="userPassword" class="sr-only">비밀번호</label>
-        <input type="password" class="text-input user-password-input" id="userPassword" name="userPassword" placeholder="비밀번호를 입력해주세요" required aria-invalid="false" aria-describedby="userPasswordError" aria-live="polite" />
-        <span class="error-message" id="userPasswordError">비밀번호는 특수문자 포함 6자리 이상 입력해주세요.</span>
-      </div>
-    
-      <button class="btn btn-login btn-submit btn-xlarge">로그인</button>
-      <a href="#" class="btn-link btn-line" aria-label="회원가입 페이지로 이동">회원가입</a>
-    </div>
+  </head>
+  <body>
+    <fieldset class="login">
+      <legend class="sr-only">로그인</legend>
+      <h1>로그인</h1>
+      <div class="login-container">
+        <div class="input-box user-email">
+          <label for="userEmail" class="sr-only">이메일</label>
+          <input
+            type="email"
+            class="text-input user-email-input"
+            id="userEmail"
+            name="userEmail"
+            placeholder="이메일을 입력해주세요"
+            required
+            aria-invalid="false"
+            aria-describedby="userEmailError"
+            aria-live="assertive" />
+          <span class="error-message" id="userEmailError"
+            >이메일 형식으로 입력해주세요.</span
+          >
+        </div>
+        <div class="input-box user-password">
+          <label for="userPassword" class="sr-only">비밀번호</label>
+          <input
+            type="password"
+            class="text-input user-password-input"
+            id="userPassword"
+            name="userPassword"
+            placeholder="비밀번호를 입력해주세요"
+            required
+            aria-invalid="false"
+            aria-describedby="userPasswordError"
+            aria-live="polite" />
+          <span class="error-message" id="userPasswordError"
+            >비밀번호는 특수문자 포함 6자리 이상 입력해주세요.</span
+          >
+        </div>
 
-    <div id="errorPopup" class="error-popup">
-      <div class="popup-content">
-        <p id="loginError"></p>
-        <button class="btn-close" id="closePopup">확인</button>
+        <button class="btn btn-login btn-submit btn-xlarge">로그인</button>
+        <a
+          href="/src/pages/register/register.html"
+          class="btn-link btn-line"
+          aria-label="회원가입 페이지로 이동"
+          >회원가입</a
+        >
       </div>
-    </div>
-  </fieldset>
-</body>
+
+      <div id="errorPopup" class="error-popup">
+        <div class="popup-content">
+          <p id="loginError"></p>
+          <button class="btn-close" id="closePopup">확인</button>
+        </div>
+      </div>
+    </fieldset>
+  </body>
+</html>
