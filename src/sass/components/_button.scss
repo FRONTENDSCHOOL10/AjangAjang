@@ -1,12 +1,16 @@
-@use "/src/sass/abstracts/variables" as var;
-@use "/src/sass/abstracts/mixins" as mix;
+@use '/src/sass/abstracts/variables' as var;
+@use '/src/sass/abstracts/mixins' as mix;
 
-.btn, .btn-link {
-  @include mix.flexbox(column, nowrap, center, center); 
+.btn,
+.btn-link {
   @include mix.radius(xs);
   @include mix.size(100%, 44px);
-  padding: 0; 
-  margin: 0; 
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   box-sizing: border-box;
   border: 1px solid var.$primary-color;
@@ -17,11 +21,11 @@
   font-size: var.$font-size-p;
 
   cursor: pointer;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .btn-link {
-  height: 54px; 
+  height: 54px;
 }
 
 // white 버튼
@@ -57,7 +61,7 @@
 
 // submit
 .btn-submit {
-  height: 54px; 
+  height: 54px;
   padding: 0;
   background-color: var.$primary-color;
   color: var.$white;

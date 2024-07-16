@@ -1,5 +1,5 @@
-@use "/src/sass/abstracts/variables" as var;
-@use "/src/sass/abstracts/mixins" as mix;
+@use '/src/sass/abstracts/variables' as var;
+@use '/src/sass/abstracts/mixins' as mix;
 
 // 숨김 클래스
 .sr-only {
@@ -30,7 +30,7 @@
   .input-box {
     position: relative;
   }
-  
+
   .text-input {
     @include mix.size(340px, 50px);
     @include mix.radius(xs);
@@ -63,7 +63,7 @@
 }
 
 .error-popup {
-  display: none; 
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -79,12 +79,12 @@
     border-radius: 10px;
     text-align: center;
   }
-  
+
   .popup-content p {
     @include mix.marginY(20px);
   }
 
-  .btn-close{
+  .btn-close {
     @include mix.margin-block-start(20px);
     @include mix.padding-block-start(20px);
     width: 100%;
