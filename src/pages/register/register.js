@@ -24,7 +24,9 @@ getNode('#registerBtn').addEventListener('click', async () => {
   const passwordConfirm = getNode('#userPasswordCheck').value;
   const name = getNode('#nameField').value;
   const userAddress = getNode('#addressField').value;
-  const userBirth = new Date(getNode('#birthField').value).toISOString();
+  const userBirth = getNode('#birthField').value
+    ? new Date(getNode('#birthField')).toISOString()
+    : null;
   const userPhone = getNode('#phoneField').value;
   const userGender = getNode('input[name="gender"]:checked').value;
 
