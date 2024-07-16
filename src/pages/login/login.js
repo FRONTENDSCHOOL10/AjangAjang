@@ -64,12 +64,13 @@ async function handleLogin(e) {
       const pw = $passwordInput.value;
 
       // PocketBase에서 사용자 인증하기
-      const authData = await pb.collection('users').authWithPassword(id, pw);
+      // const authData =
+      await pb.collection('users').authWithPassword(id, pw);
 
-      console.log('Authentication successful:', authData);
-      console.log('Is valid:', pb.authStore.isValid);
-      console.log('Auth token:', pb.authStore.token);
-      console.log('User ID:', pb.authStore.model.id);
+      // console.log('Authentication successful:', authData);
+      // console.log('Is valid:', pb.authStore.isValid);
+      // console.log('Auth token:', pb.authStore.token);
+      // console.log('User ID:', pb.authStore.model.id);
 
       // 인증 성공 시 페이지 이동
       const { model, token } = await getStorage('pocketbase_auth');
