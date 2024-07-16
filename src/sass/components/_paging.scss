@@ -11,6 +11,13 @@ li {
   list-style-type: none;
 }
 
+.product-card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 783px;
+  margin: 0 auto;
+}
+
 .page-container {
   display: flex;
   align-items: center;
