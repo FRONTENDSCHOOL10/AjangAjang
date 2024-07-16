@@ -13,18 +13,18 @@ const $closePopup = getNode('#closePopup');
 let emailCheckPass = false;
 let pwCheckPass = false;
 
-function emailReg(text) {
+export function emailReg(text) {
   const re =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(text).toLowerCase());
 }
 
-function pwReg(text) {
+export function pwReg(text) {
   const re = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^*+=-]).{6,16}$/;
   return re.test(String(text));
 }
 
-function handleEmailCheck() {
+export function handleEmailCheck() {
   const value = this.value;
   if (emailReg(value)) {
     this.classList.remove('is--invalid');
@@ -35,7 +35,7 @@ function handleEmailCheck() {
   }
 }
 
-function handlePasswordCheck() {
+export function handlePasswordCheck() {
   const value = this.value;
   if (pwReg(value)) {
     this.classList.remove('is--invalid');
@@ -64,13 +64,12 @@ async function handleLogin(e) {
       const pw = $passwordInput.value;
 
       // PocketBase에서 사용자 인증하기
-      // const authData =
-      await pb.collection('users').authWithPassword(id, pw);
+      const authData = await pb.collection('users').authWithPassword(id, pw);
 
-      // console.log('Authentication successful:', authData);
-      // console.log('Is valid:', pb.authStore.isValid);
-      // console.log('Auth token:', pb.authStore.token);
-      // console.log('User ID:', pb.authStore.model.id);
+      console.log('Authentication successful:', authData);
+      console.log('Is valid:', pb.authStore.isValid);
+      console.log('Auth token:', pb.authStore.token);
+      console.log('User ID:', pb.authStore.model.id);
 
       // 인증 성공 시 페이지 이동
       const { model, token } = await getStorage('pocketbase_auth');
@@ -92,7 +91,12 @@ async function handleLogin(e) {
   }
 }
 
-$emailInput.addEventListener('input', handleEmailCheck);
-$passwordInput.addEventListener('input', handlePasswordCheck);
-$loginBtn.addEventListener('click', handleLogin);
-$closePopup.addEventListener('click', closeErrorPopup);
+// 요소가 존재하는지 확인
+if ($emailInput && $passwordInput && $loginBtn) {
+  $emailInput.addEventListener('input', handleEmailCheck);
+  $passwordInput.addEventListener('input', handlePasswordCheck);
+  $loginBtn.addEventListener('click', handleLogin);
+  if ($closePopup) {
+    $closePopup.addEventListener('click', closeErrorPopup);
+  }
+}
