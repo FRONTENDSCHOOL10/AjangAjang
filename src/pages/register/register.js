@@ -1,7 +1,5 @@
-import PocketBase from 'pocketbase';
 import { getNode } from 'kind-tiger';
-
-const pb = new PocketBase('https://ajangajang.pockethost.io');
+import pb from '/src/api/pocketbase.js';
 
 getNode('#emailCheckBtn').addEventListener('click', async () => {
   const email = getNode('#userEmail').value;
