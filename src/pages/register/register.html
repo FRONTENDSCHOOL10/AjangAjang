@@ -18,6 +18,7 @@
     /></noscript>
 
     <script type="module" src="/main.js" defer></script>
+    <script type="module" src="/src/pages/register/register.js" defer></script>
     <script type="module" src="/src/components/input-checkbox.js"></script>
   </head>
   <body>
@@ -41,7 +42,12 @@
             name="userEmail"
             placeholder="이메일을 입력해주세요"
             required />
-          <button type="button" class="btn btn-line btn-small">중복확인</button>
+          <button
+            type="button"
+            class="btn btn-line btn-small"
+            id="emailCheckBtn">
+            중복확인
+          </button>
         </div>
 
         <div class="input-box user-password">
@@ -211,7 +217,9 @@
           </div>
         </div>
       </div>
-      <button class="btn btn-submit btn-xlarge">가입하기</button>
+      <button class="btn btn-submit btn-xlarge" id="registerBtn">
+        가입하기
+      </button>
     </fieldset>
   </body>
 </html>
