@@ -19,6 +19,7 @@ async function renderProductItemRecomd() {
   });
 
   const { isAuth } = await getStorage("auth");
+  console.log(isAuth);
 
   productData.forEach((item) => {
     const discount = item.price - item.price * (item.sale * 0.01);
@@ -28,7 +29,7 @@ async function renderProductItemRecomd() {
       <div class="swiper-slide">
         <div class="product-card">
           <a
-            href="${isAuth ? `/src/pages/detail/index.html?product=${item.id}` : "/src/pages/login/"}"
+            href="${isAuth ? `/src/pages/product-detail.html?product=${item.id}` : "/src/pages/login/"}"
             aria-label="${item.title} 상품링크"
             class="product-card-link"
           >
@@ -52,7 +53,7 @@ async function renderProductItemRecomd() {
               class="product-card-button-icon-cart"
             ></button>
             <a
-              href="/src/components/detail.html"
+              href="${isAuth ? `/src/pages/product-detail.html?product=${item.id}` : "/src/pages/login/"}"
               tabindex="-1"
               aria-hidden="true"
             >
