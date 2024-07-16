@@ -8,6 +8,7 @@ import {
 import pb from "@/api/pocketbase";
 import getPbImageURL from "@/api/getPbImageURL";
 import defaultAuthData from "@/api/defaultAuthData";
+import "/src/components/cart-popup.js";
 
 if (!localStorage.getItem("auth")) {
   setStorage("auth", defaultAuthData);
@@ -24,7 +25,7 @@ async function renderProductItemRecomd() {
     const discount = item.price - item.price * (item.sale * 0.01);
     const badddge = item.badge;
 
-    const template = `
+    const template = /* html */ `
       <div class="swiper-slide">
         <div class="product-card">
           <a
@@ -49,7 +50,7 @@ async function renderProductItemRecomd() {
             <button
               type="button"
               aria-label="장바구니 담기"
-              class="product-card-button-icon-cart"
+              class="product-card-button-icon-cart product-card-button-popup"
             ></button>
             <a
               href="/src/components/detail.html"
