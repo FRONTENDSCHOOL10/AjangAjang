@@ -33,7 +33,18 @@ getNode("#registerBtn").addEventListener("click", async () => {
     : null;
   const userPhone = getNode("#phoneField").value;
   const selectedGenderInput = getNode('input[name="gender"]:checked');
-  const userGender = selectedGenderInput.nextElementSibling.textContent;
+  const userGender = selectedGenderInput
+    ? selectedGenderInput.nextElementSibling.textContent
+    : null;
+
+  // 필수 이용약관 체크 여부 확인
+  const requiredAgreements = document.querySelectorAll(".required-agreement");
+  for (let i = 0; i < requiredAgreements.length; i++) {
+    if (!requiredAgreements[i].checked) {
+      alert("필수 이용약관에 동의해야 합니다.");
+      return;
+    }
+  }
 
   const data = {
     email,
