@@ -12,6 +12,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         login: resolve(__dirname, '/src/pages/login/login.html'),
         register: resolve(__dirname, '/src/pages/register/register.html'),
+        verification: resolve(__dirname, '/src/pages/register/verify.html'),
         product_list: resolve(
           __dirname,
           './src/pages/product/product_list.html'
