@@ -17,8 +17,8 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
     /></noscript>
 
-    <script type="module" src="/main.js" defer></script>
-    <script type="module" src="/src/pages/register/register.js" defer></script>
+    <script type="module" src="/main.js"></script>
+    <script type="module" src="/src/pages/register/register.js"></script>
     <script type="module" src="/src/components/input-checkbox.js"></script>
   </head>
   <body>
@@ -129,7 +129,9 @@
         </div>
 
         <div class="input-box gender-field">
-          <label class="gender">성별</label>
+          <label class="gender"
+            >성별<span class="asterisk" aria-label="필수 항목">*</span></label
+          >
           <div class="radio-group">
             <input class="radio-button" type="radio" id="male" name="gender" />
             <label for="male">남자</label>
@@ -193,10 +195,8 @@
               ></a>
             </div>
             <div class="agreement-option">
-              <input type="checkbox" id="promotions" name="promotions" />
-              <label for="promotions">
-                무료배송, 할인쿠폰 등 혜택/정보 수신 동의 (선택)
-              </label>
+              <input type="checkbox" id="age" name="age" />
+              <label for="age"> 본인은 만 14세 이상입니다. (필수) </label>
               <a href="#" rel="noopener noreferrer" class="terms-link"
                 >약관보기<span
                   ><svg class="arrow">
@@ -205,8 +205,10 @@
               ></a>
             </div>
             <div class="agreement-option">
-              <input type="checkbox" id="age" name="age" />
-              <label for="age"> 본인은 만 14세 이상입니다. (필수) </label>
+              <input type="checkbox" id="promotions" name="promotions" />
+              <label for="promotions">
+                무료배송, 할인쿠폰 등 혜택/정보 수신 동의 (선택)
+              </label>
               <a href="#" rel="noopener noreferrer" class="terms-link"
                 >약관보기<span
                   ><svg class="arrow">

@@ -1,6 +1,5 @@
-import PocketBase from 'pocketbase';
 import { getNode } from 'kind-tiger';
-const pb = new PocketBase('https://ajangajang.pockethost.io');
+import pb from '/src/api/pocketbase.js';
 
 getNode('#emailCheckBtn').addEventListener('click', async () => {
   const email = getNode('#userEmail').value;
@@ -23,7 +22,9 @@ getNode('#registerBtn').addEventListener('click', async () => {
   const passwordConfirm = getNode('#userPasswordCheck').value;
   const name = getNode('#nameField').value;
   const userAddress = getNode('#addressField').value;
-  const userBirth = new Date(getNode('#birthField').value).toISOString();
+  const userBirth = getNode('#birthField').value
+    ? new Date(getNode('#birthField')).toISOString()
+    : null;
   const userPhone = getNode('#phoneField').value;
   const userGender = getNode('input[name="gender"]:checked').value;
 
@@ -44,6 +45,13 @@ getNode('#registerBtn').addEventListener('click', async () => {
   try {
     const record = await pb.collection('users').create(data);
     console.log('User created:', record);
+
+    // 이메일 인증 요청
+    await pb.collection('users').requestVerification(data.email);
+    console.log('Verification email sent.');
+
+    // 페이지 리다이렉션
+    window.location.href = `verify.html?email=${encodeURIComponent(data.email)}`;
   } catch (error) {
     console.error('Error creating user:', error);
   }
