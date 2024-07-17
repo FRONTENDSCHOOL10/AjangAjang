@@ -78,15 +78,13 @@ h1 {
   }
 }
 
-
-.header-category-wrap{
-  position:sticky;
-  top:0;
-  z-index:15;
-  padding:16px 0;
-  background-color:var.$white;
+.header-category-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  padding: 16px 0;
+  background-color: var.$white;
 }
-
 
 .header-category {
   @include mix.flexbox($justify: space-between, $items: center);
@@ -115,10 +113,10 @@ h1 {
       @include mix.flexbox($direction: column);
       position: absolute;
       top: 45px;
-      z-index:10;
+      z-index: 10;
       width: 248px;
       height: calc(100vh - 200px);
-      background-color:var.$white;
+      background-color: var.$white;
       border: 1px solid var.$gray-300;
       overflow-y: scroll;
 
@@ -141,9 +139,18 @@ h1 {
         letter-spacing: -0.3px;
       }
 
-      & a > img {
+      & a > img,
+      & a > svg {
         width: 24px;
+        height: 24px;
         margin-right: 8px;
+        color: #f2ff4f;
+      }
+
+      & a:hover > svg path {
+        stroke: var.$primary-color;
+        stroke-width: 3;
+        fill: currentColor;
       }
     }
   }
