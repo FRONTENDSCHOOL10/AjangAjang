@@ -34,8 +34,9 @@ async function fetchData() {
   setPageOf(currentPage);
 }
 
-const COUNT_PER_PAGE = 12;
+const COUNT_PER_PAGE = 6;
 const PAGE_BUTTON_LIMIT = 3;
+const MAX_PAGE = 6;  // 최대 페이지 수를 6으로 설정
 const pageNumberWrapper = document.querySelector('.page-number-wrapper');
 const ul = document.querySelector('.product-card-list');
 const prevBtn_3page = document.querySelector('.prev-btn-3page');
@@ -58,7 +59,7 @@ function updateURL(pageNumber) {
 
 // 페이지 수 관여
 function getTotalPageCount() {
-  return Math.ceil(data.length * 20 / COUNT_PER_PAGE);
+  return Math.min(Math.ceil(data.length * 20 / COUNT_PER_PAGE), MAX_PAGE); // 최대 페이지를 6으로 제한
 }
 
 function setPageButtons() {
@@ -84,8 +85,10 @@ function setPageButtons() {
 
 function setPageOf(pageNumber) {
   ul.innerHTML = '';
-  for (let i = COUNT_PER_PAGE * (pageNumber - 1) + 1; i <= COUNT_PER_PAGE * (pageNumber - 1) + COUNT_PER_PAGE; i++) {
-    const item = data[(i - 1) % data.length];
+  const startIndex = COUNT_PER_PAGE * (pageNumber - 1);
+  const endIndex = Math.min(startIndex + COUNT_PER_PAGE, data.length);
+  for (let i = startIndex; i < endIndex; i++) {
+    const item = data[i];
     const discount = item.price - item.price * (item.sale * 0.01);
     const template = `
       <li class="product-card">
@@ -106,7 +109,7 @@ function setPageOf(pageNumber) {
           <button type="button" aria-label="장바구니 담기" class="product-card-button-icon-cart">
             <img src="/src/assets/icon-cart.png" alt="장바구니 담기" class="product-card-icon-cart"/>
           </button>
-          <a href="/src/components/detail.html" tabindex="-1" aria-hidden="true">
+          <a href="/src/components/detail.html?product=${item.pageNumber}" tabindex="-1" aria-hidden="true">
             <img src="${item.thumbnail}" alt="${item.title} 썸네일" class="product-card-thumb-img"/>
           </a>
         </div>
@@ -115,6 +118,7 @@ function setPageOf(pageNumber) {
     ul.insertAdjacentHTML('beforeend', template);
   }
 }
+
 
 function updatePage() {
   setPageOf(currentPage);
