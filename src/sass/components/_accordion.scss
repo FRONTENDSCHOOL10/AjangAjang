@@ -1,5 +1,5 @@
-@use '/src/sass/abstracts/variables' as var;
-@use '/src/sass/abstracts/mixins' as mix;
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
 
 .filter-accordion {
   width: 220px;
@@ -28,8 +28,8 @@
         align-items: center;
 
         &::after {
-          content: '';
-          background: url('/public/icon/stack.svg#down');
+          content: "";
+          background: url("/public/icon/stack.svg#down");
           width: 18px;
           height: 18px;
           position: absolute;
