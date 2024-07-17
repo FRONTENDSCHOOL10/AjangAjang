@@ -46,11 +46,11 @@ h1 {
 }
 
 .header-wrap {
-  @include mix.flexbox($justify: space-between);
-  margin-top: 30px;
+  @include mix.flexbox($justify: space-between, $items: center);
+  margin-top: 20px;
 
   .header-input-search {
-    @include mix.flexbox($justify: space-between);
+    @include mix.flexbox($justify: space-between, $items: center);
     @include mix.radius(xs);
     height: 48px;
     border: 1px solid var.$primary-color;
@@ -70,27 +70,30 @@ h1 {
       border: 0;
       cursor: pointer;
       padding: 0;
+      background: url(/icon/stack.svg#search) no-repeat left top;
+      background-size: 36px;
     }
   }
 
   .header-list-other {
     @include mix.flexbox($items: center, $gap: 20px);
+
+    svg {
+      @include mix.size(36px, 36px);
+    }
   }
 }
 
-
-.header-category-wrap{
-  position:sticky;
-  top:0;
-  z-index:15;
-  padding:16px 0;
-  background-color:var.$white;
+.header-category-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  background-color: var.$white;
 }
-
 
 .header-category {
   @include mix.flexbox($justify: space-between, $items: center);
-  height: 40px;
+  height: 72px;
 
   nav {
     position: relative;
@@ -98,7 +101,9 @@ h1 {
     .header-btn-category {
       @include mix.flexbox($items: center);
 
-      img {
+      img,
+      svg {
+        @include mix.size(16px, 14px);
         margin-right: 12px;
       }
     }
@@ -115,10 +120,10 @@ h1 {
       @include mix.flexbox($direction: column);
       position: absolute;
       top: 45px;
-      z-index:10;
+      z-index: 10;
       width: 248px;
       height: calc(100vh - 200px);
-      background-color:var.$white;
+      background-color: var.$white;
       border: 1px solid var.$gray-300;
       overflow-y: scroll;
 
@@ -141,9 +146,18 @@ h1 {
         letter-spacing: -0.3px;
       }
 
-      & a > img {
+      & a > img,
+      & a > svg {
         width: 24px;
+        height: 24px;
         margin-right: 8px;
+        color: #f2ff4f;
+      }
+
+      & a:hover > svg path {
+        stroke: var.$primary-color;
+        stroke-width: 3;
+        fill: currentColor;
       }
     }
   }

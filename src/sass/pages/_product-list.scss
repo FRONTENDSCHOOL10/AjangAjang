@@ -1,0 +1,73 @@
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
+
+.list-page {
+  @include mix.flexbox(row, nowrap);
+}
+
+.pagination {
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+.product-card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 783px;
+  margin: 0 auto;
+}
+
+.page-container {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px solid var.$gray-100;
+  margin: 15px;
+}
+
+.page-title {
+  font-size: var.$font-size-p;
+}
+
+.page-number {
+  font-size: var.$font-size-p;
+  padding: 15px;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.pagination-container button {
+  border: 1px solid var.$gray-100;
+  width: 34px;
+  height: 34px;
+  background-color: var.$white;
+  cursor: pointer;
+}
+
+.page-number-btn,
+.selected {
+  border: 1px solid var.$gray-100;
+  background-color: var.$white;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.selected {
+  font-weight: var.$font-weight-600;
+  font-size: var.$font-size-p;
+  color: var.$primary-color;
+}

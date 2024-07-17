@@ -7,87 +7,87 @@
   @include mix.padding-block-end(40px);
 }
 
-.visual {
+#visual {
   @include mix.size(100%, 370px);
   margin: 0 auto;
   max-width: 1900px;
   background: var.$white url(/src/assets/banner05.jpg) no-repeat center center;
   overflow: hidden;
-}
 
-.visual-swiper {
-  @include mix.size(100%, 370px);
-  position: relative;
-
-  .parallax-slide {
-    flex-shrink: 0;
-    overflow: hidden;
+  .visual-swiper {
+    @include mix.size(100%, 370px);
     position: relative;
-    transition-property: transform;
-  }
 
-  .visual-inner {
-    @include mix.inline-size(1050px);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 2;
-    translate: -50% -50%;
-  }
+    .parallax-slide {
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+      transition-property: transform;
+    }
 
-  .swiper-button-prev,
-  .swiper-button-next {
-    color: var.$white;
-    opacity: 0.5;
-    transition: 0.2s;
-  }
+    .visual-inner {
+      @include mix.inline-size(1050px);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      translate: -50% -50%;
+    }
 
-  &:hover .swiper-button-prev,
-  &:hover .swiper-button-next {
-    opacity: 1;
-  }
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: var.$white;
+      opacity: 0.5;
+      transition: 0.2s;
+    }
 
-  .swiper-button-prev:after,
-  .swiper-button-next:after {
-    background-color: rgba(0, 0, 0, 0.2);
-  }
+    &:hover .swiper-button-prev,
+    &:hover .swiper-button-next {
+      opacity: 1;
+    }
 
-  .swiper-button-prev:hover:after,
-  .swiper-button-next:hover:after {
-    background-color: rgba(0, 0, 0, 0.5);
-  }
+    .swiper-button-prev:after,
+    .swiper-button-next:after {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
 
-  .swiper-slide > a {
-    display: block;
-    height: inherit;
-  }
+    .swiper-button-prev:hover:after,
+    .swiper-button-next:hover:after {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
 
-  .swiper-slide-01 > a {
-    background: url(/src/assets/banner01.jpg) no-repeat center center;
-  }
+    .swiper-slide > a {
+      display: block;
+      height: inherit;
+    }
 
-  .swiper-slide-02 > a {
-    background: url(/src/assets/banner02.jpg) no-repeat center center;
-  }
+    .swiper-slide-01 > a {
+      background: url(/src/assets/banner01.jpg) no-repeat center center;
+    }
 
-  .swiper-slide-03 > a {
-    background: url(/src/assets/banner03.jpg) no-repeat center center;
-  }
+    .swiper-slide-02 > a {
+      background: url(/src/assets/banner02.jpg) no-repeat center center;
+    }
 
-  .swiper-slide-04 > a {
-    background: url(/src/assets/banner05.jpg) no-repeat center center;
-  }
+    .swiper-slide-03 > a {
+      background: url(/src/assets/banner03.jpg) no-repeat center center;
+    }
 
-  .swiper-pagination-fraction {
-    @include mix.inline-size(auto);
-    @include mix.padding(12px, 4px);
-    @include mix.radius(lg);
-    left: auto;
-    right: calc(50% - 500px);
-    translate: 0 -50%;
-    font-size: var.$font-size-sm;
-    color: var.$white;
-    background-color: rgba(0, 0, 0, 0.2);
+    .swiper-slide-04 > a {
+      background: url(/src/assets/banner05.jpg) no-repeat center center;
+    }
+
+    .swiper-pagination-fraction {
+      @include mix.inline-size(auto);
+      @include mix.padding(12px, 4px);
+      @include mix.radius(lg);
+      left: auto;
+      right: calc(50% - 500px);
+      translate: 0 -50%;
+      font-size: var.$font-size-sm;
+      color: var.$white;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
   }
 }
 

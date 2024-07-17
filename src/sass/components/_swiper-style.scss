@@ -1,23 +1,25 @@
 @use "/src/sass/abstracts/variables" as var;
 @use "/src/sass/abstracts/mixins" as mix;
 
-.swiper-button-prev,
-.swiper-button-next {
-  @include mix.size(50px, 50px);
-  text-align: center;
-  color: var.$content-color;
-}
+.main-container {
+  .swiper-button-prev,
+  .swiper-button-next {
+    @include mix.size(50px, 50px);
+    text-align: center;
+    color: var.$content-color;
+  }
 
-.swiper-button-prev:after,
-.swiper-button-next:after {
-  @include mix.size(50px, 50px);
-  font-size: 20px;
-  line-height: 50px;
-  background-color: var.$white;
-  border-radius: 50%;
-}
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    @include mix.size(50px, 50px);
+    font-size: 20px;
+    line-height: 50px;
+    background-color: var.$white;
+    border-radius: 50%;
+  }
 
-.swiper-button-prev:hover:after,
-.swiper-button-next:hover:after {
-  background-color: var.$white;
+  .swiper-button-prev:hover:after,
+  .swiper-button-next:hover:after {
+    background-color: var.$white;
+  }
 }
