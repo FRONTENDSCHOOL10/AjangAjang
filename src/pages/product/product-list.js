@@ -1,8 +1,4 @@
-import {
-  comma,
-  getStorage,
-  setStorage,
-} from "kind-tiger";
+import { comma, getStorage, setStorage } from "kind-tiger";
 import pb from "@/api/pocketbase";
 import getPbImageURL from "@/api/getPbImageURL";
 import defaultAuthData from "@/api/defaultAuthData";
@@ -14,7 +10,9 @@ if (!localStorage.getItem("auth")) {
 let data = [];
 
 async function fetchData() {
-  const productData = await pb.collection("products").getFullList({ sort: "-created" });
+  const productData = await pb
+    .collection("products")
+    .getFullList({ sort: "-created" });
   const auth = await getStorage("auth");
   const isAuth = auth.isAuth;
 
@@ -27,7 +25,7 @@ async function fetchData() {
     badge: item.badge,
     thumbnail: getPbImageURL(item, "thumbnail"),
     early_delivery: item.early_delivery,
-    isAuth
+    isAuth,
   }));
 
   setPageButtons();
@@ -36,47 +34,48 @@ async function fetchData() {
 
 const COUNT_PER_PAGE = 6;
 const PAGE_BUTTON_LIMIT = 3;
-const MAX_PAGE = 6;  // 최대 페이지 수를 6으로 설정
-const pageNumberWrapper = document.querySelector('.page-number-wrapper');
-const ul = document.querySelector('.product-card-list');
-const prevBtn_3page = document.querySelector('.prev-btn-3page');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
-const nextBtn_3page = document.querySelector('.next-btn-3page');
+const MAX_PAGE = 6; // 최대 페이지 수를 6으로 설정
+const pageNumberWrapper = document.querySelector(".page-number-wrapper");
+const ul = document.querySelector(".product-card-list");
+const prevBtn_3page = document.querySelector(".prev-btn-3page");
+const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.querySelector(".next-btn");
+const nextBtn_3page = document.querySelector(".next-btn-3page");
 
 let currentPage = getCurrentPageFromURL();
 
 function getCurrentPageFromURL() {
   const params = new URLSearchParams(window.location.search);
-  return parseInt(params.get('page')) || 1;
+  return parseInt(params.get("page")) || 1;
 }
 
 function updateURL(pageNumber) {
   const params = new URLSearchParams(window.location.search);
-  params.set('page', pageNumber);
-  history.pushState({}, '', `${window.location.pathname}?${params}`);
+  params.set("page", pageNumber);
+  history.pushState({}, "", `${window.location.pathname}?${params}`);
 }
 
 // 페이지 수 관여
 function getTotalPageCount() {
-  return Math.min(Math.ceil(data.length * 20 / COUNT_PER_PAGE), MAX_PAGE); // 최대 페이지를 6으로 제한
+  return Math.min(Math.ceil((data.length * 20) / COUNT_PER_PAGE), MAX_PAGE); // 최대 페이지를 6으로 제한
 }
 
 function setPageButtons() {
-  pageNumberWrapper.innerHTML = '';
+  pageNumberWrapper.innerHTML = "";
   const totalPageCount = getTotalPageCount();
-  const startPage = Math.floor((currentPage - 1) / PAGE_BUTTON_LIMIT) * PAGE_BUTTON_LIMIT + 1;
+  const startPage =
+    Math.floor((currentPage - 1) / PAGE_BUTTON_LIMIT) * PAGE_BUTTON_LIMIT + 1;
   const endPage = Math.min(startPage + PAGE_BUTTON_LIMIT - 1, totalPageCount);
 
   for (let i = startPage; i <= endPage; i++) {
     pageNumberWrapper.innerHTML += `<span class="page-number-btn" data-page="${i}"> ${i} </span>`;
   }
 
-  document.querySelectorAll('.page-number-btn').forEach((btn) => {
+  document.querySelectorAll(".page-number-btn").forEach((btn) => {
     if (parseInt(btn.dataset.page) === currentPage) {
-      btn.classList.add('selected');
+      btn.classList.add("selected");
     }
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener("click", (e) => {
       currentPage = parseInt(e.target.dataset.page);
       updatePage();
     });
@@ -84,7 +83,7 @@ function setPageButtons() {
 }
 
 function setPageOf(pageNumber) {
-  ul.innerHTML = '';
+  ul.innerHTML = "";
   const startIndex = COUNT_PER_PAGE * (pageNumber - 1);
   const endIndex = Math.min(startIndex + COUNT_PER_PAGE, data.length);
   for (let i = startIndex; i < endIndex; i++) {
@@ -102,23 +101,20 @@ function setPageOf(pageNumber) {
           </div>
           ${item.sale ? `<div class="product-card-cost">${comma(item.price)} 원</div>` : ``}
           <div class="product-card-badges">
-            ${item.badge.map(badge => `<span class="product-card-badge${badge.includes('Karly Only') ? ' badges-primary' : ''}">${badge}</span>`).join('')}
+            ${item.badge.map((badge) => `<span class="product-card-badge${badge.includes("Karly Only") ? " badges-primary" : ""}">${badge}</span>`).join("")}
           </div>
         </a>
         <div class="product-card-thumb">
-          <button type="button" aria-label="장바구니 담기" class="product-card-button-icon-cart">
-            <img src="/src/assets/icon-cart.png" alt="장바구니 담기" class="product-card-icon-cart"/>
-          </button>
+          <button type="button" aria-label="장바구니 담기" class="product-card-button-icon-cart"></button>
           <a href="/src/components/detail.html?product=${item.pageNumber}" tabindex="-1" aria-hidden="true">
             <img src="${item.thumbnail}" alt="${item.title} 썸네일" class="product-card-thumb-img"/>
           </a>
         </div>
       </li>
     `;
-    ul.insertAdjacentHTML('beforeend', template);
+    ul.insertAdjacentHTML("beforeend", template);
   }
 }
-
 
 function updatePage() {
   setPageOf(currentPage);
@@ -126,21 +122,21 @@ function updatePage() {
   updateURL(currentPage);
 }
 
-prevBtn_3page.addEventListener('click', () => {
+prevBtn_3page.addEventListener("click", () => {
   if (currentPage > 3) {
     currentPage = Math.max(1, currentPage - 3);
     updatePage();
   }
 });
 
-prevBtn.addEventListener('click', () => {
+prevBtn.addEventListener("click", () => {
   if (currentPage > 1) {
     currentPage -= 1;
     updatePage();
   }
 });
 
-nextBtn.addEventListener('click', () => {
+nextBtn.addEventListener("click", () => {
   const totalPageCount = getTotalPageCount();
   if (currentPage < totalPageCount) {
     currentPage += 1;
@@ -148,7 +144,7 @@ nextBtn.addEventListener('click', () => {
   }
 });
 
-nextBtn_3page.addEventListener('click', () => {
+nextBtn_3page.addEventListener("click", () => {
   const totalPageCount = getTotalPageCount();
   if (currentPage < totalPageCount) {
     currentPage = Math.min(totalPageCount, currentPage + 3);

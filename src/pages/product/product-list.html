@@ -1,1 +1,45 @@
-product list
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>product-list</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <link rel="stylesheet" href="/src/sass/main.scss" />
+    <script type="module" src="/main.js"></script>
+  </head>
+  <body>
+    <c-header></c-header>
+
+    <div class="pagination">
+      <ul class="product-card-list"></ul>
+      <div class="pagination-container">
+        <button class="prev-btn-3page">
+          <img
+            src="/src/assets/prev-btn-3page.png"
+            alt="3개 이전 페이지로 돌아가기"
+          />
+        </button>
+        <button class="prev-btn">
+          <img src="/src/assets/prev-btn.png" alt="이전 페이지로 돌아가기" />
+        </button>
+        <div class="page-number-wrapper"></div>
+        <button class="next-btn">
+          <img src="/src/assets/next-btn.png" alt="다음 페이지로 돌아가기" />
+        </button>
+        <button class="next-btn-3page">
+          <img
+            src="/src/assets/next-btn-3page.png"
+            alt="3개 다음 페이지로 돌아가기"
+          />
+        </button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/pages/product/product-list.js"></script>
+  </body>
+</html>
