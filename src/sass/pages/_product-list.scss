@@ -1,6 +1,10 @@
 @use "/src/sass/abstracts/variables" as var;
 @use "/src/sass/abstracts/mixins" as mix;
 
+.list-page {
+  @include mix.flexbox(row, nowrap);
+}
+
 .pagination {
   margin: 0;
   padding: 10px;
@@ -50,7 +54,8 @@ li {
   cursor: pointer;
 }
 
-.page-number-btn, .selected {
+.page-number-btn,
+.selected {
   border: 1px solid var.$gray-100;
   background-color: var.$white;
   width: 34px;
