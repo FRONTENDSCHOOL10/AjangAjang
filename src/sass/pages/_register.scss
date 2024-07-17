@@ -1,5 +1,5 @@
-@use '/src/sass/abstracts/variables' as var;
-@use '/src/sass/abstracts/mixins' as mix;
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
 
 .register {
   @include mix.flexbox(column, nowrap, center, center);
@@ -26,14 +26,24 @@
     border-top: 2px solid var.$content-color;
   }
 
+  .input-box {
+    position: relative;
+  }
+
   .arrow {
     width: 16px;
     height: 16px;
   }
+  .error-area {
+    position: relative;
+  }
 
   .error-message {
+    position: absolute;
     @include mix.margin-block-start(12px);
     @include mix.margin-inline-start(5px);
+    left: 145px;
+    top: 35px;
     color: var.$primary-color;
     display: none;
     font-size: var.$font-size-sm;
