@@ -300,13 +300,18 @@ import defaultAuthData from "@/api/defaultAuthData";
   customElements.define("c-header", Header);
 })();
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const btnCategory = getNode(".header-btn-category");
-  console.log(btnCategory);
-  const detailCategory = document.querySelector(".header-category-detail");
-  const detailCategoryLastA = document.querySelector(
+function headerCategory() {
+  const cHeader = getNode("c-header");
+  const btnCategory = cHeader.shadowRoot.querySelector(".header-btn-category");
+  console.log("btnCategory:", btnCategory);
+  const detailCategory = cHeader.shadowRoot.querySelector(
+    ".header-category-detail"
+  );
+  console.log("detailCategory:", detailCategory);
+  const detailCategoryLastA = cHeader.shadowRoot.querySelector(
     ".header-category-detail li:last-child a"
   );
+  console.log("detailCategoryLastA:", detailCategoryLastA);
 
   function categoryOpen() {
     detailCategory.classList.add("is-active");
@@ -324,4 +329,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
   detailCategoryLastA.addEventListener("focusout", categoryClose);
-});
+}
+
+document.addEventListener("DOMContentLoaded", headerCategory);
