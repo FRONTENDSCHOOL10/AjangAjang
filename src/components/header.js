@@ -300,30 +300,28 @@ import defaultAuthData from "@/api/defaultAuthData";
   customElements.define("c-header", Header);
 })();
 
-// function headerCategory() {
-//   const btnCategory = getNode(".header-btn-category");
-//   console.log(btnCategory);
-//   const detailCategory = document.querySelector(".header-category-detail");
-//   const detailCategoryLastA = document.querySelector(
-//     ".header-category-detail li:last-child a"
-//   );
+document.addEventListener("DOMContentLoaded", async () => {
+  const btnCategory = getNode(".header-btn-category");
+  console.log(btnCategory);
+  const detailCategory = document.querySelector(".header-category-detail");
+  const detailCategoryLastA = document.querySelector(
+    ".header-category-detail li:last-child a"
+  );
 
-//   function categoryOpen() {
-//     detailCategory.classList.add("is-active");
-//   }
+  function categoryOpen() {
+    detailCategory.classList.add("is-active");
+  }
 
-//   function categoryClose() {
-//     detailCategory.classList.remove("is-active");
-//   }
+  function categoryClose() {
+    detailCategory.classList.remove("is-active");
+  }
 
-//   btnCategory.addEventListener("mouseenter", categoryOpen);
-//   detailCategory.addEventListener("mouseleave", categoryClose);
-//   btnCategory.addEventListener("keydown", (event) => {
-//     if (event.keyCode == 13) {
-//       categoryOpen();
-//     }
-//   });
-//   detailCategoryLastA.addEventListener("focusout", categoryClose);
-// }
-
-// headerCategory();
+  btnCategory.addEventListener("mouseenter", categoryOpen);
+  detailCategory.addEventListener("mouseleave", categoryClose);
+  btnCategory.addEventListener("keydown", (event) => {
+    if (event.keyCode == 13) {
+      categoryOpen();
+    }
+  });
+  detailCategoryLastA.addEventListener("focusout", categoryClose);
+});
