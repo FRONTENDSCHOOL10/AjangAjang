@@ -1,4 +1,4 @@
-import { getNode as $, comma, insertFirst, insertLast, getStorage, setStorage } from "kind-tiger";
+import { comma, insertFirst, insertLast, getStorage, setStorage } from "kind-tiger";
 import pb from "@/api/pocketbase";
 import getPbImageURL from "@/api/getPbImageURL";
 import defaultAuthData from "@/api/defaultAuthData";
@@ -40,23 +40,37 @@ async function renderProductItemRecomd() {
           </a>
 
           <div class="product-card-thumb">
-            <button type="button" aria-label="장바구니 담기" class="product-card-button-icon-cart" ></button>
-            <a href="${isAuth ? `/src/pages/product/product-detail.html?product=${item.id}` : "/src/pages/login/login.html"}" tabindex="-1" aria-hidden="true">
-              <img src="${getPbImageURL(item, "thumbnail")}" alt="${item.title} 썸네일" class="product-card-thumb-img" />
+            <button
+              type="button"
+              aria-label="장바구니 담기"
+              class="product-card-button-icon-cart"
+            ></button>
+            <a
+              href="${isAuth ? `/src/pages/product/product-detail.html?product=${item.id}` : "/src/pages/login/login.html"}"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              <img
+                src="${getPbImageURL(item, "thumbnail")}"
+                alt="${item.title} 썸네일"
+                class="product-card-thumb-img"
+              />
             </a>
           </div>
         </div>
       </div>
     `;
+    insertFirst(".product-swiper-recomd > .swiper-wrapper", template);
+    insertFirst(".product-swiper-sale > .swiper-wrapper", template);
 
     badddge.forEach((badge) => {
-      const topProducts = ".product-swiper-recomd  .product-card-badges";
-      const bottomProducts = $(".product-swiper-sale  .product-card-badges");
-
       const templateBadge = `
         <span class="product-card-badge">${badge}</span>
       `;
+
       if (badge) {
+        insertLast(".product-swiper-recomd .product-card-badges", templateBadge);
+        insertLast(".product-swiper-sale .product-card-badges", templateBadge);
         if (badge.includes("Karly Only")) {
           const badgeSpan = document.querySelectorAll(".product-card-badge");
 
@@ -67,13 +81,7 @@ async function renderProductItemRecomd() {
           });
         }
       }
-
-      insertLast(topProducts, templateBadge);
-      insertLast(bottomProducts, templateBadge);
     });
-
-    insertFirst(".product-swiper-recomd > .swiper-wrapper", template);
-    insertFirst(".product-swiper-sale > .swiper-wrapper", template);
   });
 }
 
