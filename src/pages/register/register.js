@@ -10,6 +10,21 @@ const $emailInput = getNode("#userEmail");
 const $passwordInput = getNode("#userPassword");
 const $passwordCheckInput = getNode("#userPasswordCheck");
 const $passwordCheckError = getNode("#userPasswordCheckError");
+const $phoneInput = getNode("#phoneField");
+const $verifyPhoneBtn = getNode("#verifyPhoneBtn");
+
+$verifyPhoneBtn.addEventListener("click", () => {
+  const verificationCode = Math.floor(
+    100000 + Math.random() * 900000
+  ).toString();
+  const userCode = prompt(`다음 인증 번호를 입력하세요: ${verificationCode}`);
+
+  if (userCode === verificationCode) {
+    alert("인증이 성공적으로 완료되었습니다.");
+  } else {
+    alert("인증 번호가 올바르지 않습니다.");
+  }
+});
 
 getNode("#emailCheckBtn").addEventListener("click", async () => {
   const email = getNode("#userEmail").value;
