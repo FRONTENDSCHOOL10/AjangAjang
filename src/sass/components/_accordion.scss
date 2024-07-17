@@ -7,12 +7,31 @@
   // margin: 0 auto;
 
   h1 {
-    font-size: vapx;
+    font-size: var.$font-size-p;
+    font-weight: var.$font-weight-600;
+    color: var.$content-color;
     padding: 10px;
   }
 
+  .filter-reset {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 10px;
+    width: 180px;
+
+    button {
+      color: var.$gray-300;
+      font-size: var.$font-size-xsmall;
+      font-weight: var.$font-weight-600;
+      background-color: var.$white;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
   .accordion-box {
-    background-color: yellow;
+    // background-color: yellow;
 
     details {
       border-bottom: 1px solid var.$gray-100;
@@ -26,6 +45,9 @@
         user-select: none;
         display: flex;
         align-items: center;
+        font-size: var.$font-size-p;
+        font-weight: var.$font-weight-600;
+        color: var.$content-color;
 
         &::after {
           content: "";
