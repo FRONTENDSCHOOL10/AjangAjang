@@ -1,9 +1,13 @@
-import totalStyle from "/src/sass/main.scss?inline"; // css 파일 inline 가져오기
+import abstractsStyle from "/src/sass/abstracts/_index.scss?inline";
+import baseStyle from "/src/sass/base/_index.scss?inline";
+import footerStyle from "/src/sass/components/_footer.scss?inline"; // css 파일 inline 가져오기
 
 const template = document.createElement("template");
 template.innerHTML = `
       <style>
-        ${totalStyle}
+        ${abstractsStyle},
+        ${baseStyle},
+        ${footerStyle}
       </style>
       <footer>
         <div class="footer-info content-center">
