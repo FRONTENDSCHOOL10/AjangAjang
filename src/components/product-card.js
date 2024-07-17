@@ -61,7 +61,7 @@ async function renderProductItemRecomd() {
       </div>
     `;
     insertFirst(".product-swiper-recomd > .swiper-wrapper", template);
-    //insertFirst(".product-swiper-sale > .swiper-wrapper", template);
+    insertFirst(".product-swiper-sale > .swiper-wrapper", template);
 
     badddge.forEach((badge) => {
       const templateBadge = `
@@ -69,7 +69,8 @@ async function renderProductItemRecomd() {
       `;
 
       if (badge) {
-        insertLast(".product-card-badges", templateBadge);
+        insertLast(".product-swiper-recomd .product-card-badges", templateBadge);
+        insertLast(".product-swiper-sale .product-card-badges", templateBadge);
         if (badge.includes("Karly Only")) {
           const badgeSpan = document.querySelectorAll(".product-card-badge");
 
