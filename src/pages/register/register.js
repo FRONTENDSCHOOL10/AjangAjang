@@ -13,11 +13,25 @@ const $passwordCheckError = getNode("#userPasswordCheckError");
 const $phoneInput = getNode("#phoneField");
 const $verifyPhoneBtn = getNode("#verifyPhoneBtn");
 
+// phoneInput 값이 존재할 때만 인증번호 받기 버튼 활성화 및 숫자인지 검증
+$phoneInput.addEventListener("input", () => {
+  const phoneValue = $phoneInput.value.trim();
+
+  // 입력 값이 숫자인지 검증
+  if (/^\d*$/.test(phoneValue)) {
+    $verifyPhoneBtn.disabled = phoneValue === "";
+  } else {
+    alert("휴대폰 번호는 숫자만 입력 가능합니다.");
+    $phoneInput.value = phoneValue.replace(/\D/g, ""); // 문자는 제거
+    $verifyPhoneBtn.disabled = $phoneInput.value.trim() === "";
+  }
+});
+
 $verifyPhoneBtn.addEventListener("click", () => {
   const verificationCode = Math.floor(
     100000 + Math.random() * 900000
   ).toString();
-  const userCode = prompt(`다음 인증 번호를 입력하세요: ${verificationCode}`);
+  const userCode = prompt(`인증 번호를 입력하세요: ${verificationCode}`);
 
   if (userCode === verificationCode) {
     alert("인증이 성공적으로 완료되었습니다.");
@@ -110,3 +124,6 @@ getNode("#registerBtn").addEventListener("click", async () => {
 
 $emailInput.addEventListener("input", handleEmailCheck);
 $passwordInput.addEventListener("input", handlePasswordCheck);
+
+// 초기 버튼 상태 설정
+$verifyPhoneBtn.disabled = true;
