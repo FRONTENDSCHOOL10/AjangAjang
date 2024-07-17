@@ -12,11 +12,16 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         login: resolve(__dirname, '/src/pages/login/login.html'),
         register: resolve(__dirname, '/src/pages/register/register.html'),
+        verification: resolve(__dirname, '/src/pages/register/verify.html'),
         product_list: resolve(
           __dirname,
-          './src/pages/product/product_list.html'
+          './src/pages/product/product-list.html'
         ),
         cart: resolve(__dirname, './src/pages/cart/cart.html'),
+        product_detail: resolve(
+          __dirname,
+          './src/pages/product/product-detail.html'
+        ),
       },
     },
   },
