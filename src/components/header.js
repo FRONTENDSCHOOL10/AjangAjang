@@ -5,7 +5,6 @@ import headerStyle from "/src/sass/layout/_header.scss?inline"; // css 파일 in
 import { getStorage, setStorage, getNode } from "kind-tiger";
 import pb from "../api/pocketbase";
 import defaultAuthData from "@/api/defaultAuthData";
-import { logout } from "@/pages/login/logout";
 
 (async function () {
   if (!localStorage.getItem("auth")) {
@@ -28,13 +27,26 @@ import { logout } from "@/pages/login/logout";
       <header class="content-center">
       <div class="header-list-member">
         <ul>
-          <li class="login-hidden">
-            <a href="/src/pages/register/register.html" class="join">회원가입</a>
-          </li>
-          <li class="login-hidden">
-            <span aria-hidden="true">&#124;</span><a href="/src/pages/login/login.html">로그인</a>
-          </li>
-          <li class="login-toggle"></li>
+          ${
+            isAuth
+              ? `
+              <li class="login-toggle">
+                <div style="font-size: var.$font-size-sm;">
+                  <span class="username" style="font-size: 12px;">${user.name}님</span>&nbsp;
+                  <span aria-hidden="true" style="color: #d9d9d9; font-size: 12px">&#124;</span>
+                  <button type="button" class="logout" style="background: none; border: none; color: #5f0080; font-size: 12px; cursor: pointer;" >로그아웃</button>&nbsp;
+                </div>
+              </li>
+              `
+              : `
+              <li class="login-hidden">
+                <a href="/src/pages/register/register.html" class="join">회원가입</a>
+              </li>
+              <li class="login-hidden">
+                <span aria-hidden="true">&#124;</span><a href="/src/pages/login/login.html">로그인</a>
+              </li>
+              `
+          }
           <li>
             <span aria-hidden="true">&#124;</span><a href="/">고객센터</a>
           </li>
@@ -276,7 +288,7 @@ import { logout } from "@/pages/login/logout";
     logOut(e) {
       e.preventDefault();
 
-      if (confirm("정말 로그아웃 하실겁니까?")) {
+      if (confirm("정말??? 정말 로그아웃 하실겁니까???")) {
         pb.authStore.clear();
         setStorage("auth", defaultAuthData);
 
