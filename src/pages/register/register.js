@@ -1,8 +1,10 @@
 import "@/sass/main.scss";
 import pb from "@/api/pocketbase";
-import { getNode } from "kind-tiger";
+import { getNode, setDocumentTitle } from "kind-tiger";
 import { handleEmailCheck, handlePasswordCheck } from "@/pages/login/login.js";
 import agreeAllCheckBox from "@/components/input-checkbox";
+
+setDocumentTitle("회원가입 - 칼리");
 
 const $emailInput = getNode("#userEmail");
 const $passwordInput = getNode("#userPassword");
