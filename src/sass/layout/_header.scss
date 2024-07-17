@@ -46,11 +46,11 @@ h1 {
 }
 
 .header-wrap {
-  @include mix.flexbox($justify: space-between);
-  margin-top: 30px;
+  @include mix.flexbox($justify: space-between, $items: center);
+  margin-top: 20px;
 
   .header-input-search {
-    @include mix.flexbox($justify: space-between);
+    @include mix.flexbox($justify: space-between, $items: center);
     @include mix.radius(xs);
     height: 48px;
     border: 1px solid var.$primary-color;
@@ -70,11 +70,17 @@ h1 {
       border: 0;
       cursor: pointer;
       padding: 0;
+      background: url(/icon/stack.svg#search) no-repeat left top;
+      background-size: 36px;
     }
   }
 
   .header-list-other {
     @include mix.flexbox($items: center, $gap: 20px);
+
+    svg {
+      @include mix.size(36px, 36px);
+    }
   }
 }
 
@@ -82,13 +88,12 @@ h1 {
   position: sticky;
   top: 0;
   z-index: 15;
-  padding: 16px 0;
   background-color: var.$white;
 }
 
 .header-category {
   @include mix.flexbox($justify: space-between, $items: center);
-  height: 40px;
+  height: 72px;
 
   nav {
     position: relative;
@@ -96,7 +101,9 @@ h1 {
     .header-btn-category {
       @include mix.flexbox($items: center);
 
-      img {
+      img,
+      svg {
+        @include mix.size(16px, 14px);
         margin-right: 12px;
       }
     }

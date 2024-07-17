@@ -54,24 +54,35 @@ import defaultAuthData from "@/api/defaultAuthData";
       </div>
       <div class="header-wrap">
         <h1>
-          <a href="/"><img src="/logo.svg" alt="마켓칼리로고" />마켓칼리</a>
+          <a href="/"><img src="/logo.svg" alt="마켓칼리" /></a>
         </h1>
         <div class="header-input-search">
           <label for="inputSearch" class="sr-only">검색어를 입력해주세요</label>
           <input type="text" id="inputSearch" placeholder="검색어를 입력해주세요" />
-          <button type="button">
-            <img src="/src/assets/icon/Search.png" alt="검색 버튼" />
+          <button type="button" aria-label="검색하기">
           </button>
         </div>
         <ul class="header-list-other">
           <li>
-            <a href="/"><img src="/src/assets/icon/Location.png" alt="배송지 설정" /></a>
+            <a href="/" aria-label="배송지 설정">
+              <svg role="img" class="svg-icon">
+                <use href="/icon/stack.svg#location" />
+              </svg>
+            </a>
           </li>
           <li>
-            <a href="/"><img src="/src/assets/icon/Heart.png" alt="찜한 상품" /></a>
+            <a href="/" aria-label="찜한 상품 보기">
+              <svg role="img" class="svg-icon">
+                <use href="/icon/stack.svg#heart" />
+              </svg>
+            </a>
           </li>
           <li>
-            <a href="/src/pages/cart/cart.html"><img src="/src/assets/icon/Cart-1.png" alt="장바구니"/></a>
+            <a href="/src/pages/cart/cart.html" aria-label="장바구니">
+              <svg role="img" class="svg-icon">
+                <use href="/icon/stack.svg#cart-1" />
+              </svg>
+            </a>
           </li>
         </ul>
       </div>
@@ -80,7 +91,10 @@ import defaultAuthData from "@/api/defaultAuthData";
       <div class="header-category content-center">
         <nav>
           <div class="header-btn-category" tabindex="0">
-            <img src="/src/assets/icon/Hamburger.png" alt="" />카테고리
+            <svg role="img" aria-label="카테고리" class="svg-icon">
+              <use href="/icon/stack.svg#hamburger" />
+            </svg>
+            카테고리
           </div>
           <div class="header-category-detail">
           <ul>
