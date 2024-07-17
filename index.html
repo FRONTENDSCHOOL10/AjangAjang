@@ -8,22 +8,22 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-    <script type="module" src="/src/components/header.js"></script>
     <script type="module" src="/main.js"></script>
   </head>
   <body>
     <header class="content-center">
       <div class="header-list-member">
         <ul>
-          <li>
+          <li class="login-hidden">
             <a href="/src/pages/register/register.html" class="join"
               >회원가입</a
             >
           </li>
-          <li>
+          <li class="login-hidden">
             <span aria-hidden="true">&#124;</span
             ><a href="/src/pages/login/login.html">로그인</a>
           </li>
+          <div class="login-toggle"></div>
           <li>
             <span aria-hidden="true">&#124;</span><a href="/">고객센터</a>
           </li>
