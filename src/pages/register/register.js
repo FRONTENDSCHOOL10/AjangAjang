@@ -8,6 +8,8 @@ setDocumentTitle("회원가입 - 칼리");
 
 const $emailInput = getNode("#userEmail");
 const $passwordInput = getNode("#userPassword");
+const $passwordCheckInput = getNode("#userPasswordCheck");
+const $passwordCheckError = getNode("#userPasswordCheckError");
 
 getNode("#emailCheckBtn").addEventListener("click", async () => {
   const email = getNode("#userEmail").value;
@@ -24,7 +26,21 @@ getNode("#emailCheckBtn").addEventListener("click", async () => {
   }
 });
 
+// 비밀번호 확인 검증
+$passwordCheckInput.addEventListener("input", () => {
+  if ($passwordInput.value !== $passwordCheckInput.value) {
+    $passwordCheckError.style.display = "block";
+  } else {
+    $passwordCheckError.style.display = "none";
+  }
+});
+
 getNode("#registerBtn").addEventListener("click", async () => {
+  if ($passwordInput.value !== $passwordCheckInput.value) {
+    $passwordCheckError.style.display = "block";
+    return;
+  }
+
   const email = getNode("#userEmail").value;
   const password = getNode("#userPassword").value;
   const passwordConfirm = getNode("#userPasswordCheck").value;
