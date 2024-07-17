@@ -6,6 +6,10 @@
   width: 333px;
   white-space: nowrap;
 
+  input {
+    appearance: none;
+  }
+
   .radio-button {
     position: absolute;
     opacity: 0;

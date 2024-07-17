@@ -1,5 +1,7 @@
 import pb from '@/api/pocketbase';
-import { getNode } from 'kind-tiger';
+import { getNode, getStorage, setStorage, setDocumentTitle } from 'kind-tiger';
+
+setDocumentTitle('마켓칼리 / 로그인');
 
 const $emailInput = getNode('#userEmail');
 const $passwordInput = getNode('#userPassword');
@@ -11,18 +13,18 @@ const $closePopup = getNode('#closePopup');
 let emailCheckPass = false;
 let pwCheckPass = false;
 
-function emailReg(text) {
+export function emailReg(text) {
   const re =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(text).toLowerCase());
 }
 
-function pwReg(text) {
+export function pwReg(text) {
   const re = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^*+=-]).{6,16}$/;
   return re.test(String(text));
 }
 
-function handleEmailCheck() {
+export function handleEmailCheck() {
   const value = this.value;
   if (emailReg(value)) {
     this.classList.remove('is--invalid');
@@ -33,7 +35,7 @@ function handleEmailCheck() {
   }
 }
 
-function handlePasswordCheck() {
+export function handlePasswordCheck() {
   const value = this.value;
   if (pwReg(value)) {
     this.classList.remove('is--invalid');
@@ -70,7 +72,16 @@ async function handleLogin(e) {
       console.log('User ID:', pb.authStore.model.id);
 
       // 인증 성공 시 페이지 이동
-      location.href = '/';
+      const { model, token } = await getStorage('pocketbase_auth');
+
+      setStorage('auth', {
+        isAuth: !!model,
+        user: model,
+        token,
+      });
+
+      // alert('로그인 완료! 메인페이지로 이동합니다.');
+      location.href = '/index.html';
     } catch (error) {
       console.error('Login error:', error);
       showErrorPopup('아이디 혹은 비밀번호가 잘못되었습니다.');
@@ -80,7 +91,12 @@ async function handleLogin(e) {
   }
 }
 
-$emailInput.addEventListener('input', handleEmailCheck);
-$passwordInput.addEventListener('input', handlePasswordCheck);
-$loginBtn.addEventListener('click', handleLogin);
-$closePopup.addEventListener('click', closeErrorPopup);
+// 요소가 존재하는지 확인
+if ($emailInput && $passwordInput && $loginBtn) {
+  $emailInput.addEventListener('input', handleEmailCheck);
+  $passwordInput.addEventListener('input', handlePasswordCheck);
+  $loginBtn.addEventListener('click', handleLogin);
+  if ($closePopup) {
+    $closePopup.addEventListener('click', closeErrorPopup);
+  }
+}

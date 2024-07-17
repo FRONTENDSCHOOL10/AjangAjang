@@ -1,10 +1,4 @@
-import {
-  comma,
-  insertFirst,
-  insertLast,
-  getStorage,
-  setStorage,
-} from "kind-tiger";
+import { comma, insertFirst, insertLast, getStorage, setStorage } from "kind-tiger";
 import pb from "@/api/pocketbase";
 import getPbImageURL from "@/api/getPbImageURL";
 import defaultAuthData from "@/api/defaultAuthData";
@@ -29,7 +23,7 @@ async function renderProductItemRecomd() {
       <div class="swiper-slide">
         <div class="product-card">
           <a
-            href="${isAuth ? `/src/pages/detail/index.html?product=${item.id}` : "/src/pages/login/"}"
+            href="${isAuth ? `/src/pages/product/product-detail.html?product=${item.id}` : "/src/pages/login/login.html"}"
             aria-label="${item.title} 상품링크"
             class="product-card-link"
           >
@@ -53,7 +47,7 @@ async function renderProductItemRecomd() {
               class="product-card-button-icon-cart"
             ></button>
             <a
-              href="/src/components/detail.html"
+              href="${isAuth ? `/src/pages/product/product-detail.html?product=${item.id}` : "/src/pages/login/login.html"}"
               tabindex="-1"
               aria-hidden="true"
             >
@@ -68,7 +62,7 @@ async function renderProductItemRecomd() {
       </div>
     `;
     insertFirst(".product-swiper-recomd > .swiper-wrapper", template);
-    //insertFirst(".product-swiper-sale > .swiper-wrapper", template);
+    insertFirst(".product-swiper-sale > .swiper-wrapper", template);
 
     badddge.forEach((badge) => {
       const templateBadge = `
@@ -76,7 +70,8 @@ async function renderProductItemRecomd() {
       `;
 
       if (badge) {
-        insertLast(".product-card-badges", templateBadge);
+        insertLast(".product-swiper-recomd .product-card-badges", templateBadge);
+        insertLast(".product-swiper-sale .product-card-badges", templateBadge);
         if (badge.includes("Karly Only")) {
           const badgeSpan = document.querySelectorAll(".product-card-badge");
 

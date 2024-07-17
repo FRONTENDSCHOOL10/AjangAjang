@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>회원가입</title>
-    <link rel="icon" href="./favicon.ico" />
+    <link rel="icon" href="/favicon.ico" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="/src/pages/register/register.js"></script>
   </head>
   <body>
     <fieldset class="register content-center">
@@ -31,8 +31,19 @@
             id="userEmail"
             name="userEmail"
             placeholder="이메일을 입력해주세요"
-            required />
-          <button type="button" class="btn btn-line btn-small">중복확인</button>
+            required
+            aria-invalid="false"
+            aria-describedby="userEmailError"
+            aria-live="assertive" />
+          <span class="error-message" id="userEmailError"
+            >이메일 형식으로 입력해주세요.</span
+          >
+          <button
+            type="button"
+            class="btn btn-line btn-small"
+            id="emailCheckBtn">
+            중복확인
+          </button>
         </div>
 
         <div class="input-box user-password">
@@ -47,7 +58,13 @@
             id="userPassword"
             name="userPassword"
             placeholder="비밀번호를 입력해주세요"
-            required />
+            required
+            aria-invalid="false"
+            aria-describedby="userPasswordError"
+            aria-live="polite" />
+          <span class="error-message" id="userPasswordError"
+            >비밀번호는 숫자, 특수문자 포함 6자리 이상 입력해주세요.</span
+          >
         </div>
 
         <div class="input-box user-password-check">
@@ -66,7 +83,7 @@
             aria-invalid="false"
             aria-describedby="userPasswordError"
             aria-live="polite" />
-          <span class="error-message" id="userPasswordError"
+          <span class="error-message" id="userPasswordCheckError"
             >비밀번호가 일치하지 않습니다.</span
           >
         </div>
@@ -114,7 +131,9 @@
         </div>
 
         <div class="input-box gender-field">
-          <label for="gender">성별</label>
+          <label class="gender"
+            >성별<span class="asterisk" aria-label="필수 항목">*</span></label
+          >
           <div class="radio-group">
             <input class="radio-button" type="radio" id="male" name="gender" />
             <label for="male">남자</label>
@@ -156,7 +175,11 @@
               이용할 수 있습니다.
             </p>
             <div class="agreement-option">
-              <input type="checkbox" id="terms" name="terms" />
+              <input
+                type="checkbox"
+                id="terms"
+                name="terms"
+                class="required-agreement" />
               <label for="terms"> 이용약관 동의 (필수) </label>
               <a href="#" rel="noopener noreferrer" class="terms-link"
                 >약관보기<span
@@ -166,10 +189,28 @@
               ></a>
             </div>
             <div class="agreement-option">
-              <input type="checkbox" id="privacy" name="privacy" />
+              <input
+                type="checkbox"
+                id="privacy"
+                name="privacy"
+                class="required-agreement" />
               <label for="privacy">
                 개인정보 수집 &middot; 이용 동의 (필수)
               </label>
+              <a href="#" rel="noopener noreferrer" class="terms-link"
+                >약관보기<span
+                  ><svg class="arrow">
+                    <use
+                      href="/public/icon/stack.svg#arrow-1"></use></svg></span
+              ></a>
+            </div>
+            <div class="agreement-option">
+              <input
+                type="checkbox"
+                id="age"
+                name="age"
+                class="required-agreement" />
+              <label for="age"> 본인은 만 14세 이상입니다. (필수) </label>
               <a href="#" rel="noopener noreferrer" class="terms-link"
                 >약관보기<span
                   ><svg class="arrow">
@@ -189,20 +230,12 @@
                       href="/public/icon/stack.svg#arrow-1"></use></svg></span
               ></a>
             </div>
-            <div class="agreement-option">
-              <input type="checkbox" id="age" name="age" />
-              <label for="age"> 본인은 만 14세 이상입니다. (필수) </label>
-              <a href="#" rel="noopener noreferrer" class="terms-link"
-                >약관보기<span
-                  ><svg class="arrow">
-                    <use
-                      href="/public/icon/stack.svg#arrow-1"></use></svg></span
-              ></a>
-            </div>
           </div>
         </div>
       </div>
-      <button class="btn btn-submit btn-xlarge">가입하기</button>
+      <button class="btn btn-submit btn-xlarge" id="registerBtn">
+        가입하기
+      </button>
     </fieldset>
   </body>
 </html>
