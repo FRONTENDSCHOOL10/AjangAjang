@@ -7,7 +7,6 @@ if (!localStorage.getItem("auth")) {
   setStorage("auth", defaultAuthData);
 }
 
-
 async function renderProductItemRecomd() {
   const productData = await pb.collection("products").getFullList({
     sort: "-created",
@@ -19,7 +18,6 @@ async function renderProductItemRecomd() {
     const discount = item.price - item.price * (item.sale * 0.01);
     const badddge = item.badge;
     const showMain = item.show_main;
-    console.log(item.badge);
     const template = `
       <div class="swiper-slide">
         <div class="product-card">
