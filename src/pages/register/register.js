@@ -13,7 +13,9 @@ const $passwordCheckError = getNode("#userPasswordCheckError");
 const $phoneInput = getNode("#phoneField");
 const $verifyPhoneBtn = getNode("#verifyPhoneBtn");
 
-// phoneInput 값이 존재할 때만 인증번호 받기 버튼 활성화 및 숫자인지 검증
+let emailCheckPerformed = false;
+
+// phoneInput 값이 존재할 때만 인증번호 받기 버튼 활성화 및 숫자 입력 검증
 $phoneInput.addEventListener("input", () => {
   const phoneValue = $phoneInput.value.trim();
 
@@ -22,7 +24,7 @@ $phoneInput.addEventListener("input", () => {
     $verifyPhoneBtn.disabled = phoneValue === "";
   } else {
     alert("휴대폰 번호는 숫자만 입력 가능합니다.");
-    $phoneInput.value = phoneValue.replace(/\D/g, ""); // 문자는 제거
+    $phoneInput.value = phoneValue.replace(/\D/g, ""); // 숫자가 아닌 문자는 제거
     $verifyPhoneBtn.disabled = $phoneInput.value.trim() === "";
   }
 });
@@ -52,6 +54,7 @@ getNode("#emailCheckBtn").addEventListener("click", async () => {
     return;
   } else {
     alert("사용 가능한 이메일입니다.");
+    emailCheckPerformed = true;
   }
 });
 
@@ -65,6 +68,11 @@ $passwordCheckInput.addEventListener("input", () => {
 });
 
 getNode("#registerBtn").addEventListener("click", async () => {
+  if (!emailCheckPerformed) {
+    alert("이메일 중복확인을 진행해 주세요.");
+    return;
+  }
+
   if ($passwordInput.value !== $passwordCheckInput.value) {
     $passwordCheckError.style.display = "block";
     return;
