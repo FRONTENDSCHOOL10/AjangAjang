@@ -28,7 +28,11 @@ async function renderCartItem() {
         </div>
         <div class="product-price-delete">
         <span class="default-price">${comma(item.price)}</span>
-        <button type="button"><img src="/src/assets/icon/Cancel.png" alt="삭제" /></button>
+        <button type="button">
+        <svg role="img" aria-label="삭제" class="svg-icon">
+          <use href="/icon/stack.svg#cancel" />
+        </svg>
+      </button>
       </div>
       </div>
     `;
