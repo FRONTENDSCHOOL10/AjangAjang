@@ -1,14 +1,23 @@
 @use "/src/sass/abstracts/variables" as var;
 @use "/src/sass/abstracts/mixins" as mix;
 
-main {
+.detail-main {
+  @include mix.padding-block-start(40px);
   width: 1050px;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
 }
-
-section {
+.product-detail-content {
+  @include mix.padding-block-start(40px);
+  @include mix.padding-block-end(84px);
+}
+.product-detail-image {
+  .product-thumbnail {
+    @include mix.inline-size(400px);
+  }
+}
+detail-container {
   width: 560px;
 }
 
@@ -138,9 +147,24 @@ section {
 }
 
 .detail-counter-number {
+  @include mix.inline-size(100%);
   font-size: var.$font-size-p;
   font-weight: var.$font-weight-600;
   color: var.$black;
+  border: 0;
+  text-align: center;
+
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox  */
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
 }
 
 .detail-info-totalPrice-small span {

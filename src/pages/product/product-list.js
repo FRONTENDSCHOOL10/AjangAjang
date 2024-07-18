@@ -10,9 +10,7 @@ if (!localStorage.getItem("auth")) {
 let data = [];
 
 async function fetchData() {
-  const productData = await pb
-    .collection("products")
-    .getFullList({ sort: "-created" });
+  const productData = await pb.collection("products").getFullList({ sort: "-created" });
   const auth = await getStorage("auth");
   const isAuth = auth.isAuth;
 
@@ -63,8 +61,7 @@ function getTotalPageCount() {
 function setPageButtons() {
   pageNumberWrapper.innerHTML = "";
   const totalPageCount = getTotalPageCount();
-  const startPage =
-    Math.floor((currentPage - 1) / PAGE_BUTTON_LIMIT) * PAGE_BUTTON_LIMIT + 1;
+  const startPage = Math.floor((currentPage - 1) / PAGE_BUTTON_LIMIT) * PAGE_BUTTON_LIMIT + 1;
   const endPage = Math.min(startPage + PAGE_BUTTON_LIMIT - 1, totalPageCount);
 
   for (let i = startPage; i <= endPage; i++) {
@@ -106,7 +103,7 @@ function setPageOf(pageNumber) {
         </a>
         <div class="product-card-thumb">
           <button type="button" aria-label="장바구니 담기" class="product-card-button-icon-cart"></button>
-          <a href="/src/components/detail.html?product=${item.pageNumber}" tabindex="-1" aria-hidden="true">
+          <a href="/src/pages/detail/detail.html?product=${item.pageNumber}" tabindex="-1" aria-hidden="true">
             <img src="${item.thumbnail}" alt="${item.title} 썸네일" class="product-card-thumb-img"/>
           </a>
         </div>

@@ -1,13 +1,14 @@
-import { getNode as $, insertLast, getStorage } from "kind-tiger";
-import pb from "@/api/pocketbase";
+import { getNode as $, insertFirst, insertAfter, getStorage } from "kind-tiger";
+import { params, productId, data, inquiryData } from "./database.js";
 
 async function renderInquiryItem() {
   const { user } = await getStorage("auth");
-  const params = new URLSearchParams(location.search);
-  const productId = params.get("product");
-  const data = await pb.collection("products").getOne(productId);
+  params;
+  productId;
+  data;
+  inquiryData;
+
   const { title } = data;
-  const inquiryData = await pb.collection("inquiry").getFullList({});
 
   inquiryData.forEach((item) => {
     const inquiryUser = item.inquiry_user;
@@ -35,7 +36,7 @@ async function renderInquiryItem() {
           </div>
         </details>
       `;
-      insertLast(".inquiry-list", noticeTemplate);
+      insertAfter(".inquiry-head", noticeTemplate);
     } else if (user.name === inquiryUser && title === item.inquiry_product && !item.secret) {
       const openTemplate = `
       <details class="inquiry-member">
@@ -59,7 +60,7 @@ async function renderInquiryItem() {
           </div>
         </details>
       `;
-      insertLast(".inquiry-list", openTemplate);
+      insertFirst(".inquiry-data", openTemplate);
     } else if (user.name === item.inquiry_user && item.secret) {
       const userSecretTemplate = `
         <details class="inquiry-member" >
@@ -83,7 +84,7 @@ async function renderInquiryItem() {
           </div>
       </details>
       `;
-      insertLast(".inquiry-list", userSecretTemplate);
+      insertFirst(".inquiry-data", userSecretTemplate);
     } else if (user.name !== item.inquiry_user && item.secret) {
       const secretTemplate = `
         <details class="inquiry-member" open>
@@ -94,7 +95,7 @@ async function renderInquiryItem() {
         </summary>
       </details>
       `;
-      insertLast(".inquiry-list", secretTemplate);
+      insertFirst(".inquiry-data", secretTemplate);
     } else {
       return;
     }

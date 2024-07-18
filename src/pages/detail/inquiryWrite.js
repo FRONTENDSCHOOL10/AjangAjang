@@ -1,4 +1,5 @@
 import { getNode as $, insertLast, getStorage } from "kind-tiger";
+import { params, productId, data } from "./database.js";
 import pb from "@/api/pocketbase";
 import getPbImageURL from "@/api/getPbImageURL";
 
@@ -48,14 +49,14 @@ function writePopupOpen() {
 
   async function wirteInquiry() {
     const { user } = await getStorage("auth");
+    params;
+    productId;
+    data;
 
     const titleField = $("#reviewTitle");
     const detailField = $("#reviewText");
     const registerButton = $(".btn-register");
 
-    const params = new URLSearchParams(location.search);
-    const productId = params.get("product");
-    const data = await pb.collection("products").getOne(productId);
     const { title } = data;
 
     const template = `
@@ -87,7 +88,7 @@ function writePopupOpen() {
         })
         .then(() => {
           alert("문의가 등록되었습니다.");
-          location.href = "/src/components/inquiry.html";
+          location.href = window.location.href;
         })
         .catch(() => {
           alert("문의가 등록되지 않았습니다.");
