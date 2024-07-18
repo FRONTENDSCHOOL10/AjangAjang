@@ -1,18 +1,23 @@
-import { getNode as $, insertFirst, insertAfter, getStorage } from "kind-tiger";
-import { params, productId, data, inquiryData } from "./database.js";
+import { getStorage, insertAfter, insertFirst } from "kind-tiger";
+import { fetchProductData } from "/src/pages/product/detail/database.js";
 
 async function renderInquiryItem() {
-  const { user } = await getStorage("auth");
-  params;
-  productId;
-  data;
-  inquiryData;
+  const auth = await getStorage("auth");
+  const user = auth ? auth.user : null; // user 객체가 없을 경우를 대비
+  if (!user) {
+    console.error("사용자가 인증되지 않았습니다");
+    return;
+  }
+  const { data, inquiryData } = await fetchProductData();
 
   const { title } = data;
 
   inquiryData.forEach((item) => {
     const inquiryUser = item.inquiry_user;
-    const maskName = inquiryUser.slice(0, 1) + "*".repeat(inquiryUser.length - 2) + inquiryUser.slice(-1);
+    const maskName =
+      inquiryUser.slice(0, 1) +
+      "*".repeat(inquiryUser.length - 2) +
+      inquiryUser.slice(-1);
     const dete = item.updated.slice(0, 10);
 
     if (item.notice) {
@@ -37,7 +42,11 @@ async function renderInquiryItem() {
         </details>
       `;
       insertAfter(".inquiry-head", noticeTemplate);
-    } else if (user.name === inquiryUser && title === item.inquiry_product && !item.secret) {
+    } else if (
+      user.name === inquiryUser &&
+      title === item.inquiry_product &&
+      !item.secret
+    ) {
       const openTemplate = `
       <details class="inquiry-member">
           <summary>

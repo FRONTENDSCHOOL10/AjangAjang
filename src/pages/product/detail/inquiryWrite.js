@@ -1,5 +1,5 @@
 import { getNode as $, insertLast, getStorage } from "kind-tiger";
-import { params, productId, data } from "./database.js";
+import { fetchProductData } from "/src/pages/product/detail/database.js";
 import pb from "@/api/pocketbase";
 import getPbImageURL from "@/api/getPbImageURL";
 
@@ -49,9 +49,7 @@ function writePopupOpen() {
 
   async function wirteInquiry() {
     const { user } = await getStorage("auth");
-    params;
-    productId;
-    data;
+    const { data } = await fetchProductData();
 
     const titleField = $("#reviewTitle");
     const detailField = $("#reviewText");
