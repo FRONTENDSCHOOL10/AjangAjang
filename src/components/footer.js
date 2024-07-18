@@ -8,6 +8,9 @@ template.innerHTML = `
         ${abstractsStyle},
         ${baseStyle},
         ${footerStyle}
+        footer{
+          border-top: 1px solid #e1e1e1;
+        }
       </style>
       <footer>
         <div class="footer-info content-center">

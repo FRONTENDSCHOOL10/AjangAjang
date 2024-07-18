@@ -5,11 +5,6 @@ footer {
   border-top: 1px solid var.$gray-100;
 }
 
-.content-center {
-  width: 1050px;
-  margin: 0 auto;
-}
-
 .footer-info {
   @include mix.gridbox(2, 40px, 28px);
   grid-template-rows: repeat(4, minmax(20px, auto));

@@ -266,6 +266,7 @@ import defaultAuthData from "@/api/defaultAuthData";
                   베이비 &middot; 키즈 &middot; 완구
                 </a>
               </li>
+              
               <li>
                 <a href="/" aria-label="여행, 티켓">
                   <svg role="img" class="svg-icon">
@@ -302,7 +303,7 @@ import defaultAuthData from "@/api/defaultAuthData";
     logOut(e) {
       e.preventDefault();
 
-      if (confirm("정말??? 정말 로그아웃 하실겁니까???")) {
+      if (confirm("로그아웃 하시겠습니까?")) {
         pb.authStore.clear();
         setStorage("auth", defaultAuthData);
 
@@ -317,15 +318,12 @@ import defaultAuthData from "@/api/defaultAuthData";
 function headerCategory() {
   const cHeader = getNode("c-header");
   const btnCategory = cHeader.shadowRoot.querySelector(".header-btn-category");
-  console.log("btnCategory:", btnCategory);
   const detailCategory = cHeader.shadowRoot.querySelector(
     ".header-category-detail"
   );
-  console.log("detailCategory:", detailCategory);
   const detailCategoryLastA = cHeader.shadowRoot.querySelector(
     ".header-category-detail li:last-child a"
   );
-  console.log("detailCategoryLastA:", detailCategoryLastA);
 
   function categoryOpen() {
     detailCategory.classList.add("is-active");

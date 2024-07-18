@@ -42,3 +42,13 @@ body {
   @include mix.padding-block-start(24px);
   @include mix.padding-block-end(80px);
 }
+
+dialog {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+dialog:-internal-dialog-in-top-layer::backdrop {
+  background: rgba(0, 0, 0, 0.3);
+}
