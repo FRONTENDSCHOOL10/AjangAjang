@@ -19,6 +19,10 @@
   margin-left: 47px;
   padding: 10px;
   box-sizing: border-box;
+
+  span {
+    font-weight: var.$font-weight-400;
+  }
 }
 
 li {
@@ -80,7 +84,6 @@ li {
 }
 
 .pagination-container {
-  display: flex;
   justify-content: center;
   align-items: center;
   user-select: none;
@@ -110,4 +113,23 @@ li {
   font-weight: var.$font-weight-600;
   font-size: var.$font-size-p;
   color: var.$primary-color;
+}
+
+.filter-reset {
+  border-bottom: 1px solid var.$gray-100;
+}
+
+.accordion-box {
+  .agreement-container {
+    width: 129px;
+    height: 80px;
+
+    .agreement-option {
+      padding: 0;
+    }
+
+    label {
+      margin-top: 0;
+    }
+  }
 }
