@@ -57,6 +57,7 @@ function writePopupOpen() {
     const productId = params.get("product");
     const data = await pb.collection("products").getOne(productId);
     const { title } = data;
+    console.log(data);
 
     const template = `
       <img src="${getPbImageURL(data, "thumbnail")}" alt="" />
