@@ -1,5 +1,7 @@
 import pb from "@/api/pocketbase";
 import { getNode, getStorage, setStorage, setDocumentTitle } from "kind-tiger";
+import { Header, headerCategory } from "/src/components/header.js";
+import { Footer } from "/src/components/footer.js";
 
 setDocumentTitle("로그인 - 칼리");
 
