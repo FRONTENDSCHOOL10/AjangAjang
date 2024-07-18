@@ -2,6 +2,7 @@ import { getNode, comma, insertFirst, insertLast, getStorage, setStorage } from 
 import pb from "@/api/pocketbase";
 import getPbImageURL from "@/api/getPbImageURL";
 import defaultAuthData from "@/api/defaultAuthData";
+import { cartPopup } from "/src/components/cart-popup.js";
 
 if (!localStorage.getItem("auth")) {
   setStorage("auth", defaultAuthData);
@@ -22,7 +23,7 @@ async function renderProductItemRecomd() {
       <div class="swiper-slide">
         <div class="product-card">
           <a
-            href="${isAuth ? `/src/pages/product/product-detail.html?product=${item.id}` : "/src/pages/login/login.html"}"
+            href="${isAuth ? `/src/pages/product/detail/product-detail.html?product=${item.id}` : "/src/pages/login/login.html"}"
             aria-label="${item.title} 상품링크"
             class="product-card-link"
           >
@@ -43,10 +44,12 @@ async function renderProductItemRecomd() {
             <button
               type="button"
               aria-label="장바구니 담기"
-              class="product-card-button-icon-cart"
+              aria-haspopup="dialog"
+              class="product-card-button-icon-cart product-card-button-popup"
+              data-pd-id="${item.id}"
             ></button>
             <a
-              href="${isAuth ? `/src/pages/product/product-detail.html?product=${item.id}` : "/src/pages/login/login.html"}"
+              href="${isAuth ? `/src/pages/product/detail/product-detail.html?product=${item.id}` : "/src/pages/login/login.html"}"
               tabindex="-1"
               aria-hidden="true"
             >
@@ -106,6 +109,8 @@ async function renderProductItemRecomd() {
       return;
     }
   });
+
+  cartPopup();
 }
 
 renderProductItemRecomd();

@@ -8,6 +8,9 @@ template.innerHTML = `
         ${abstractsStyle},
         ${baseStyle},
         ${footerStyle}
+        footer{
+          border-top: 1px solid #e1e1e1;
+        }
       </style>
       <footer>
         <div class="footer-info content-center">
@@ -221,65 +224,65 @@ template.innerHTML = `
                 여주원
               </p>
               <p>
-                Github :
-                <a
-                  href="https://github.com/JUWON-YEO"
-                  aria-label="여주원 깃허브 프로필 보기"
-                  class="footer-member-link"
-                  >JUWON-YEO</a
-                >
-              </p>
-              <p>
-                e-mail :
-                <a
-                  href="mailto:juwon0481@gmail.com"
-                  aria-label="여주원에게 메일보내기"
-                  class="footer-member-link"
-                  >juwon0481@gmail.com</a
-                >
-              </p>
-            </li>
-            <li>
-              <p class="footer-member-name">
-                <svg role="img" aria-hidden="true" class="svg-icon">
-                  <use href="/icon/stack.svg#arrow-1" />
-                </svg>
-                함정민
-              </p>
-              <p>
-                Github :
-                <a
-                  href="https://github.com/hammadam"
-                  aria-label="함정민 깃허브 프로필 보기"
-                  class="footer-member-link"
-                  >hammadam</a
-                >
-              </p>
-              <p>
-                e-mail :
-                <a
-                  href="mailto:hammadam@naver.com"
-                  aria-label="함정민에게 메일보내기"
-                  class="footer-member-link"
-                  >hammadam@naver.com</a
-                >
-              </p>
-            </li>
-          </ul>
+              Github :
+              <a
+                href="https://github.com/JUWON-YEO"
+                aria-label="여주원 깃허브 프로필 보기"
+                class="footer-member-link"
+                >JUWON-YEO</a
+              >
+            </p>
+            <p>
+              e-mail :
+              <a
+                href="mailto:juwon0481@gmail.com"
+                aria-label="여주원에게 메일보내기"
+                class="footer-member-link"
+                >juwon0481@gmail.com</a
+              >
+            </p>
+          </li>
+          <li>
+            <p class="footer-member-name">
+              <svg role="img" aria-hidden="true" class="svg-icon">
+                <use href="/icon/stack.svg#arrow-1" />
+              </svg>
+              함정민
+            </p>
+            <p>
+              Github :
+              <a
+                href="https://github.com/hammadam"
+                aria-label="함정민 깃허브 프로필 보기"
+                class="footer-member-link"
+                >hammadam</a
+              >
+            </p>
+            <p>
+              e-mail :
+              <a
+                href="mailto:hammadam@naver.com"
+                aria-label="함정민에게 메일보내기"
+                class="footer-member-link"
+                >hammadam@naver.com</a
+              >
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="footer-copyright">
+        <div class="content-center">
+          마켓컬리에서 판매되는 상품 중에는 마켓컬리에 입점한 개별 판매자가
+          판매하는 마켓플레이스(오픈마켓) 상품이 포함되어 있습니다.
+          <br />
+          마켓플레이스(오픈마켓) 상품의 경우 컬리는 통신판매중개자로서
+          통신판매의 당사자가 아닙니다. 컬리는 해당 상품의 주문, 품질, 교환/환불
+          등 의무와 책임을 부담하지 않습니다.
+          <br />
+          <span>&copy; KURLY CORP. ALL RIGHTS RESERVED</span>
         </div>
-        <div class="footer-copyright">
-          <div class="content-center">
-            마켓컬리에서 판매되는 상품 중에는 마켓컬리에 입점한 개별 판매자가
-            판매하는 마켓플레이스(오픈마켓) 상품이 포함되어 있습니다.
-            <br />
-            마켓플레이스(오픈마켓) 상품의 경우 컬리는 통신판매중개자로서
-            통신판매의 당사자가 아닙니다. 컬리는 해당 상품의 주문, 품질, 교환/환불
-            등 의무와 책임을 부담하지 않습니다.
-            <br />
-            <span>&copy; KURLY CORP. ALL RIGHTS RESERVED</span>
-          </div>
-        </div>
-      </footer>
+      </div>
+    </footer>
 `;
 
 class Footer extends HTMLElement {
@@ -291,3 +294,5 @@ class Footer extends HTMLElement {
 }
 
 customElements.define("c-footer", Footer);
+
+export { Footer };

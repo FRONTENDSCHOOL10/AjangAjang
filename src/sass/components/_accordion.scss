@@ -1,0 +1,85 @@
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
+
+.filter-accordion {
+  width: 220px;
+  font-size: var.$font-size-p;
+  // margin: 0 auto;
+
+  h1 {
+    font-size: var.$font-size-p;
+    font-weight: var.$font-weight-600;
+    color: var.$content-color;
+    padding: 10px;
+  }
+
+  .filter-reset {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 10px;
+    // width: 180px;
+
+    button {
+      color: var.$gray-300;
+      font-size: var.$font-size-xsmall;
+      font-weight: var.$font-weight-600;
+      background-color: var.$white;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .accordion-box {
+    width: 220px;
+    details {
+      border-bottom: 1px solid var.$gray-100;
+      // border-radius: 8px;
+      padding: 20px 0 20px 20px;
+
+      summary {
+        // @include mix.padding-block-end(10px);
+        cursor: pointer;
+        position: relative;
+        list-style: none;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        font-size: var.$font-size-p;
+        font-weight: var.$font-weight-600;
+        color: var.$content-color;
+
+        &::after {
+          content: "";
+          background: url("/public/icon/stack.svg#down");
+          width: 18px;
+          height: 18px;
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          transition: transform 0.3s ease;
+        }
+      }
+
+      &[open] summary::after {
+        transform: translateY(-50%) rotate(-180deg);
+      }
+
+      div {
+        padding: 15px 0;
+
+        p {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .radio-group {
+    @include mix.flexbox(column, nowrap, null, flex-start, 20px);
+    label {
+      font-size: 14px;
+    }
+  }
+}

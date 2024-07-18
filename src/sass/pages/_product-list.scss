@@ -1,0 +1,135 @@
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
+
+.product-list-best {
+  color: var.$black;
+  font-size: var.$font-size-lg;
+  font-weight: var.$font-weight-600;
+  text-align: center;
+  margin: 48px 0;
+}
+
+.list-page {
+  @include mix.flexbox(row, nowrap);
+  display: flex;
+  justify-content: center;
+}
+
+.pagination {
+  margin-left: 47px;
+  padding: 10px;
+  box-sizing: border-box;
+
+  span {
+    font-weight: var.$font-weight-400;
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+.product-list-product-total {
+  color: var.$black;
+  font-size: var.$font-size-p;
+  font-weight: var.$font-weight-600;
+  align-self: center;
+  margin-right: auto;
+}
+
+.sorting-tabs {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sorting-tabs nav ul {
+  display: flex;
+}
+
+.tab-btn {
+  background-color: var.$white;
+  color: var.$gray-300;
+  font-weight: var.$font-weight-600;
+  border: none;
+  cursor: pointer;
+}
+
+.product-card-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 783px;
+  margin: 0 auto;
+  gap: 50px 18px;
+  padding-bottom: 60px;
+}
+
+.page-container {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px solid var.$gray-100;
+  margin: 15px;
+}
+
+.page-title {
+  font-size: var.$font-size-p;
+}
+
+.page-number {
+  font-size: var.$font-size-p;
+  padding: 15px;
+}
+
+.pagination-container {
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.pagination-container button {
+  border: 1px solid var.$gray-100;
+  width: 34px;
+  height: 34px;
+  background-color: var.$white;
+  cursor: pointer;
+}
+
+.page-number-btn,
+.selected {
+  border: 1px solid var.$gray-100;
+  background-color: var.$white;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.selected {
+  font-weight: var.$font-weight-600;
+  font-size: var.$font-size-p;
+  color: var.$primary-color;
+}
+
+.filter-reset {
+  border-bottom: 1px solid var.$gray-100;
+}
+
+.accordion-box {
+  .agreement-container {
+    width: 129px;
+    height: 80px;
+
+    .agreement-option {
+      padding: 0;
+    }
+
+    label {
+      margin-top: 0;
+    }
+  }
+}
