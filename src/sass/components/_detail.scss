@@ -236,12 +236,31 @@ detail-container {
   padding-top: 28px;
 }
 
-.detail-btn-wishlist,
+.detail-btn-wishlist {
+  border: 1px solid var.$gray-100;
+  border-radius: 4px;
+  background-color: var.$white;
+  cursor: pointer;
+  width: 54px;
+  height: 54px;
+
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+}
 .detail-btn-bell {
   border: 1px solid var.$gray-100;
   border-radius: 4px;
   background-color: var.$white;
   cursor: pointer;
+  width: 54px;
+  height: 54px;
+
+  svg {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 .detail-container-cart-btn {
