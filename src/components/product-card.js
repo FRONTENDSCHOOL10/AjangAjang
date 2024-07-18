@@ -9,7 +9,7 @@ import {
 import pb from "@/api/pocketbase";
 import getPbImageURL from "@/api/getPbImageURL";
 import defaultAuthData from "@/api/defaultAuthData";
-import "/src/components/cart-popup.js";
+import { cartPopup } from "/src/components/cart-popup.js";
 
 if (!localStorage.getItem("auth")) {
   setStorage("auth", defaultAuthData);
@@ -51,7 +51,9 @@ async function renderProductItemRecomd() {
             <button
               type="button"
               aria-label="장바구니 담기"
+              aria-haspopup="dialog"
               class="product-card-button-icon-cart product-card-button-popup"
+              data-pd-id="${item.id}"
             ></button>
             <a
               href="${isAuth ? `/src/pages/product/product-detail.html?product=${item.id}` : "/src/pages/login/login.html"}"
@@ -116,6 +118,8 @@ async function renderProductItemRecomd() {
       return;
     }
   });
+
+  cartPopup();
 }
 
 renderProductItemRecomd();
