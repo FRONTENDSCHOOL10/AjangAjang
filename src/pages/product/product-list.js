@@ -74,8 +74,7 @@ function getTotalPageCount() {
 function setPageButtons() {
   pageNumberWrapper.innerHTML = "";
   const totalPageCount = getTotalPageCount();
-  const startPage =
-    Math.floor((currentPage - 1) / PAGE_BUTTON_LIMIT) * PAGE_BUTTON_LIMIT + 1;
+  const startPage = Math.floor((currentPage - 1) / PAGE_BUTTON_LIMIT) * PAGE_BUTTON_LIMIT + 1;
   const endPage = Math.min(startPage + PAGE_BUTTON_LIMIT - 1, totalPageCount);
 
   for (let i = startPage; i <= endPage; i++) {
@@ -102,7 +101,7 @@ function setPageOf(pageNumber) {
     const discount = item.price - item.price * (item.sale * 0.01);
     const template = `
       <li class="product-card">
-        <a href="${item.isAuth ? `/src/pages/detail/index.html?product=${item.pageNumber}` : "/src/pages/login/"}" aria-label="${item.title} 상품링크" class="product-card-link">
+        <a href="${item.isAuth ? `/src/pages/product/detail/product-detail.html?product=${item.pageNumber}` : "/src/pages/login/"}" aria-label="${item.title} 상품링크" class="product-card-link">
           <b class="product-card-title">${item.title}</b>
           ${item.early_delivery ? `<p class="product-card-early-delivery">샛별배송</p>` : ``}
           ${item.description ? `<p class="product-card-description">${item.description}</p>` : ``}
@@ -166,9 +165,7 @@ nextBtn_3page.addEventListener("click", () => {
 // 가격 필터링 로직 추가
 function filterByPrice(minPrice, maxPrice) {
   filteredData = data.filter((item) => {
-    const price = item.sale
-      ? item.price - item.price * (item.sale * 0.01)
-      : item.price;
+    const price = item.sale ? item.price - item.price * (item.sale * 0.01) : item.price;
     return price >= minPrice && price <= maxPrice;
   });
   currentPage = 1; // 필터링 후 첫 페이지로 이동
