@@ -1,119 +1,154 @@
 <!doctype html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>product-list</title>
+    <link rel="icon" href="/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="stylesheet" href="/src/sass/main.scss" />
+    <script type="module" src="/main.js"></script>
+    <script type="module" src="/src/pages/product/product-list.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>product-list</title>
-  <link rel="icon" href="/favicon.ico" />
-  <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-  <link rel="stylesheet" href="/src/sass/main.scss" />
-  <script type="module" src="/main.js"></script>
-  <script type="module" src="/src/pages/product/product-list.js"></script>
-</head>
-
-<body>
-  <c-header></c-header>
-  <h3 class="product-list-best">베스트</h3>
-  <div class="list-page">
-    <div class="filter-accordion">
-      <div class="filter-reset">
-        <h1>필터</h1>
-        <button>초기화</button>
-      </div>
-      <div class="accordion-box">
-        <details open>
-          <summary>카테고리</summary>
-          <div>
-            <p>카테고리 내용을 여기에 입력하세요.</p>
-          </div>
-        </details>
-      </div>
-      <div class="accordion-box">
-        <details>
-          <summary>배송</summary>
-          <div>
-            <p>배송 옵션을 여기에 입력하세요.</p>
-          </div>
-        </details>
-      </div>
-      <div class="accordion-box">
-        <details>
-          <summary>가격</summary>
-          <div class="radio-group">
-            <input class="radio-button" type="radio" id="price1" name="gender" />
-            <label for="price1">6,890원 미만</label>
-            <input class="radio-button" type="radio" id="price2" name="gender" />
-            <label for="price2">6,890원 ~ 10,000원</label>
-            <input class="radio-button" type="radio" id="price3" name="gender" />
-            <label for="price3">10,000원 ~ 14,900원</label>
-            <input class="radio-button" type="radio" id="price4" name="gender" />
-            <label for="price4">14,900원 이상</label>
-          </div>
-        </details>
-      </div>
-      <div class="accordion-box">
-        <details>
-          <summary>브랜드</summary>
-          <div>
-            <p>브랜드 옵션을 여기에 입력하세요.</p>
-          </div>
-        </details>
-      </div>
-      <div class="accordion-box">
-        <details>
-          <summary>혜택</summary>
-          <div class="agreement-option">
+  <body>
+    <c-header></c-header>
+    <h3 class="product-list-best">베스트</h3>
+    <div class="list-page">
+      <div class="filter-accordion">
+        <div class="filter-reset">
+          <h1>필터</h1>
+          <button>초기화</button>
+        </div>
+        <div class="accordion-box">
+          <details open>
+            <summary>카테고리</summary>
+            <div>
+              <p>카테고리 내용을 여기에 입력하세요.</p>
+            </div>
+          </details>
+        </div>
+        <div class="accordion-box">
+          <details>
+            <summary>배송</summary>
+            <div>
+              <p>배송 옵션을 여기에 입력하세요.</p>
+            </div>
+          </details>
+        </div>
+        <div class="accordion-box">
+          <details>
+            <summary>가격</summary>
+            <div class="radio-group">
+              <input
+                class="radio-button"
+                type="radio"
+                id="price1"
+                name="gender" />
+              <label for="price1">6,890원 미만</label>
+              <input
+                class="radio-button"
+                type="radio"
+                id="price2"
+                name="gender" />
+              <label for="price2">6,890원 ~ 10,000원</label>
+              <input
+                class="radio-button"
+                type="radio"
+                id="price3"
+                name="gender" />
+              <label for="price3">10,000원 ~ 14,900원</label>
+              <input
+                class="radio-button"
+                type="radio"
+                id="price4"
+                name="gender" />
+              <label for="price4">14,900원 이상</label>
+            </div>
+          </details>
+        </div>
+        <div class="accordion-box">
+          <details>
+            <summary>브랜드</summary>
+            <div>
+              <p>브랜드 옵션을 여기에 입력하세요.</p>
+            </div>
+          </details>
+        </div>
+        <div class="accordion-box">
+          <details>
+            <summary>혜택</summary>
+            <!-- <div class="agreement-option">
             <input type="checkbox" id="terms" name="terms" />
             <label for="terms"> 이용약관 동의 (필수) </label>
           </div>
           <div class="agreement-option">
             <input type="checkbox" id="terms" name="terms" />
             <label for="terms"> 이용약관 동의 (필수) </label>
-          </div>
-        </details>
+          </div> -->
+          </details>
+        </div>
+        <div class="accordion-box">
+          <details>
+            <summary>유형</summary>
+            <div>
+              <p>유형 옵션을 여기에 입력하세요.</p>
+            </div>
+          </details>
+        </div>
       </div>
-      <div class="accordion-box">
-        <details>
-          <summary>유형</summary>
-          <div>
-            <p>유형 옵션을 여기에 입력하세요.</p>
-          </div>
-        </details>
+      <div class="pagination">
+        <div class="sorting-tabs">
+          <p class="product-list-product-total">총 284건</p>
+          <nav aria-label="상품 정렬 옵션">
+            <ul>
+              <li>
+                <button class="tab-btn active" data-sort="newest">
+                  신상품순
+                </button>
+              </li>
+              <li>
+                <button class="tab-btn" data-sort="benefit">
+                  |&nbsp;&nbsp;혜택순
+                </button>
+              </li>
+              <li>
+                <button class="tab-btn" data-sort="low-price">
+                  |&nbsp;&nbsp; 낮은 가격순
+                </button>
+              </li>
+              <li>
+                <button class="tab-btn" data-sort="high-price">
+                  |&nbsp;&nbsp; 높은 가격순
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <!-- 상품 리스트 -->
+        <ul class="product-card-list"></ul>
+        <div class="pagination-container">
+          <button class="prev-btn-3page">
+            <img
+              src="/src/assets/prev-btn-3page.png"
+              alt="3개 이전 페이지로 돌아가기" />
+          </button>
+          <button class="prev-btn">
+            <img src="/src/assets/prev-btn.png" alt="이전 페이지로 돌아가기" />
+          </button>
+          <div class="page-number-wrapper"></div>
+          <button class="next-btn">
+            <img src="/src/assets/next-btn.png" alt="다음 페이지로 돌아가기" />
+          </button>
+          <button class="next-btn-3page">
+            <img
+              src="/src/assets/next-btn-3page.png"
+              alt="3개 다음 페이지로 돌아가기" />
+          </button>
+        </div>
       </div>
     </div>
-    <div class="pagination">
-      <div class="sorting-tabs">
-        <p class="product-list-product-total">총 284건</p>
-        <nav aria-label="상품 정렬 옵션">
-          <ul>
-            <li><button class="tab-btn active" data-sort="newest">신상품순</button></li>
-            <li><button class="tab-btn" data-sort="benefit">|&nbsp;&nbsp;혜택순</button></li>
-            <li><button class="tab-btn" data-sort="low-price">|&nbsp;&nbsp; 낮은 가격순</button></li>
-            <li><button class="tab-btn" data-sort="high-price">|&nbsp;&nbsp; 높은 가격순</button></li>
-          </ul>
-        </nav>
-      </div>
-      <!-- 상품 리스트 -->
-      <ul class="product-card-list"></ul>
-      <div class="pagination-container">
-        <button class="prev-btn-3page">
-          <img src="/src/assets/prev-btn-3page.png" alt="3개 이전 페이지로 돌아가기" />
-        </button>
-        <button class="prev-btn">
-          <img src="/src/assets/prev-btn.png" alt="이전 페이지로 돌아가기" />
-        </button>
-        <div class="page-number-wrapper"></div>
-        <button class="next-btn">
-          <img src="/src/assets/next-btn.png" alt="다음 페이지로 돌아가기" />
-        </button>
-        <button class="next-btn-3page">
-          <img src="/src/assets/next-btn-3page.png" alt="3개 다음 페이지로 돌아가기" />
-        </button>
-      </div>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
