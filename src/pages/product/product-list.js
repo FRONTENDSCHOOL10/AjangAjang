@@ -8,9 +8,12 @@ if (!localStorage.getItem("auth")) {
 }
 
 let data = [];
+let filteredData = [];
 
 async function fetchData() {
-  const productData = await pb.collection("products").getFullList({ sort: "-created" });
+  const productData = await pb.collection("products").getFullList({
+    sort: "-created",
+  });
   const auth = await getStorage("auth");
   const isAuth = auth.isAuth;
 
@@ -26,6 +29,9 @@ async function fetchData() {
     isAuth,
   }));
 
+  filteredData = [...data]; // 초기에는 모든 데이터를 필터링된 데이터로 설정
+
+  updateTotalCount(); // 총 상품 건수 업데이트
   setPageButtons();
   setPageOf(currentPage);
 }
@@ -35,6 +41,7 @@ const PAGE_BUTTON_LIMIT = 3;
 const MAX_PAGE = 6; // 최대 페이지 수를 6으로 설정
 const pageNumberWrapper = document.querySelector(".page-number-wrapper");
 const ul = document.querySelector(".product-card-list");
+const totalCountNode = document.querySelector(".product-list-product-total"); // 총 상품 건수 노드
 const prevBtn_3page = document.querySelector(".prev-btn-3page");
 const prevBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
@@ -53,15 +60,24 @@ function updateURL(pageNumber) {
   history.pushState({}, "", `${window.location.pathname}?${params}`);
 }
 
+// 총 상품 건수 업데이트 함수
+function updateTotalCount() {
+  totalCountNode.textContent = `총 ${filteredData.length}건`;
+}
+
 // 페이지 수 관여
 function getTotalPageCount() {
-  return Math.min(Math.ceil((data.length * 20) / COUNT_PER_PAGE), MAX_PAGE); // 최대 페이지를 6으로 제한
+  return Math.min(
+    Math.ceil((filteredData.length * 20) / COUNT_PER_PAGE),
+    MAX_PAGE
+  ); // 최대 페이지를 6으로 제한
 }
 
 function setPageButtons() {
   pageNumberWrapper.innerHTML = "";
   const totalPageCount = getTotalPageCount();
-  const startPage = Math.floor((currentPage - 1) / PAGE_BUTTON_LIMIT) * PAGE_BUTTON_LIMIT + 1;
+  const startPage =
+    Math.floor((currentPage - 1) / PAGE_BUTTON_LIMIT) * PAGE_BUTTON_LIMIT + 1;
   const endPage = Math.min(startPage + PAGE_BUTTON_LIMIT - 1, totalPageCount);
 
   for (let i = startPage; i <= endPage; i++) {
@@ -82,13 +98,13 @@ function setPageButtons() {
 function setPageOf(pageNumber) {
   ul.innerHTML = "";
   const startIndex = COUNT_PER_PAGE * (pageNumber - 1);
-  const endIndex = Math.min(startIndex + COUNT_PER_PAGE, data.length);
+  const endIndex = Math.min(startIndex + COUNT_PER_PAGE, filteredData.length);
   for (let i = startIndex; i < endIndex; i++) {
-    const item = data[i];
+    const item = filteredData[i];
     const discount = item.price - item.price * (item.sale * 0.01);
     const template = `
       <li class="product-card">
-        <a href="${item.isAuth ? `/src/pages/product/detail/index.html?product=${item.pageNumber}` : "/src/pages/login/"}" aria-label="${item.title} 상품링크" class="product-card-link">
+        <a href="${item.isAuth ? `/src/pages/detail/index.html?product=${item.pageNumber}` : "/src/pages/login/"}" aria-label="${item.title} 상품링크" class="product-card-link">
           <b class="product-card-title">${item.title}</b>
           ${item.early_delivery ? `<p class="product-card-early-delivery">샛별배송</p>` : ``}
           ${item.description ? `<p class="product-card-description">${item.description}</p>` : ``}
@@ -103,7 +119,7 @@ function setPageOf(pageNumber) {
         </a>
         <div class="product-card-thumb">
           <button type="button" aria-label="장바구니 담기" class="product-card-button-icon-cart"></button>
-          <a href="/src/pages/product/detail/product-detail.html?product=${item.pageNumber}" tabindex="-1" aria-hidden="true">
+          <a href="/src/components/detail.html?product=${item.pageNumber}" tabindex="-1" aria-hidden="true">
             <img src="${item.thumbnail}" alt="${item.title} 썸네일" class="product-card-thumb-img"/>
           </a>
         </div>
@@ -147,6 +163,38 @@ nextBtn_3page.addEventListener("click", () => {
     currentPage = Math.min(totalPageCount, currentPage + 3);
     updatePage();
   }
+});
+
+// 가격 필터링 로직 추가
+function filterByPrice(minPrice, maxPrice) {
+  filteredData = data.filter((item) => {
+    const price = item.sale
+      ? item.price - item.price * (item.sale * 0.01)
+      : item.price;
+    return price >= minPrice && price <= maxPrice;
+  });
+  currentPage = 1; // 필터링 후 첫 페이지로 이동
+  updateTotalCount(); // 필터링된 데이터로 총 상품 건수 업데이트
+  updatePage();
+}
+
+document.querySelectorAll(".radio-button").forEach((radio) => {
+  radio.addEventListener("change", () => {
+    switch (radio.id) {
+      case "price1":
+        filterByPrice(0, 6890);
+        break;
+      case "price2":
+        filterByPrice(6890, 10000);
+        break;
+      case "price3":
+        filterByPrice(10000, 14900);
+        break;
+      case "price4":
+        filterByPrice(14900, Infinity);
+        break;
+    }
+  });
 });
 
 // 데이터 가져오기 및 초기 페이지 설정
