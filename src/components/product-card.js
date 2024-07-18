@@ -1,7 +1,15 @@
-import { getNode, comma, insertFirst, insertLast, getStorage, setStorage } from "kind-tiger";
+import {
+  getNode,
+  comma,
+  insertFirst,
+  insertLast,
+  getStorage,
+  setStorage,
+} from "kind-tiger";
 import pb from "@/api/pocketbase";
 import getPbImageURL from "@/api/getPbImageURL";
 import defaultAuthData from "@/api/defaultAuthData";
+import { cartPopup } from "/src/components/cart-popup.js";
 
 if (!localStorage.getItem("auth")) {
   setStorage("auth", defaultAuthData);
@@ -43,7 +51,9 @@ async function renderProductItemRecomd() {
             <button
               type="button"
               aria-label="장바구니 담기"
-              class="product-card-button-icon-cart"
+              aria-haspopup="dialog"
+              class="product-card-button-icon-cart product-card-button-popup"
+              data-pd-id="${item.id}"
             ></button>
             <a
               href="${isAuth ? `/src/pages/product/product-detail.html?product=${item.id}` : "/src/pages/login/login.html"}"
@@ -64,7 +74,9 @@ async function renderProductItemRecomd() {
       insertFirst(".product-swiper-recomd > .swiper-wrapper", template);
 
       badddge.forEach((badge) => {
-        const recomBadge = getNode(".product-swiper-recomd .product-card-badges");
+        const recomBadge = getNode(
+          ".product-swiper-recomd .product-card-badges"
+        );
         const templateBadge = `
         <span class="product-card-badge">${badge}</span>
       `;
@@ -106,6 +118,8 @@ async function renderProductItemRecomd() {
       return;
     }
   });
+
+  cartPopup();
 }
 
 renderProductItemRecomd();

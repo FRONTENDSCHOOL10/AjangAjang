@@ -11,9 +11,14 @@
 
 .cart-price {
   @include mix.flexbox($justify: space-between, $items: flex-end);
-  margin-bottom: 28px;
+  margin-bottom: 6px;
 
-  .default-price {
+  .sale-price {
+    color: var.$orange;
+    font-weight: var.$font-weight-700;
+  }
+  .default-price,
+  .calculated-price {
     font-weight: var.$font-weight-600;
   }
   .product-number {
@@ -46,6 +51,15 @@
     }
   }
 }
+
+.cost-price {
+  margin-bottom: 28px;
+  font-size: var.$font-size-sm;
+  font-weight: var.$font-weight-400;
+  text-decoration: line-through;
+  color: var.$gray-400;
+}
+
 .cart-detail-wrap {
   padding: 12px 0 28px 0;
 
@@ -66,7 +80,7 @@
 
   .point-label {
     @include mix.paddingX(8px);
-    width: 40px;
+    min-width: 40px;
     height: 18px;
     font-size: var.$font-size-sm;
     background-color: var.$orange;
