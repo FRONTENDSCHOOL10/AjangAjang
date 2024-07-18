@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>장바구니</title>
     <link rel="icon" href="./favicon.ico" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
+    />
+    <script type="module" src="/src/pages/cart/cart.js"></script>
     <script type="module" src="/src/pages/cart/cart.js"></script>
   </head>
   <body>
@@ -15,7 +19,13 @@
       <div class="cart-wrap">
         <div class="cart-list">
           <div role="group" class="cart-all-checked">
-            <input type="checkbox" name="" id="allChecked" aria-checked="true" checked />
+            <input
+              type="checkbox"
+              name=""
+              id="allChecked"
+              aria-checked="true"
+              checked
+            />
             <label for="allChecked">전체 선택</label>
             <span aria-live="polite">3 / 3</span>
             <span aria-hidden="true"> &#124;</span>
@@ -27,7 +37,8 @@
               <label
                 for="productChecked1"
                 aria-label="개별 선택"
-                class="porduct-check"></label>
+                class="porduct-check"
+              ></label>
               <input type="checkbox" name="" id="productChecked1" />
               <img src="/src/assets/product_thumb.png" alt="" />
               <b>[풀무원] 탱탱쫄면 (4개입)</b>
@@ -41,7 +52,8 @@
                 type="number"
                 value="1"
                 id="itemCount"
-                aria-label="현재 수량 " />
+                aria-label="현재 수량 "
+              />
               <button class="plus-btn" aria-label="수량 더하기">+</button>
             </div>
             <div class="product-price-delete">
@@ -56,7 +68,8 @@
               <label
                 for="productChecked1"
                 aria-label="개별 선택"
-                class="porduct-check"></label>
+                class="porduct-check"
+              ></label>
               <input type="checkbox" name="" id="productChecked1" />
               <img src="/src/assets/product_thumb.png" alt="" />
               <b>[풀무원] 탱탱쫄면 (4개입)</b>
@@ -70,7 +83,8 @@
                 type="number"
                 value="1"
                 id="itemCount"
-                aria-label="현재 수량 " />
+                aria-label="현재 수량 "
+              />
               <button class="plus-btn" aria-label="수량 더하기">+</button>
             </div>
             <div class="product-price-delete">
@@ -90,9 +104,13 @@
         <div class="cart-total">
           <div class="delivery-info">
             <span class="bg-icon-location">배송지</span>
-            <span class="address">서울 중랑구 면목로 42길 11 (행운빌딩) 603호</span>
+            <span class="address"
+              >서울 중랑구 면목로 42길 11 (행운빌딩) 603호</span
+            >
             <span class="early-delivery">샛별배송</span>
-            <button type="button" class="btn btn-line btn-medium">배송지 변경</button>
+            <button type="button" class="btn btn-line btn-medium">
+              배송지 변경
+            </button>
           </div>
           <div class="cart-price-wrap">
             <div class="cart-price-total">
@@ -109,13 +127,18 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-submit btn-fill">주문하기</button>
+          <button type="submit" class="btn btn-submit btn-fill">
+            주문하기
+          </button>
           <p class="payment-notice">
             <b>쿠폰/적립금</b>은 주문서에서 사용 가능합니다.<br />
             [주문완료] 상태일 경우에만 주문 취소 가능합니다.<br />
-            [마이컬리 &gt; 주문내역 상세페이지] 에서 직접 취소하실 수 있습니다.<br />
-            쿠폰, 적립금 사용 금액을 제외한 실 결제 금액 기준으로 최종 산정됩니다.<br />
-            상품별로 적립금 지급 기준이 다를 수 있습니다. (상품 상세 페이지에서 확인 가능합니다)
+            [마이컬리 &gt; 주문내역 상세페이지] 에서 직접 취소하실 수
+            있습니다.<br />
+            쿠폰, 적립금 사용 금액을 제외한 실 결제 금액 기준으로 최종
+            산정됩니다.<br />
+            상품별로 적립금 지급 기준이 다를 수 있습니다. (상품 상세 페이지에서
+            확인 가능합니다)
           </p>
         </div>
       </div>

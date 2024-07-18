@@ -1,0 +1,49 @@
+@use "/src/sass/abstracts/variables" as var;
+@use "/src/sass/abstracts/mixins" as mix;
+
+.cart-toast {
+  @include mix.flexbox(column, nowrap, center, null, 8px);
+  @include mix.radius(sm);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto;
+  margin: 50px;
+  padding: 16px;
+  color: var.$gray-500;
+  border: 1px solid var.$gray-300;
+
+  .cart-toast-title {
+    font-weight: var.$font-weight-600;
+    color: var.$content-color;
+  }
+
+  .show {
+    visibility: visible;
+    animation:
+      fadein 0.5s,
+      fadeout 0.5s 2.5s;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
