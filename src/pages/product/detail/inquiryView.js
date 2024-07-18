@@ -1,5 +1,5 @@
 import { getStorage, insertAfter, insertFirst } from "kind-tiger";
-import { data, inquiryData } from "./database.js";
+import { fetchProductData } from "/src/pages/product/detail/database.js";
 
 async function renderInquiryItem() {
   const auth = await getStorage("auth");
@@ -8,6 +8,7 @@ async function renderInquiryItem() {
     console.error("사용자가 인증되지 않았습니다");
     return;
   }
+  const { data, inquiryData } = await fetchProductData();
 
   const { title } = data;
 

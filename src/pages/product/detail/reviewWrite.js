@@ -1,7 +1,7 @@
-import { getNode as $, insertLast, getStorage } from "kind-tiger";
-import { params, productId, data } from "./database.js";
 import getPbImageURL from "@/api/getPbImageURL";
 import pb from "@/api/pocketbase";
+import { getNode as $, getStorage, insertLast } from "kind-tiger";
+import { fetchProductData } from "/src/pages/product/detail/database.js";
 
 const reviewWrite = $(".review-write");
 
@@ -48,9 +48,7 @@ function writePopupOpen() {
 
   async function wirteReview() {
     const { user } = await getStorage("auth");
-    params;
-    productId;
-    data;
+    const { data } = await fetchProductData();
 
     const { title } = data;
     const titleField = $("#reviewTitle");

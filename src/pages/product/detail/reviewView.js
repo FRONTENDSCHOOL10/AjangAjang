@@ -1,16 +1,16 @@
-import { getNode as $, insertLast, insertFirst } from "kind-tiger";
-import { params, productId, data, reviewData } from "./database.js";
+import { insertFirst } from "kind-tiger";
+import { fetchProductData } from "/src/pages/product/detail/database.js";
 
 async function renderReviewItem() {
-  params;
-  productId;
-  data;
-  reviewData;
+  const { data, reviewData } = await fetchProductData();
   const { title } = data;
 
   reviewData.forEach((item) => {
     const reviewUser = item.review_user;
-    const maskName = reviewUser.slice(0, 1) + "*".repeat(reviewUser.length - 2) + reviewUser.slice(-1);
+    const maskName =
+      reviewUser.slice(0, 1) +
+      "*".repeat(reviewUser.length - 2) +
+      reviewUser.slice(-1);
 
     if (item.notice) {
       const noticeTemplate = `
