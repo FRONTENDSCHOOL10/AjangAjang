@@ -2,6 +2,8 @@
 @use "/src/sass/abstracts/mixins" as mix;
 
 .inquiry-wrap {
+  @include mix.margin-block-end(90px);
+
   .inquiry-title {
     @include mix.flexbox($justify: space-between);
     @include mix.margin-block-end(20px);

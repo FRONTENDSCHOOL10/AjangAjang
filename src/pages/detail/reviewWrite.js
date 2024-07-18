@@ -1,6 +1,7 @@
 import { getNode as $, insertLast, getStorage } from "kind-tiger";
-import pb from "@/api/pocketbase";
+import { params, productId, data } from "./database.js";
 import getPbImageURL from "@/api/getPbImageURL";
+import pb from "@/api/pocketbase";
 
 const reviewWrite = $(".review-write");
 
@@ -47,15 +48,14 @@ function writePopupOpen() {
 
   async function wirteReview() {
     const { user } = await getStorage("auth");
+    params;
+    productId;
+    data;
 
+    const { title } = data;
     const titleField = $("#reviewTitle");
     const detailField = $("#reviewText");
     const registerButton = $(".btn-register");
-
-    const params = new URLSearchParams(location.search);
-    const productId = params.get("product");
-    const data = await pb.collection("products").getOne(productId);
-    const { title } = data;
 
     const template = `
       <img src="${getPbImageURL(data, "thumbnail")}" alt="" />
@@ -78,7 +78,7 @@ function writePopupOpen() {
         })
         .then(() => {
           alert("리뷰가 등록되었습니다.");
-          location.href = "/src/components/review.html";
+          location.href = window.location.href;
         })
         .catch(() => {
           alert("리뷰가 등록되지 않았습니다.");

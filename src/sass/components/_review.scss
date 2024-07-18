@@ -2,6 +2,7 @@
 @use "/src/sass/abstracts/mixins" as mix;
 
 .review-wrap {
+  @include mix.margin-block-end(70px);
   .review-title {
     @include mix.flexbox($justify: space-between);
     @include mix.margin-block-end(20px);
@@ -80,9 +81,6 @@
         }
       }
     }
-    &:last-child {
-      border-bottom: 0;
-    }
     .review-product {
       @include mix.inline-size(80%);
       font-size: 14px;
@@ -127,13 +125,4 @@
 .class-badge {
   color: var.$primary-color;
   box-shadow: inset 0px 0px 0px 1px var.$primary-color;
-}
-
-.dim {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  position: absolute;
-  top: 0;
-  left: 0;
 }

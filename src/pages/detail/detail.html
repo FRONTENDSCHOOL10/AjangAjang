@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>칼리 - 상세페이지</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <script type="module" src="/src/pages/detail/detail.js"></script>
+  </head>
+  <body>
+    <c-header></c-header>
+    <main class="detail-main"></main>
+    <section class="product-detail-content content-center"></section>
+    <section class="review-wrap content-center">
+      <div class="review-title">
+        <h4>상품후기</h4>
+        <button type="button" class="btn btn-fill btn-small review-write">후기 작성하기</button>
+      </div>
+      <div class="review-info">
+        <b>글후기 50원 적립금 혜택이 있어요.</b>
+        <ul>
+          <li>퍼플, 더퍼플은 2배 적립 (100원) / 주간 베스트 후기로 선정 시 5,000원 추가 적립</li>
+          <li>후기 작성은 배송완료일로부터 30일 이내 가능합니다.</li>
+          <li>작성하신 후기는 확인 후 적립금이 지급됩니다. (영업일 기준 평균 1~2일 소요)</li>
+        </ul>
+      </div>
+      <div class="review-list">
+        <div class="review-notice"></div>
+        <div class="review-data">
+          <div class="best-review"></div>
+          <div class="basic-review"></div>
+        </div>
+      </div>
+    </section>
+    <section class="inquiry-wrap content-center">
+      <div class="inquiry-title">
+        <h4>상품문의</h4>
+        <button type="button" class="btn btn-fill btn-small inquiry-write">문의하기</button>
+      </div>
+      <div class="inquiry-info">
+        <ul>
+          <li>상품에 대한 문의를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다.</li>
+          <li>배송관련, 주문(취소/교환/환불)관련 문의 및 요청사항은 마이컬리 내 1:1 문의에 남겨주세요.</li>
+        </ul>
+      </div>
+      <div class="inquiry-list">
+        <div class="inquiry-head">
+          <div class="title">제목</div>
+          <div class="inquiry-status">
+            <span class="writer">작성자</span>
+            <span class="date">작성일</span>
+            <span class="status">답변상태</span>
+          </div>
+        </div>
+        <div class="inquiry-data"></div>
+      </div>
+    </section>
+    <c-footer></c-footer>
+  </body>
+</html>

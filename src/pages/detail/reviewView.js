@@ -1,12 +1,12 @@
 import { getNode as $, insertLast, insertFirst } from "kind-tiger";
-import pb from "@/api/pocketbase";
+import { params, productId, data, reviewData } from "./database.js";
 
 async function renderReviewItem() {
-  const params = new URLSearchParams(location.search);
-  const productId = params.get("product");
-  const data = await pb.collection("products").getOne(productId);
+  params;
+  productId;
+  data;
+  reviewData;
   const { title } = data;
-  const reviewData = await pb.collection("reviews").getFullList({});
 
   reviewData.forEach((item) => {
     const reviewUser = item.review_user;
@@ -21,7 +21,7 @@ async function renderReviewItem() {
         </div>
       </details>
       `;
-      insertLast(".review-list", noticeTemplate);
+      insertFirst(".review-notice", noticeTemplate);
     } else if (title === item.review_product && item.best_review) {
       const dete = item.updated.slice(0, 10);
       const bestTemplate = `
@@ -37,7 +37,7 @@ async function renderReviewItem() {
         </ul>
        </div>
       `;
-      insertLast(".review-wrap", bestTemplate);
+      insertFirst(".best-review", bestTemplate);
     } else if (title === item.review_product) {
       const dete = item.updated.slice(0, 10);
       const reviewTamplate = `
@@ -52,7 +52,7 @@ async function renderReviewItem() {
         </ul>
        </div>
       `;
-      insertLast(".review-wrap", reviewTamplate);
+      insertFirst(".basic-review", reviewTamplate);
     } else {
       return;
     }
