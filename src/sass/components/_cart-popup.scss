@@ -10,7 +10,7 @@
 }
 
 .cart-price {
-  @include mix.flexbox($justify: space-between, $items: flex-end);
+  @include mix.flexbox($justify: space-between, $items: center);
   margin-bottom: 6px;
 
   .sale-price {
@@ -53,7 +53,7 @@
 }
 
 .cost-price {
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   font-size: var.$font-size-sm;
   font-weight: var.$font-weight-400;
   text-decoration: line-through;
@@ -61,12 +61,12 @@
 }
 
 .cart-detail-wrap {
-  padding: 12px 0 28px 0;
+  padding: 12px 0 20px 0;
 
   .cart-price-total {
     @include mix.flexbox($justify: space-between, $items: flex-end);
     font-weight: var.$font-weight-600;
-    margin-bottom: 10px;
+    margin: 20px 0 10px;
 
     .price-total {
       font-size: var.$font-size-xl;

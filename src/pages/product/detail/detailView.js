@@ -115,12 +115,16 @@ async function renderProductItem() {
               </div>
               <span class="detail-loggedOut-benefit-message2-text">로그인 후, 적립 혜택 제공</span>
             </div>-->
-            <div class="detail-container-service-btn">
+            <div class="detail-container-service-btn"> 
               <button type="button" class="detail-btn-wishlist" aria-label="찜하기">
-                <span><img src="/src/assets/detail-heartIcon.png" alt="찜하기" /></span>
+              <svg role="img" class="svg-icon">
+              <use href="/icon/stack.svg#heart-2" />
+            </svg>
               </button>
               <button type="button" class="detail-btn-bell" aria-label="알림받기">
-                <span><img src="/src/assets/detail-bell-icon.png" alt="알림받기" /></span>
+              <svg role="img"  class="svg-icon">
+              <use href="/icon/stack.svg#bell" />
+            </svg>
               </button>
               <div class="detail-container-cart-btn">
                 <button type="submit" tabindex="0"><span>장바구니 담기</span></button>
