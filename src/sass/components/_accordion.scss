@@ -17,8 +17,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-left: 10px;
-    width: 180px;
+    padding-inline: 10px;
+    // width: 180px;
 
     button {
       color: var.$gray-300;
@@ -31,14 +31,14 @@
   }
 
   .accordion-box {
-    // background-color: yellow;
-
+    width: 220px;
     details {
       border-bottom: 1px solid var.$gray-100;
-      border-radius: 8px;
-      padding: 20px;
+      // border-radius: 8px;
+      padding: 20px 0 20px 20px;
 
       summary {
+        // @include mix.padding-block-end(10px);
         cursor: pointer;
         position: relative;
         list-style: none;
@@ -67,7 +67,7 @@
       }
 
       div {
-        padding: 10px;
+        padding: 15px 0;
 
         p {
           margin: 0;

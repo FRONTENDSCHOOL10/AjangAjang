@@ -1,4 +1,4 @@
-import { comma, getStorage, setStorage } from "kind-tiger";
+import { comma, getNode, getStorage, setStorage } from "kind-tiger";
 import pb from "@/api/pocketbase";
 import getPbImageURL from "@/api/getPbImageURL";
 import defaultAuthData from "@/api/defaultAuthData";
@@ -38,14 +38,13 @@ async function fetchData() {
 
 const COUNT_PER_PAGE = 6;
 const PAGE_BUTTON_LIMIT = 3;
-const MAX_PAGE = 6; // 최대 페이지 수를 6으로 설정
-const pageNumberWrapper = document.querySelector(".page-number-wrapper");
-const ul = document.querySelector(".product-card-list");
-const totalCountNode = document.querySelector(".product-list-product-total"); // 총 상품 건수 노드
-const prevBtn_3page = document.querySelector(".prev-btn-3page");
-const prevBtn = document.querySelector(".prev-btn");
-const nextBtn = document.querySelector(".next-btn");
-const nextBtn_3page = document.querySelector(".next-btn-3page");
+const pageNumberWrapper = getNode(".page-number-wrapper");
+const ul = getNode(".product-card-list");
+const totalCountNode = getNode(".product-list-product-total"); // 총 상품 건수 노드
+const prevBtn_3page = getNode(".prev-btn-3page");
+const prevBtn = getNode(".prev-btn");
+const nextBtn = getNode(".next-btn");
+const nextBtn_3page = getNode(".next-btn-3page");
 
 let currentPage = getCurrentPageFromURL();
 
@@ -67,10 +66,7 @@ function updateTotalCount() {
 
 // 페이지 수 관여
 function getTotalPageCount() {
-  return Math.min(
-    Math.ceil((filteredData.length * 20) / COUNT_PER_PAGE),
-    MAX_PAGE
-  ); // 최대 페이지를 6으로 제한
+  return Math.ceil(filteredData.length / COUNT_PER_PAGE);
 }
 
 function setPageButtons() {
