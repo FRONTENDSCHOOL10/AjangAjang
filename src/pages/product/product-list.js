@@ -88,7 +88,7 @@ function setPageOf(pageNumber) {
     const discount = item.price - item.price * (item.sale * 0.01);
     const template = `
       <li class="product-card">
-        <a href="${item.isAuth ? `/src/pages/detail/index.html?product=${item.pageNumber}` : "/src/pages/login/"}" aria-label="${item.title} 상품링크" class="product-card-link">
+        <a href="${item.isAuth ? `/src/pages/product/detail/index.html?product=${item.pageNumber}` : "/src/pages/login/"}" aria-label="${item.title} 상품링크" class="product-card-link">
           <b class="product-card-title">${item.title}</b>
           ${item.early_delivery ? `<p class="product-card-early-delivery">샛별배송</p>` : ``}
           ${item.description ? `<p class="product-card-description">${item.description}</p>` : ``}
@@ -103,7 +103,7 @@ function setPageOf(pageNumber) {
         </a>
         <div class="product-card-thumb">
           <button type="button" aria-label="장바구니 담기" class="product-card-button-icon-cart"></button>
-          <a href="/src/pages/detail/detail.html?product=${item.pageNumber}" tabindex="-1" aria-hidden="true">
+          <a href="/src/pages/product/detail/product-detail.html?product=${item.pageNumber}" tabindex="-1" aria-hidden="true">
             <img src="${item.thumbnail}" alt="${item.title} 썸네일" class="product-card-thumb-img"/>
           </a>
         </div>
