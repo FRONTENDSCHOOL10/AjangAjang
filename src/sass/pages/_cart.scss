@@ -118,6 +118,11 @@
 
   .product-price-delete {
     @include mix.flexbox($items: center);
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
   }
 }
 
