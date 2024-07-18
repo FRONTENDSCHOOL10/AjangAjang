@@ -7,7 +7,6 @@ export function cartPopup() {
   addCartPopupButtons.forEach((button) => {
     button.addEventListener("click", async () => {
       const productId = `${button.dataset.pdId}`;
-      console.log("상품 아이디 " + productId);
 
       try {
         const data = await pb.collection("products").getOne(productId);
@@ -128,6 +127,8 @@ export function cartPopup() {
           }
 
           localStorage.setItem("cart", JSON.stringify(cartStorage));
+          cartPopDialog.close();
+          removeEl.remove();
         }
         addCart.addEventListener("click", addCartProduct);
 
