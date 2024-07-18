@@ -115,7 +115,7 @@ function setPageOf(pageNumber) {
         </a>
         <div class="product-card-thumb">
           <button type="button" aria-label="장바구니 담기" class="product-card-button-icon-cart"></button>
-          <a href="/src/components/detail.html?product=${item.pageNumber}" tabindex="-1" aria-hidden="true">
+          <a href="/src/pages/product/detail/product-detail.html?product=${item.pageNumber}" tabindex="-1" aria-hidden="true">
             <img src="${item.thumbnail}" alt="${item.title} 썸네일" class="product-card-thumb-img"/>
           </a>
         </div>
