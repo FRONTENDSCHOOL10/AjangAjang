@@ -1,7 +1,9 @@
-import { comma, getNode, getStorage, setStorage } from "kind-tiger";
-import pb from "@/api/pocketbase";
-import getPbImageURL from "@/api/getPbImageURL";
 import defaultAuthData from "@/api/defaultAuthData";
+import getPbImageURL from "@/api/getPbImageURL";
+import pb from "@/api/pocketbase";
+import { comma, getNode, getStorage, setStorage } from "kind-tiger";
+import { Footer } from "/src/components/footer.js";
+import { Header, headerCategory } from "/src/components/header.js";
 
 if (!localStorage.getItem("auth")) {
   setStorage("auth", defaultAuthData);
