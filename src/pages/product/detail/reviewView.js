@@ -1,12 +1,8 @@
 import { getNode as $, insertLast, insertFirst } from "kind-tiger";
-import { params, productId, data, reviewData } from "./database.js";
+import productData from "./database.js";
 
 async function renderReviewItem() {
-  params;
-  productId;
-  data;
-  reviewData;
-  const { title } = data;
+  const { data, reviewData } = await productData();
 
   reviewData.forEach((item) => {
     const reviewUser = item.review_user;
@@ -22,7 +18,7 @@ async function renderReviewItem() {
       </details>
       `;
       insertFirst(".review-notice", noticeTemplate);
-    } else if (title === item.review_product && item.best_review) {
+    } else if (data.title === item.review_product && item.best_review) {
       const dete = item.updated.slice(0, 10);
       const bestTemplate = `
       <div class="review-member-list">
@@ -38,7 +34,7 @@ async function renderReviewItem() {
        </div>
       `;
       insertFirst(".best-review", bestTemplate);
-    } else if (title === item.review_product) {
+    } else if (data.title === item.review_product) {
       const dete = item.updated.slice(0, 10);
       const reviewTamplate = `
       <div class="review-member-list">

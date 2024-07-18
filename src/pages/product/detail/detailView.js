@@ -1,12 +1,9 @@
 import { getNode as $, insertLast, comma } from "kind-tiger";
-import { params, productId, data } from "./database.js";
+import productData from "./database.js";
 import getPbImageURL from "@/api/getPbImageURL";
 
 async function renderProductItem() {
-  params;
-  productId;
-  data;
-
+  const { data } = await productData();
   const prodImg = data.detail;
 
   const productTemplate = `
