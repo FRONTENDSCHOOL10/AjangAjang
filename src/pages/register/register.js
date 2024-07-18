@@ -3,6 +3,8 @@ import pb from "@/api/pocketbase";
 import { getNode, setDocumentTitle } from "kind-tiger";
 import { handleEmailCheck, handlePasswordCheck } from "@/pages/login/login.js";
 import agreeAllCheckBox from "@/components/input-checkbox";
+import { Header, headerCategory } from "/src/components/header.js";
+import { Footer } from "/src/components/footer.js";
 
 setDocumentTitle("회원가입 - 칼리");
 
