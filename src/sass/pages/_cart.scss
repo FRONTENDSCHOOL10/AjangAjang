@@ -66,6 +66,7 @@
 
     img {
       @include mix.marginX(8px);
+      @include mix.inline-size(60px);
     }
 
     b {
