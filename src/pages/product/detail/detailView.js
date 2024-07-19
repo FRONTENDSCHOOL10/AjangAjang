@@ -2,12 +2,6 @@ import { getNode as $, insertLast, insertFirst, insertAfter, comma, getStorage, 
 import getPbImageURL from "@/api/getPbImageURL";
 import pb from "@/api/pocketbase";
 
-const params = new URLSearchParams(location.search);
-const productId = params.get("product");
-const data = await pb.collection("products").getOne(productId);
-
-setDocumentTitle("마켈칼리 / " + data.title);
-
 async function renderProductItem() {
   const params = new URLSearchParams(location.search);
   const productId = params.get("product");
