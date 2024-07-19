@@ -1,6 +1,12 @@
-import { getNode as $, insertLast, insertFirst, insertAfter, comma, getStorage } from "kind-tiger";
+import { getNode as $, insertLast, insertFirst, insertAfter, comma, getStorage, setDocumentTitle } from "kind-tiger";
 import getPbImageURL from "@/api/getPbImageURL";
 import pb from "@/api/pocketbase";
+
+const params = new URLSearchParams(location.search);
+const productId = params.get("product");
+const data = await pb.collection("products").getOne(productId);
+
+setDocumentTitle("마켈칼리 / " + data.title);
 
 async function renderProductItem() {
   const params = new URLSearchParams(location.search);
@@ -471,6 +477,7 @@ async function renderProductItem() {
 
       checkbox.addEventListener("change", () => {
         isChecked = checkbox.checked;
+        inquiryData.secret = isChecked;
       });
 
       registerButton.addEventListener("click", () => {
@@ -484,6 +491,7 @@ async function renderProductItem() {
             inquiry_text: inquiryText,
             inquiry_user: userId,
             inquiry_product: title,
+            status: "답변대기",
             secret: isChecked,
           })
           .then(() => {
